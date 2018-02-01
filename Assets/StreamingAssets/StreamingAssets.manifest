@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2033670022
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: monster_1001.assetbundle
+      Dependencies:
+        Dependency_0: materials.assetbundle
+    Info_1:
+      Name: textures.assetbundle
+      Dependencies: {}
+    Info_2:
+      Name: shader.assetbundle
+      Dependencies: {}
+    Info_3:
+      Name: atlas.assetbundle
+      Dependencies: {}
+    Info_4:
+      Name: materials.assetbundle
+      Dependencies:
+        Dependency_0: textures.assetbundle
+        Dependency_1: shader.assetbundle

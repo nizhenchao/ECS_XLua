@@ -1,0 +1,1 @@
+require "Assets.LuaScripts.Modulus.ClassBase.Binder.Binder"
