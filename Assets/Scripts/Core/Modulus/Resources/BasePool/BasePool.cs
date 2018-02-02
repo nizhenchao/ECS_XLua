@@ -33,6 +33,7 @@ public class BasePool
     private string url;//池子url
     private List<GameObject> objLst = new List<GameObject>();//缓存obj
     private List<Action<GameObject>> loadHandler = new List<Action<GameObject>>();//缓存正在加载回调
+    private List<string> depends = new List<string>();//依赖
 
     public BasePool(string url, E_PoolType pt)
     {
@@ -42,6 +43,7 @@ public class BasePool
         name = string.Format(name, "root", pt.ToString(), url.ToString());
         GameObject go = new GameObject(name);
         root = go.transform;
+        ManifestMgr.getDepends(url, ref depends);
         root.SetParent(PoolMgr.Instance.PoolRoot);
     }
 
@@ -87,6 +89,12 @@ public class BasePool
             PoolObj po = go.AddComponent<PoolObj>();
             po.pType = pType;
             po.url = url;
+            po.depends = this.depends;
+            for (int i = 0; i < depends.Count; i++)
+            {
+                AssetMgr.addRef(depends[i], 1);
+            }
+            AssetMgr.addRef(url, 1);
         }
         else
         {
@@ -111,6 +119,9 @@ public class BasePool
     {
         loadHandler.Clear();
         loadHandler = null;
+        int count = objLst.Count;
+        count = tempObj != null ? count += 1 : count;
+
         for (int i = 0; i < objLst.Count; i++)
         {
             GameObject.Destroy(objLst[i]);
@@ -119,8 +130,12 @@ public class BasePool
         objLst = null;
         GameObject.Destroy(tempObj);
         tempObj = null;
+        for (int i = 0; i < depends.Count; i++)
+        {
+            AssetMgr.releaseRef(depends[i], count);
+        }
+        AssetMgr.releaseRef(url, count);
         GameObject.Destroy(this.root.gameObject);
     }
-
 }
 

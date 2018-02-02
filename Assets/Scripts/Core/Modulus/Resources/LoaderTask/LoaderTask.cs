@@ -62,7 +62,7 @@ public class LoaderTask
     //www load
     IEnumerator wwwLoad()
     {
-        Debug.LogError("加载资源" + url);
+        Debug.Log("加载资源" + url);
         status = E_LoadStatus.Loading;
         if (string.IsNullOrEmpty(url))
         {
@@ -72,19 +72,20 @@ public class LoaderTask
         //是否已经存在ab
         if (AssetMgr.isHave(url))
         {
-            AssetBundle ab = AssetMgr.getBundle(url);
-            UnityEngine.Object aobj = ab.LoadAsset(getAbName(url));
+            TBundle tb = AssetMgr.getBundle(url);
+            UnityEngine.Object aobj = tb.Ab.LoadAsset(getAbName(url));
             if (callBack != null)
             {
                 GameObject go = GameObject.Instantiate(aobj) as GameObject;
                 callBack("AssetMgr缓存加载成功", true, go);
+                tb.addRefCount();
             }
             status = E_LoadStatus.Finish;
             yield break;
         }
         //先加载所有依赖
         List<string> depends = new List<string>();
-        loopDepends(url + ".assetbundle", ref depends);
+        ManifestMgr.getDepends(url, ref depends);
         if (depends != null)
         {
             for (int i = 0; i < depends.Count; i++)
@@ -109,19 +110,6 @@ public class LoaderTask
             callBack("LoadFromFile加载成功", true, go);
         }
         status = E_LoadStatus.Finish;
-    }
-
-    private void loopDepends(string bundleName, ref List<string> lst)
-    {
-        string[] depends = ManifestMgr.getDepends(bundleName);
-        if (depends != null)
-        {
-            for (int i = 0; i < depends.Length; i++)
-            {
-                lst.Add(depends[i]);
-                // loopDepends(depends[i], ref lst);
-            }
-        }
     }
 
     private string getAbName(string id)

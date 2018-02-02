@@ -1,22 +1,30 @@
 ManifestFileVersion: 0
-CRC: 2033670022
+CRC: 1713605409
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: monster_1001.assetbundle
       Dependencies:
-        Dependency_0: materials.assetbundle
+        Dependency_0: terrain.assetbundle
     Info_1:
-      Name: textures.assetbundle
-      Dependencies: {}
-    Info_2:
-      Name: shader.assetbundle
-      Dependencies: {}
-    Info_3:
       Name: atlas.assetbundle
       Dependencies: {}
-    Info_4:
-      Name: materials.assetbundle
+    Info_2:
+      Name: terrain.assetbundle
       Dependencies:
-        Dependency_0: textures.assetbundle
-        Dependency_1: shader.assetbundle
+        Dependency_0: ic_aoszseffect.assetbundle
+    Info_3:
+      Name: ic_aoszseffect.assetbundle
+      Dependencies: {}
+    Info_4:
+      Name: ic_baibxjeffect.assetbundle
+      Dependencies: {}
+    Info_5:
+      Name: ic_batxeffect.assetbundle
+      Dependencies: {}
+    Info_6:
+      Name: ic_bianxjgeffect.assetbundle
+      Dependencies: {}
+    Info_7:
+      Name: ic_bimweffect.assetbundle
+      Dependencies: {}

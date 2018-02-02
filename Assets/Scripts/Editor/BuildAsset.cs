@@ -24,6 +24,10 @@ public class BuildAsset : MonoBehaviour
     [MenuItem("BuildAsset/BuildAll", true, 1002)]
     static void BuildABs()
     {
+        if (Directory.Exists(outPath))
+        {
+            Directory.Delete(outPath,true);
+        }
         if (!Directory.Exists(outPath))
         {
             Directory.CreateDirectory(outPath);
@@ -33,39 +37,37 @@ public class BuildAsset : MonoBehaviour
         AssetDatabase.Refresh();
     }
 
+    static void addPath(ref List<string> lst)
+    {
+        lst.Add(prefabsPath);
+        lst.Add(atlasPath);
+        lst.Add(texturesPath);
+        lst.Add(materialPath);
+        lst.Add(shaderPath);
+    }
+
     /// <summary>
     /// 打包Res/Prefabs下面的所有资源
     /// </summary>
     [MenuItem("BuildAsset/BuildAB", false, 1001)]
     static void BuildFormResPrefabsPath()
     {
-        if (!Directory.Exists(prefabsPath))
+        List<string> lst = new List<string>();
+        addPath(ref lst);
+        for (int i = 0; i < lst.Count; i++)
         {
-            Directory.CreateDirectory(prefabsPath);
-        }
-        if (!Directory.Exists(atlasPath))
-        {
-            Directory.CreateDirectory(atlasPath);
-        }
-        if (!Directory.Exists(texturesPath))
-        {
-            Directory.CreateDirectory(texturesPath);
-        }
-        if (!Directory.Exists(materialPath))
-        {
-            Directory.CreateDirectory(materialPath);
-        }
-        if (!Directory.Exists(shaderPath))
-        {
-            Directory.CreateDirectory(shaderPath);
+            if (!Directory.Exists(lst[i]))
+            {
+                Directory.CreateDirectory(lst[i]);
+            }
         }
         Stopwatch watch = new Stopwatch();
         watch.Start();
         markRes(prefabsPath, ".prefab");
         markRes(atlasPath, ".png", true);
-        markRes(texturesPath, ".png", true);
-        markRes(materialPath, ".mat", true);
-        markRes(shaderPath, ".shader", true);
+        markRes(texturesPath, ".png");
+        markRes(materialPath, ".mat");
+        markRes(shaderPath, ".shader");
         BuildABs();
         watch.Stop();
 

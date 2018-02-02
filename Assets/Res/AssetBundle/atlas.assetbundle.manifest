@@ -1,16 +1,25 @@
 ManifestFileVersion: 0
-CRC: 161748101
+CRC: 552879390
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b68ad1f1930250b8ee3868e4ebfbc55c
+    Hash: 665e16e6a369dbc923b0d585e48d4bb9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c73412a662fd4e4f36af34cbdf078b85
+    Hash: 460b4f5d62b6facbccf7c01637df8f00
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 Assets:
+- Assets/Res/Arts/Atlas/WD_tian.png
+- Assets/Res/Arts/Atlas/skillIcons/WD_gui.png
+- Assets/Res/Arts/Atlas/skillIcons/WD_chusheng.png
+- Assets/Res/Arts/Atlas/skillIcons/WD_Bg.png
+- Assets/Res/Arts/Atlas/WD_ren.png
+- Assets/Res/Arts/Atlas/skillIcons/WD_diyu.png
 - Assets/Res/Arts/Atlas/icont.png
+- Assets/Res/Arts/Atlas/WD_xiuluo.png
 Dependencies: []

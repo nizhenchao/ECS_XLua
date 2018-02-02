@@ -36,6 +36,7 @@ public class PoolMgr
     public void initialize()
     {
         TimerMgr.addEveryMillHandler(checkUseTime, 15000);
+        TimerMgr.addEveryMillHandler((count)=> { AssetMgr.clearAll(); }, 10000);
     }
 
     public Dictionary<string, BasePool> pools = new Dictionary<string, BasePool>();
@@ -62,7 +63,10 @@ public class PoolMgr
         }
         else
         {
-            pools[po.url].saveObj(go);
+            if (pools.ContainsKey(po.url))
+                pools[po.url].saveObj(go);
+            else
+                po.onDispose();
         }
     }
 

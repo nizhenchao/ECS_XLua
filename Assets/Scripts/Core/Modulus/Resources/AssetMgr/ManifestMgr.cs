@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -26,13 +27,19 @@ public class ManifestMgr
         LoaderThread.Instance.StartCoroutine(doLoad());
     }
 
-    public static string[] getDepends(string name) {
-        if (Instance.manifest == null)
+    public static void getDepends(string name, ref List<string> lst)
+    {
+        if (!name.EndsWith(".assetbundle"))
         {
-            return null;
+            name = name + ".assetbundle";
         }
-        else {
-            return Instance.manifest.GetAllDependencies(name);
+        if (Instance.manifest != null)
+        {
+            string[] deps = Instance.manifest.GetAllDependencies(name);
+            for (int i = 0; i < deps.Length; i++)
+            {
+                lst.Add(deps[i]);
+            }
         }
     }
 
