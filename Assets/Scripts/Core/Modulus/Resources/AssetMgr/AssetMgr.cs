@@ -9,7 +9,6 @@ public class TBundle
     {
         get
         {
-            refCount++;
             return ab;
         }
     }
@@ -27,6 +26,7 @@ public class TBundle
         }
     }
     private string key;
+    private float useTime = -1;
 
     public TBundle(string key, AssetBundle ab)
     {
@@ -41,6 +41,12 @@ public class TBundle
     public void addRefCount(int count = 1)
     {
         RefCount = RefCount + count;
+
+    }
+
+    public void isAlive()
+    {
+
     }
 
     public void onDispose()
@@ -49,10 +55,7 @@ public class TBundle
         {
             ab.Unload(false);
             ab = null;
-        }
-        if (refCount > 0)
-        {
-            Debug.LogError("卸载ab refCount " + RefCount);
+            Resources.UnloadUnusedAssets();
         }
     }
 }
@@ -78,14 +81,17 @@ public class AssetMgr
     public void initialize()
     {
         bundlePool = new Dictionary<string, TBundle>();
+
     }
 
-    public static bool isHave(string url)
+    private void onTick(int count)
     {
-        return Instance.bundlePool.ContainsKey(url);
+
     }
 
-    private static string getName(string name)
+
+
+    private string getName(string name)
     {
         if (name.EndsWith(".assetbundle"))
         {
@@ -93,51 +99,48 @@ public class AssetMgr
         }
         return name;
     }
-
-    public static TBundle getBundle(string url)
+    private bool isHaveBundle(string url)
     {
         url = getName(url);
-        if (Instance.bundlePool.ContainsKey(url))
+        return bundlePool.ContainsKey(url);
+    }
+    private TBundle getAssetBundle(string url)
+    {
+        url = getName(url);
+        if (bundlePool.ContainsKey(url))
         {
-            return Instance.bundlePool[url];
+            return bundlePool[url];
         }
         return null;
     }
 
-    public static void addBundle(string url, AssetBundle ab)
+    private void addAssetBundle(string url, AssetBundle ab)
     {
         url = getName(url);
-        if (!Instance.bundlePool.ContainsKey(url))
+        if (!bundlePool.ContainsKey(url))
         {
             TBundle tab = new TBundle(url, ab);
-            Instance.bundlePool.Add(url, tab);
-            tab.addRefCount();
+            bundlePool.Add(url, tab);
         }
     }
 
-    public static void releaseRef(string url, int count = 1)
+    private void releaseBundleRef(string url, int count = 1)
     {
         url = getName(url);
-        if (Instance.bundlePool.ContainsKey(url))
+        if (bundlePool.ContainsKey(url))
         {
-            TBundle tab = Instance.bundlePool[url];
+            TBundle tab = bundlePool[url];
             tab.subRefCount(count);
         }
     }
-
-    public static void addRef(string url, int count = 1)
+    private void addBundleRef(string url, int count = 1)
     {
         url = getName(url);
-        if (Instance.bundlePool.ContainsKey(url))
+        if (bundlePool.ContainsKey(url))
         {
-            TBundle tab = Instance.bundlePool[url];
+            TBundle tab = bundlePool[url];
             tab.addRefCount(count);
         }
-    }
-
-    public static void clearAll()
-    {
-        Instance.onDispose();
     }
 
     public void onDispose()
@@ -149,5 +152,48 @@ public class AssetMgr
         }
         bundlePool.Clear();
     }
+
+
+    #region 提供静态方法
+    /// <summary>
+    /// 是否有
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
+    public static bool isHave(string url)
+    {
+        return Instance.isHaveBundle(url);
+    }
+
+    /// <summary>
+    /// 获取bundle
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
+    public static TBundle getBundle(string url)
+    {
+        return Instance.getAssetBundle(url);
+    }
+
+    public static void addBundle(string url, AssetBundle ab)
+    {
+        Instance.addAssetBundle(url, ab);
+    }
+
+    public static void releaseRef(string url, int count = 1)
+    {
+        Instance.releaseBundleRef(url, count);
+    }
+
+    public static void addRef(string url, int count = 1)
+    {
+        Instance.addBundleRef(url, count);
+    }
+
+    public static void clearAll()
+    {
+        Instance.onDispose();
+    }
+    #endregion
 
 }

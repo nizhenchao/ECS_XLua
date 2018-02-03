@@ -36,7 +36,14 @@ public class PoolMgr
     public void initialize()
     {
         TimerMgr.addEveryMillHandler(checkUseTime, 15000);
-        TimerMgr.addEveryMillHandler((count)=> { AssetMgr.clearAll(); }, 10000);
+        TimerMgr.addSecHandler(1, null, (count) =>
+        {
+            disposeAll();
+            Debug.LogWarning("CS Pool释放所有清理完成");
+            AssetMgr.clearAll();
+            Debug.LogWarning("CS AssetMgr.clearAll()清理完成");
+        }, 30);
+        //TimerMgr.addEveryMillHandler((count)=> { AssetMgr.clearAll(); },150000 );
     }
 
     public Dictionary<string, BasePool> pools = new Dictionary<string, BasePool>();
@@ -59,12 +66,19 @@ public class PoolMgr
         bool isDestroy = po == null && !pools.ContainsKey(po.url);
         if (isDestroy)
         {
-            GameObject.Destroy(go, 0.3f);
+            if (po != null)
+            {
+                po.onDispose();
+            }
+            else
+            {
+                GameObject.Destroy(go, 0.3f);
+            }
         }
         else
         {
             if (pools.ContainsKey(po.url))
-                pools[po.url].saveObj(go);
+                pools[po.url].saveObj(po);
             else
                 po.onDispose();
         }
@@ -120,11 +134,22 @@ public class PoolMgr
         }
         keys.Clear();
     }
-    public void disGlobal()
+    //释放全局池子
+    public void disposeGlobal()
     {
 
     }
 
-
+    //释放所有池子
+    public void disposeAll()
+    {
+        List<string> keys = new List<string>();
+        var ier = pools.GetEnumerator();
+        while (ier.MoveNext())
+        {
+            ier.Current.Value.onDispose();
+        }
+        pools.Clear();
+    }
 }
 

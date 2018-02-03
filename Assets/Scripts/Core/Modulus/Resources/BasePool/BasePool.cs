@@ -8,7 +8,7 @@ using UnityEngine;
 public class BasePool
 {
     private Transform root;//池子节点
-    private GameObject tempObj = null;//模版Obj
+    private PoolObj tempObj = null;//模版Obj
     private double usingTime = -1;//usetime
     private E_PoolType pType;//对象池类型
     public E_PoolType PType
@@ -31,7 +31,7 @@ public class BasePool
         }
     }//时间池子生命
     private string url;//池子url
-    private List<GameObject> objLst = new List<GameObject>();//缓存obj
+    private List<PoolObj> objLst = new List<PoolObj>();//缓存obj
     private List<Action<GameObject>> loadHandler = new List<Action<GameObject>>();//缓存正在加载回调
     private List<string> depends = new List<string>();//依赖
 
@@ -67,10 +67,15 @@ public class BasePool
     {
         if (isSucc)
         {
-            tempObj = temp;
-            tempObj.name = tempObj.name.Replace("(Clone)", "");
-            tempObj.transform.SetParent(root);
-            tempObj.transform.localPosition = new Vector3(2000, 2000, 2000);
+            temp.name = temp.name.Replace("(Clone)", "");
+            temp.transform.SetParent(root);
+            temp.transform.localPosition = new Vector3(2000, 2000, 2000);
+            tempObj = temp.AddComponent<PoolObj>();
+            tempObj.Obj = temp;
+            tempObj.pType = pType;
+            tempObj.url = url;
+            tempObj.depends = this.depends;
+            tempObj.onInit();
             for (int i = 0; i < loadHandler.Count; i++)
             {
                 GameObject go = getInsObj();
@@ -85,20 +90,24 @@ public class BasePool
         GameObject go = null;
         if (objLst.Count <= 0)
         {
-            go = GameObject.Instantiate(tempObj);
-            PoolObj po = go.AddComponent<PoolObj>();
+            if (tempObj.Obj == null)
+            {
+                Debug.LogError("<color=yellow> tempObj.Obj == null</color>");
+            }
+            go = GameObject.Instantiate(tempObj.Obj);
+            PoolObj po = go.GetComponent<PoolObj>();
+            if (po == null)
+            {
+                po = go.AddComponent<PoolObj>();
+            }
             po.pType = pType;
             po.url = url;
             po.depends = this.depends;
-            for (int i = 0; i < depends.Count; i++)
-            {
-                AssetMgr.addRef(depends[i], 1);
-            }
-            AssetMgr.addRef(url, 1);
+            po.onInit();
         }
         else
         {
-            go = objLst[0];
+            go = objLst[0].Obj;
             objLst.RemoveAt(0);
         }
         go.transform.SetParent(null);
@@ -108,34 +117,28 @@ public class BasePool
         return go;
     }
 
-    public void saveObj(GameObject go)
+    public void saveObj(PoolObj po)
     {
+        GameObject go = po.Obj;
         go.transform.SetParent(root);
         go.transform.localPosition = Vector3.zero;
-        objLst.Add(go);
+        objLst.Add(po);
     }
 
     public void onDispose()
     {
         loadHandler.Clear();
         loadHandler = null;
-        int count = objLst.Count;
-        count = tempObj != null ? count += 1 : count;
-
         for (int i = 0; i < objLst.Count; i++)
         {
-            GameObject.Destroy(objLst[i]);
+            objLst[i].onDispose();
         }
         objLst.Clear();
         objLst = null;
-        GameObject.Destroy(tempObj);
+        tempObj.onDispose();
         tempObj = null;
-        for (int i = 0; i < depends.Count; i++)
-        {
-            AssetMgr.releaseRef(depends[i], count);
-        }
-        AssetMgr.releaseRef(url, count);
         GameObject.Destroy(this.root.gameObject);
+        Debug.Log("CS basePool 释放");
     }
 }
 

@@ -21,22 +21,24 @@ function MainControl:onOpenUIEvent(param)
     end,500)
 --]]
 
----[[
+---[[    
+    --创建
+    self.obj = nil 
 	self.timerId = TimeMgr:addSecHandler(1,function(count) 
 		print("count down"..count) 
 		ResExtend:loadObj("monster_1001",function(obj)  
 	        obj.name ="lua monster"..count
 	        self.obj = obj 
 		end)
-		end,function(count) print("计时器结束") end,1)
+		end,function(count) print("Lua创建obj计时器结束") end,10)
+    --销毁
+	    TimeMgr:addSecHandler(1,function(count) 
 
-        TimeMgr:addSecHandler(20,nil,function(count) 
-		print("20sec finish "..count) 
-		ResExtend:loadObj("monster_1001",function(obj)  
-	        obj.name ="lua monster"..count
-	        self.obj = obj 
-		end)
-		end,1)
+		end,function(count) 
+		    	ResExtend:destroyObj(self.obj)         
+		        print("Lua销毁obj计时器结束") 
+		end,15)
+
 --]]
 --[[
     timerId

@@ -78,7 +78,6 @@ public class LoaderTask
             {
                 GameObject go = GameObject.Instantiate(aobj) as GameObject;
                 callBack("AssetMgr缓存加载成功", true, go);
-                tb.addRefCount();
             }
             status = E_LoadStatus.Finish;
             yield break;
