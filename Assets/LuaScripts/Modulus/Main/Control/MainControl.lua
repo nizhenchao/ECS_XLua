@@ -13,6 +13,8 @@ end
 
 function MainControl:onOpenUIEvent(param)
 	Utils:newObj(param)
+
+	print("source tree debug")
 --[[
 	local memory = require 'perf.memory'
     TimeMgr:addEveryMillHandler(function(count) 
