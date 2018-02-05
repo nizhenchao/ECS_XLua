@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1713605409
+CRC: 2454062138
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -28,3 +28,7 @@ AssetBundleManifest:
     Info_7:
       Name: ic_bimweffect.assetbundle
       Dependencies: {}
+    Info_8:
+      Name: facebookui.assetbundle
+      Dependencies:
+        Dependency_0: atlas.assetbundle

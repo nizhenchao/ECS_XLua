@@ -23,16 +23,16 @@ public class AppMain : MonoBehaviour
     {
         GameObject.DontDestroyOnLoad(this.gameObject);
         //CS init       
-        TimerMgr.Initilize();
-        ResMgr.Instance.initialize();
-        ManifestMgr.Instance.initialize();
-        PoolMgr.Instance.initialize();
-        LoaderMgr.Instance.initialize();
-
+        TimerMgr.Initilize();//计时器
+        ResMgr.Instance.initialize();//资源接口管理类初始化
+        ManifestMgr.Instance.initialize();//依赖文件初始化
+        PoolMgr.Instance.initialize();//对象池初始化
+        LoaderMgr.Instance.initialize();//加载管理器初始化
+        UIMgr.Instance.initialize();//画布初始化
 
         //Lua init
-        luaAgent = new LuaEnv();
-        luaAgent.DoString("require 'LuaInit'");
+        luaAgent = new LuaEnv();//全局lua代理
+        luaAgent.DoString("require 'LuaInit'");//Lua初始化 在Lua那边
 
         scriptEnv = luaAgent.NewTable();
         LuaTable meta = luaAgent.NewTable();
@@ -108,6 +108,17 @@ public class AppMain : MonoBehaviour
         luaStart = null;
         scriptEnv.Dispose();
         injections = null;
+    }
+
+
+    private void OnApplicationPause(bool pause)
+    {
+
+    }
+
+    private void OnApplicationQuit()
+    {
+
     }
 
 }

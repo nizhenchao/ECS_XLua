@@ -91,7 +91,7 @@ public class LoaderTask
             {
                 string key = depends[i].Replace(".assetbundle", "");
                 if (!AssetMgr.isHave(key))
-                {
+                {                    
                     AssetBundle ab = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "Res/AssetBundle/" + depends[i]));
                     AssetMgr.addBundle(key, ab);
                 }

@@ -22,11 +22,15 @@ public class TBundle
         set
         {
             refCount = value;
-            Debug.LogError("ab name: " + ab.name + "  ref count: " + RefCount);
+            Debug.Log("ab name: " + ab.name + "  ref count:<color=red> " + RefCount+"</color>");
+            if (RefCount <= 0)
+            {
+                AssetMgr.disposeBundle(key);               
+            }
         }
     }
     private string key;
-    private float useTime = -1;
+    //private float useTime = -1;
 
     public TBundle(string key, AssetBundle ab)
     {
@@ -41,7 +45,6 @@ public class TBundle
     public void addRefCount(int count = 1)
     {
         RefCount = RefCount + count;
-
     }
 
     public void isAlive()
@@ -89,8 +92,6 @@ public class AssetMgr
 
     }
 
-
-
     private string getName(string name)
     {
         if (name.EndsWith(".assetbundle"))
@@ -99,11 +100,13 @@ public class AssetMgr
         }
         return name;
     }
+    //是否包含bundle
     private bool isHaveBundle(string url)
     {
         url = getName(url);
         return bundlePool.ContainsKey(url);
     }
+    //获取一个ab 返回封装过的TBundle
     private TBundle getAssetBundle(string url)
     {
         url = getName(url);
@@ -113,9 +116,9 @@ public class AssetMgr
         }
         return null;
     }
-
+    //添加一个ab
     private void addAssetBundle(string url, AssetBundle ab)
-    {
+    {        
         url = getName(url);
         if (!bundlePool.ContainsKey(url))
         {
@@ -123,7 +126,7 @@ public class AssetMgr
             bundlePool.Add(url, tab);
         }
     }
-
+    //释放一个bundle引用
     private void releaseBundleRef(string url, int count = 1)
     {
         url = getName(url);
@@ -133,6 +136,7 @@ public class AssetMgr
             tab.subRefCount(count);
         }
     }
+    //添加一个Bundle引用
     private void addBundleRef(string url, int count = 1)
     {
         url = getName(url);
@@ -142,7 +146,18 @@ public class AssetMgr
             tab.addRefCount(count);
         }
     }
-
+    //释放一个ab
+    private void disposeAssetBundle(string url)
+    {
+        url = getName(url);
+        if (bundlePool.ContainsKey(url))
+        {
+            TBundle tb = bundlePool[url];
+            bundlePool.Remove(url);
+            tb.onDispose();
+        }
+    }
+    //释放所有ab
     public void onDispose()
     {
         var ier = bundlePool.GetEnumerator();
@@ -188,6 +203,10 @@ public class AssetMgr
     public static void addRef(string url, int count = 1)
     {
         Instance.addBundleRef(url, count);
+    }
+
+    public static void disposeBundle(string url) {
+        Instance.disposeAssetBundle(url);
     }
 
     public static void clearAll()

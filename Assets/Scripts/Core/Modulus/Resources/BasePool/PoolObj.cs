@@ -42,7 +42,14 @@ public class PoolObj : MonoBehaviour
         }
         AssetMgr.releaseRef(url, 1);
         Obj = null;
-        GameObject.Destroy(this.gameObject);
+        depends = null;
+        url = null;        
+    }
+
+    public void OnDestroy()
+    {
+        onDispose();
+        Debug.Log("<color=blue>pool obj OnDestroy</color>");
     }
 
 }

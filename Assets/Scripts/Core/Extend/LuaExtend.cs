@@ -60,7 +60,40 @@ public static class LuaExtend
     }
     public static void removeTimer(long uid)
     {
- 
+
     }
     #endregion
+
+    #region 优化Lua CS调用相关
+    /// <summary>
+    /// 多使用这种方式 效率最快
+    /// </summary>
+    /// <param name="go"></param>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="z"></param>
+    public static void setObjPos(GameObject go, float x, float y, float z)
+    {
+        setObjPos(go, new Vector3(x, y, z));
+    }
+    //Lua直接传V3 在Lua new V3会进行多次数据类型转换
+    public static void setObjPos(GameObject go, Vector3 pos)
+    {
+        if (go != null)
+        {
+            go.transform.localPosition = pos;
+        }
+    }
+    //rotation angle scale todo
+    #endregion
+
+    #region UI相关
+    public static void setUINode(GameObject uiObj, int node)
+    {
+        uiObj.transform.SetParent(UIMgr.getNode(node));
+        uiObj.transform.localPosition = Vector3.zero;
+        uiObj.transform.localScale = Vector3.one;
+    }
+    #endregion
+
 }

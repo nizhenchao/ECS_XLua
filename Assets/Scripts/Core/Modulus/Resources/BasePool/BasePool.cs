@@ -131,11 +131,11 @@ public class BasePool
         loadHandler = null;
         for (int i = 0; i < objLst.Count; i++)
         {
-            objLst[i].onDispose();
+            GameObject.Destroy(objLst[i].Obj);
         }
         objLst.Clear();
         objLst = null;
-        tempObj.onDispose();
+        GameObject.Destroy(tempObj.Obj);
         tempObj = null;
         GameObject.Destroy(this.root.gameObject);
         Debug.Log("CS basePool 释放");

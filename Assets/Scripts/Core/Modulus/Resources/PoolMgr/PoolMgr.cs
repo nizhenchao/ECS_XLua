@@ -35,14 +35,15 @@ public class PoolMgr
 
     public void initialize()
     {
-        TimerMgr.addEveryMillHandler(checkUseTime, 15000);
-        TimerMgr.addSecHandler(1, null, (count) =>
-        {
-            disposeAll();
-            Debug.LogWarning("CS Pool释放所有清理完成");
-            AssetMgr.clearAll();
-            Debug.LogWarning("CS AssetMgr.clearAll()清理完成");
-        }, 30);
+        //检测一次时间池子
+        TimerMgr.addEveryMillHandler(checkUseTime, 60000);
+        //TimerMgr.addSecHandler(1, null, (count) =>
+        //{
+        //    disposeAll();
+        //    Debug.LogWarning("CS Pool释放所有清理完成");
+        //    AssetMgr.clearAll();
+        //    Debug.LogWarning("CS AssetMgr.clearAll()清理完成");
+        //}, 30);
         //TimerMgr.addEveryMillHandler((count)=> { AssetMgr.clearAll(); },150000 );
     }
 
@@ -63,24 +64,17 @@ public class PoolMgr
     public void saveObj(GameObject go)
     {
         PoolObj po = go.GetComponent<PoolObj>();
-        bool isDestroy = po == null && !pools.ContainsKey(po.url);
+        bool isDestroy = po == null || !pools.ContainsKey(po.url);
         if (isDestroy)
         {
-            if (po != null)
-            {
-                po.onDispose();
-            }
-            else
-            {
-                GameObject.Destroy(go, 0.3f);
-            }
+            GameObject.Destroy(go);
         }
         else
         {
             if (pools.ContainsKey(po.url))
                 pools[po.url].saveObj(po);
             else
-                po.onDispose();
+                GameObject.Destroy(go);
         }
     }
 

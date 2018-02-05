@@ -1,0 +1,2 @@
+UIEnum = { }
+UIEnum.FaceBookUI = "FaceBookUI"

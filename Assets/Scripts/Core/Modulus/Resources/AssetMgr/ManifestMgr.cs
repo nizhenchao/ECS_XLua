@@ -24,7 +24,8 @@ public class ManifestMgr
 
     public void initialize()
     {
-        LoaderThread.Instance.StartCoroutine(doLoad());
+        //    LoaderThread.Instance.StartCoroutine(doLoad());
+        loadManifest();
     }
 
     public static void getDepends(string name, ref List<string> lst)
@@ -33,6 +34,7 @@ public class ManifestMgr
         {
             name = name + ".assetbundle";
         }
+        name = name.ToLower();
         if (Instance.manifest != null)
         {
             string[] deps = Instance.manifest.GetAllDependencies(name);
@@ -43,8 +45,19 @@ public class ManifestMgr
         }
     }
 
+    void loadManifest()
+    {
+        //LoadFromFile不可以有.assetbundle后缀
+        var bundle = AssetBundle.LoadFromFile(System.IO.Path.Combine(Application.dataPath, suff));
+        manifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+        // 压缩包释放掉
+        bundle.Unload(false);
+        bundle = null;
+    }
+
     IEnumerator doLoad()
     {
+        //LoadFromFile不可以有.assetbundle后缀
         var bundle = AssetBundle.LoadFromFile(System.IO.Path.Combine(Application.dataPath, suff));
         yield return bundle;
         manifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");

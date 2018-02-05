@@ -16,6 +16,7 @@ end
 
 function SceneControl:onSceneLoadEnd()
     print("场景加载完毕 CS call Lua")
+    UIMgr:openUI(UIEnum.FaceBookUI,nil)
 end 
 
 Register('SceneControl')

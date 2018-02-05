@@ -11,8 +11,7 @@ public class BuildAsset : MonoBehaviour
     //输出目录
     private const string outPath = "Assets/Res/AssetBundle";
     //打包目录
-    // private const string prefabsPath = "Assets/Res/Arts/Prefabs/";
-    private const string prefabsPath = "Assets/Resources/";
+    private const string prefabsPath = "Assets/Res/Arts/Prefabs/";
     private const string atlasPath = "Assets/Res/Arts/Atlas/";
     private const string texturesPath = "Assets/Res/Arts/Textures/";
     private const string materialPath = "Assets/Res/Arts/Materials/";

@@ -1,0 +1,1 @@
+require "Assets.LuaScripts.Modulus.UIBase.Base.BaseUI"

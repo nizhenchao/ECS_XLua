@@ -31,7 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 10, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 13, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "getLUID", _m_getLUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSUID", _m_getSUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "loadObj", _m_loadObj_xlua_st_);
@@ -41,6 +41,9 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "addSecHandler", _m_addSecHandler_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "addMinHandler", _m_addMinHandler_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "addEveryMillHandler", _m_addEveryMillHandler_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "removeTimer", _m_removeTimer_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "setObjPos", _m_setObjPos_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "setUINode", _m_setUINode_xlua_st_);
             
 			
             
@@ -422,6 +425,101 @@ namespace XLua.CSObjectWrap
             }
             
             return LuaAPI.luaL_error(L, "invalid arguments to LuaExtend.addEveryMillHandler!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_removeTimer_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    long uid = LuaAPI.lua_toint64(L, 1);
+                    
+                    LuaExtend.removeTimer( uid );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_setObjPos_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+			    int __gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(__gen_param_count == 4&& translator.Assignable<UnityEngine.GameObject>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)) 
+                {
+                    UnityEngine.GameObject go = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    float x = (float)LuaAPI.lua_tonumber(L, 2);
+                    float y = (float)LuaAPI.lua_tonumber(L, 3);
+                    float z = (float)LuaAPI.lua_tonumber(L, 4);
+                    
+                    LuaExtend.setObjPos( go, x, y, z );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(__gen_param_count == 2&& translator.Assignable<UnityEngine.GameObject>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)) 
+                {
+                    UnityEngine.GameObject go = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    UnityEngine.Vector3 pos;translator.Get(L, 2, out pos);
+                    
+                    LuaExtend.setObjPos( go, pos );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to LuaExtend.setObjPos!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_setUINode_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    UnityEngine.GameObject uiObj = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    int node = LuaAPI.xlua_tointeger(L, 2);
+                    
+                    LuaExtend.setUINode( uiObj, node );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
             
         }
         

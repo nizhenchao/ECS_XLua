@@ -1,5 +1,7 @@
 require "Assets.LuaScripts.Modulus.Helper.__init"
 
+require "Assets.LuaScripts.Modulus.Extend.LuaExtend"
+
 require "Assets.LuaScripts.Modulus.ClassBase.__init"
 require "Assets.LuaScripts.Modulus.Event.__init"
 require "Assets.LuaScripts.Modulus.Register.__init"

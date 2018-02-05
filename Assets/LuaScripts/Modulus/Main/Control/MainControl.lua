@@ -13,6 +13,13 @@ end
 
 function MainControl:onOpenUIEvent(param)
 	Utils:newObj(param)
+	UIMgr:openUI(UIEnum.FaceBookUI,nil)	
+--[[测试打开UI
+	TimeMgr:addSecHandler(1,nil,function(count) 
+		UIMgr:openUI(UIEnum.FaceBookUI,nil)	
+	end,2)
+--]]
+	
 --[[
 	local memory = require 'perf.memory'
     TimeMgr:addEveryMillHandler(function(count) 
@@ -21,30 +28,29 @@ function MainControl:onOpenUIEvent(param)
     end,500)
 --]]
 
----[[    
+--[[    
     --创建
     self.obj = nil 
-	self.timerId = TimeMgr:addSecHandler(1,function(count) 
+	self.timerId = TimeMgr:addSecHandler(3,function(count) 
 		print("count down"..count) 
 		ResExtend:loadObj("monster_1001",function(obj)  
 	        obj.name ="lua monster"..count
 	        self.obj = obj 
 		end)
-		end,function(count) print("Lua创建obj计时器结束") end,10)
+		end,function(count) print("Lua创建obj计时器结束") end,2)
     --销毁
 	    TimeMgr:addSecHandler(1,function(count) 
 
 		end,function(count) 
-		    	ResExtend:destroyObj(self.obj)         
-		        print("Lua销毁obj计时器结束") 
+		    	--ResExtend:destroyObj(self.obj)         
+		        --print("Lua销毁obj计时器结束") 
 		end,15)
-
 --]]
---[[
-    timerId
-	TimeMgr:addSecHandler(5,nil,function(count) 
+
+--[[10S之后切换场景
+	TimeMgr:addSecHandler(1,nil,function(count) 
 		ResExtend:loadScene("level_001",function(val) print("加载场景中..."..tostring(val*100).."%") end)
-	end)
+	end,10)
 --]]
 end 
 
