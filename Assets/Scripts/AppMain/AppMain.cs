@@ -24,6 +24,7 @@ public class AppMain : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
         //CS init       
         TimerMgr.Initilize();//计时器
+        AtlasMgr.Instance.initialize();//图集管理器初始化
         ResMgr.Instance.initialize();//资源接口管理类初始化
         ManifestMgr.Instance.initialize();//依赖文件初始化
         PoolMgr.Instance.initialize();//对象池初始化

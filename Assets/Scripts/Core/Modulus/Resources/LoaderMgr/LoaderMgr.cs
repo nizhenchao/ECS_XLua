@@ -27,15 +27,16 @@ public class LoaderMgr
     private List<string> removeLst = new List<string>();
     private Dictionary<string, LoaderTask> dictTask = new Dictionary<string, LoaderTask>();
 
-    public void addTask(LoaderTask task)
+    public void addTask(string url, Action<string, bool, TBundle> call)
     {
-        if (!dictTask.ContainsKey(task.url))
+        if (!dictTask.ContainsKey(url))
         {
+            LoaderTask task = new LoaderTask(url, call);
             dictTask.Add(task.url, task);
         }
         else
         {
-            UnityEngine.Debug.LogError("同样的加载任务 url " + task.url);
+            dictTask[url].addHandler(call);            
         }
     }
 

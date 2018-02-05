@@ -53,8 +53,7 @@ public class BasePool
         if (tempObj == null)
         {
             loadHandler.Add(callBack);
-            LoaderTask loader = new LoaderTask(url, onLoaderFinish);
-            LoaderMgr.Instance.addTask(loader);
+            LoaderMgr.Instance.addTask(url, onLoaderFinish);
         }
         else
         {
@@ -63,10 +62,12 @@ public class BasePool
         }
     }
 
-    private void onLoaderFinish(string result, bool isSucc, GameObject temp)
+    private void onLoaderFinish(string result, bool isSucc, TBundle tb)
     {
         if (isSucc)
         {
+            UnityEngine.Object obj = tb.Ab.LoadAsset(getAbName(url));
+            GameObject temp = GameObject.Instantiate(obj) as GameObject;
             temp.name = temp.name.Replace("(Clone)", "");
             temp.transform.SetParent(root);
             temp.transform.localPosition = new Vector3(2000, 2000, 2000);
@@ -139,6 +140,20 @@ public class BasePool
         tempObj = null;
         GameObject.Destroy(this.root.gameObject);
         Debug.Log("CS basePool 释放");
+    }
+    private string getAbName(string id)
+    {
+        string realName = "";
+        int ind = id.LastIndexOf("/");
+        if (ind >= 0)
+        {
+            realName = id.Substring(ind + 1, id.Length - ind - 1);
+        }
+        else
+        {
+            realName = id;
+        }
+        return realName;
     }
 }
 

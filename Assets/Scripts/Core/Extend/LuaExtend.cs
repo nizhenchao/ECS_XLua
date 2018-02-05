@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using XLua;
 
 [LuaCallCSharp]
@@ -93,6 +94,16 @@ public static class LuaExtend
         uiObj.transform.SetParent(UIMgr.getNode(node));
         uiObj.transform.localPosition = Vector3.zero;
         uiObj.transform.localScale = Vector3.one;
+    }
+
+    public static void setSprite(GameObject obj, string name)
+    {
+        AtlasMgr.setSprite(obj.GetComponent<Image>(), name);
+    }
+
+    public static GameObject getNode(GameObject obj, string path)
+    {
+        return obj.transform.Find(path).gameObject;
     }
     #endregion
 

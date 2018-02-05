@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2454062138
+CRC: 2650392862
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -7,28 +7,34 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: terrain.assetbundle
     Info_1:
-      Name: atlas.assetbundle
-      Dependencies: {}
-    Info_2:
       Name: terrain.assetbundle
       Dependencies:
         Dependency_0: ic_aoszseffect.assetbundle
-    Info_3:
+    Info_2:
       Name: ic_aoszseffect.assetbundle
       Dependencies: {}
-    Info_4:
+    Info_3:
       Name: ic_baibxjeffect.assetbundle
       Dependencies: {}
-    Info_5:
+    Info_4:
       Name: ic_batxeffect.assetbundle
       Dependencies: {}
-    Info_6:
+    Info_5:
       Name: ic_bianxjgeffect.assetbundle
       Dependencies: {}
-    Info_7:
+    Info_6:
       Name: ic_bimweffect.assetbundle
       Dependencies: {}
-    Info_8:
+    Info_7:
       Name: facebookui.assetbundle
       Dependencies:
-        Dependency_0: atlas.assetbundle
+        Dependency_0: atlas/skillicons.assetbundle
+    Info_8:
+      Name: atlas/facebookicons.assetbundle
+      Dependencies: {}
+    Info_9:
+      Name: atlas/skillicons.assetbundle
+      Dependencies: {}
+    Info_10:
+      Name: atlas/titleicons.assetbundle
+      Dependencies: {}

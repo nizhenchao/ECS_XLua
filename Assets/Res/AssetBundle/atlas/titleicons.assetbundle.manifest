@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 4278165184
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: da1c9a6ee976c009a199f869ac7851a3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 460b4f5d62b6facbccf7c01637df8f00
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Atlas/titleIcons/10310001.png
+- Assets/Res/Arts/Atlas/titleIcons/10310009.png
+- Assets/Res/Arts/Atlas/titleIcons/10410009.png
+- Assets/Res/Arts/Atlas/titleIcons/ZJM_jingying.png
+- Assets/Res/Arts/Atlas/titleIcons/10410008.png
+- Assets/Res/Arts/Atlas/titleIcons/10310007.png
+- Assets/Res/Arts/Atlas/titleIcons/10410007.png
+- Assets/Res/Arts/Atlas/titleIcons/ZJM_toumu.png
+- Assets/Res/Arts/Atlas/titleIcons/xuetiaohuanchong.png
+- Assets/Res/Arts/Atlas/titleIcons/ZJM_jysl.png
+- Assets/Res/Arts/Atlas/titleIcons/ZJM_shouling.png
+- Assets/Res/Arts/Atlas/titleIcons/ZJM_sjsl.png
+- Assets/Res/Arts/Atlas/titleIcons/10410003.png
+- Assets/Res/Arts/Atlas/titleIcons/10410005.png
+- Assets/Res/Arts/Atlas/titleIcons/10410002.png
+- Assets/Res/Arts/Atlas/titleIcons/10310006.png
+- Assets/Res/Arts/Atlas/titleIcons/xuetiaoBgLittle.png
+- Assets/Res/Arts/Atlas/titleIcons/10410004.png
+- Assets/Res/Arts/Atlas/titleIcons/hunxue.png
+- Assets/Res/Arts/Atlas/titleIcons/10410006.png
+- Assets/Res/Arts/Atlas/titleIcons/10310002.png
+- Assets/Res/Arts/Atlas/titleIcons/duobao.png
+- Assets/Res/Arts/Atlas/titleIcons/baoxiang.png
+- Assets/Res/Arts/Atlas/titleIcons/10310005.png
+- Assets/Res/Arts/Atlas/titleIcons/10310010.png
+- Assets/Res/Arts/Atlas/titleIcons/10310004.png
+- Assets/Res/Arts/Atlas/titleIcons/10410001.png
+- Assets/Res/Arts/Atlas/titleIcons/duizhang.png
+- Assets/Res/Arts/Atlas/titleIcons/10310003.png
+- Assets/Res/Arts/Atlas/titleIcons/qixue.png
+- Assets/Res/Arts/Atlas/titleIcons/10310008.png
+Dependencies: []

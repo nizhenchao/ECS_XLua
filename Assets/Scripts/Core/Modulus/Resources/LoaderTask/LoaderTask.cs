@@ -10,22 +10,17 @@ public class LoaderTask
 {
     public E_LoadStatus status = E_LoadStatus.Wait;
     public string url;
-    public Action<string, bool, GameObject> callBack;
-    string path =
-#if UNITY_ANDROID
-		"jar:file://" + Application.dataPath + "!/assets/";
-#elif UNITY_IPHONE
-		Application.dataPath + "/Raw/";
-#elif UNITY_STANDALONE_WIN || UNITY_EDITOR
-    "file://" + Application.dataPath;
-#else
-        string.Empty;
-#endif        
+    public List<Action<string, bool, TBundle>> handlerLst = new List<Action<string, bool, TBundle>>();
 
-    public LoaderTask(string url, Action<string, bool, GameObject> call)
+    public LoaderTask(string url, Action<string, bool, TBundle> call)
     {
         this.url = url;
-        this.callBack = call;
+        addHandler(call);
+    }
+
+    public void addHandler(Action<string, bool, TBundle> call)
+    {
+        handlerLst.Add(call);
     }
 
     public void doLoad()
@@ -51,11 +46,11 @@ public class LoaderTask
             yield return new WaitForEndOfFrame();
         }
         UnityEngine.Object obj = req.asset;
-        if (callBack != null)
-        {
-            GameObject go = GameObject.Instantiate(obj) as GameObject;
-            callBack("res.load加载成功", true, go);
-        }
+        //if (callBack != null)
+        //{
+        //    GameObject go = GameObject.Instantiate(obj) as GameObject;
+        //    //  callBack("res.load加载成功", true, go);
+        //}
         status = E_LoadStatus.Finish;
     }
 
@@ -72,12 +67,9 @@ public class LoaderTask
         //是否已经存在ab
         if (AssetMgr.isHave(url))
         {
-            TBundle tb = AssetMgr.getBundle(url);
-            UnityEngine.Object aobj = tb.Ab.LoadAsset(getAbName(url));
-            if (callBack != null)
+            for (int i = 0; i < handlerLst.Count; i++)
             {
-                GameObject go = GameObject.Instantiate(aobj) as GameObject;
-                callBack("AssetMgr缓存加载成功", true, go);
+                handlerLst[i].Invoke(url, true, AssetMgr.getBundle(url));
             }
             status = E_LoadStatus.Finish;
             yield break;
@@ -91,7 +83,7 @@ public class LoaderTask
             {
                 string key = depends[i].Replace(".assetbundle", "");
                 if (!AssetMgr.isHave(key))
-                {                    
+                {
                     AssetBundle ab = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "Res/AssetBundle/" + depends[i]));
                     AssetMgr.addBundle(key, ab);
                 }
@@ -102,11 +94,9 @@ public class LoaderTask
         AssetBundle objAb = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "Res/AssetBundle/" + url + ".assetbundle"));
         yield return objAb;
         AssetMgr.addBundle(url, objAb);
-        UnityEngine.Object obj = objAb.LoadAsset(getAbName(url));
-        if (callBack != null)
+        for (int i = 0; i < handlerLst.Count; i++)
         {
-            GameObject go = GameObject.Instantiate(obj) as GameObject;
-            callBack("LoadFromFile加载成功", true, go);
+            handlerLst[i].Invoke(url, true, AssetMgr.getBundle(url));
         }
         status = E_LoadStatus.Finish;
     }
