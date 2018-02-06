@@ -22,20 +22,34 @@ public class TBundle
         set
         {
             refCount = value;
-            Debug.Log("ab name: " + ab.name + "  ref count:<color=red> " + RefCount+"</color>");
+            //Debug.Log("ab name: " + ab.name + "  ref count:<color=red> " + RefCount + "</color>");
             if (RefCount <= 0)
             {
-                AssetMgr.disposeBundle(key);               
+                AssetMgr.disposeBundle(key);
             }
         }
     }
     private string key;
-    //private float useTime = -1;
+    private E_AssetType aType = E_AssetType.Normal;
+    public E_AssetType AType
+    {
+        get
+        {
+            return aType;
+        }
+    }
+    private double useTime = -1;
+    private int lifeTime = 60;
 
     public TBundle(string key, AssetBundle ab)
     {
         this.ab = ab;
         this.key = key;
+        if (this.key.StartsWith("atlas/"))
+        {
+            aType = E_AssetType.Atlas;
+            useTime = TimerUtils.getSecTimer();
+        }
     }
 
     public void subRefCount(int count = 1)
@@ -47,16 +61,16 @@ public class TBundle
         RefCount = RefCount + count;
     }
 
-    public void isAlive()
+    public bool isAlive()
     {
-
+        return TimerUtils.getSecTimer() - useTime <= lifeTime;
     }
 
-    public void onDispose()
+    public void onDispose(bool isUnloadAll = false)
     {
         if (this.ab != null)
         {
-            ab.Unload(false);
+            ab.Unload(isUnloadAll);
             ab = null;
             Resources.UnloadUnusedAssets();
         }
@@ -80,16 +94,36 @@ public class AssetMgr
     }
 
     private Dictionary<string, TBundle> bundlePool = null;
+    private List<string> removeLst = null;
 
     public void initialize()
     {
         bundlePool = new Dictionary<string, TBundle>();
-
+        removeLst = new List<string>();
+        TimerMgr.addEveryMillHandler(onTick, 60000);
     }
 
     private void onTick(int count)
     {
-
+        if (bundlePool.Count <= 0) return;
+        var ier = bundlePool.GetEnumerator();
+        removeLst.Clear();
+        while (ier.MoveNext())
+        {
+            if (ier.Current.Value.AType == E_AssetType.Atlas)
+            {
+                if (!ier.Current.Value.isAlive())
+                {
+                    removeLst.Add(ier.Current.Key);
+                }
+            }
+        }
+        for (int i = 0; i < removeLst.Count; i++)
+        {
+            TBundle tb = bundlePool[removeLst[i]];
+            bundlePool.Remove(removeLst[i]);
+            tb.onDispose();
+        }
     }
 
     private string getName(string name)
@@ -118,7 +152,7 @@ public class AssetMgr
     }
     //添加一个ab
     private void addAssetBundle(string url, AssetBundle ab)
-    {        
+    {
         url = getName(url);
         if (!bundlePool.ContainsKey(url))
         {
@@ -205,7 +239,8 @@ public class AssetMgr
         Instance.addBundleRef(url, count);
     }
 
-    public static void disposeBundle(string url) {
+    public static void disposeBundle(string url)
+    {
         Instance.disposeAssetBundle(url);
     }
 

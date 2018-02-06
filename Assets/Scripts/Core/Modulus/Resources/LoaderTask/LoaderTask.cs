@@ -57,7 +57,7 @@ public class LoaderTask
     //www load
     IEnumerator wwwLoad()
     {
-        Debug.Log("加载资源" + url);
+        //  Debug.Log("加载资源" + url);
         status = E_LoadStatus.Loading;
         if (string.IsNullOrEmpty(url))
         {

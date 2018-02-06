@@ -1067,6 +1067,11 @@ namespace XLua
 			    return new UnityEngine.Events.UnityAction(__Gen_Delegate_Imp9);
 			}
 		
+		    if (type == typeof(DG.Tweening.TweenCallback))
+			{
+			    return new DG.Tweening.TweenCallback(__Gen_Delegate_Imp9);
+			}
+		
 		    if (type == typeof(System.Action<bool>))
 			{
 			    return new System.Action<bool>(__Gen_Delegate_Imp10);

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2650392862
+CRC: 3458646494
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -28,7 +28,8 @@ AssetBundleManifest:
     Info_7:
       Name: facebookui.assetbundle
       Dependencies:
-        Dependency_0: atlas/skillicons.assetbundle
+        Dependency_0: atlas/facebookicons.assetbundle
+        Dependency_1: atlas/skillicons.assetbundle
     Info_8:
       Name: atlas/facebookicons.assetbundle
       Dependencies: {}
@@ -38,3 +39,7 @@ AssetBundleManifest:
     Info_10:
       Name: atlas/titleicons.assetbundle
       Dependencies: {}
+    Info_11:
+      Name: updownanimui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/facebookicons.assetbundle

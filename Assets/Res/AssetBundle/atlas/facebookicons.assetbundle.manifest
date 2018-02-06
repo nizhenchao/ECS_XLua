@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 865868323
+CRC: 2912063470
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4c2d0a2fd8c8d1aab56da9f34c18dd55
+    Hash: 2b4153271049ad5578cef41ddc7b7544
   TypeTreeHash:
     serializedVersion: 2
     Hash: 460b4f5d62b6facbccf7c01637df8f00
@@ -15,6 +15,7 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Res/Arts/Atlas/faceBookIcons/WD_tian.png
+- Assets/Res/Arts/Atlas/faceBookIcons/skill_tipsBg.png
 - Assets/Res/Arts/Atlas/faceBookIcons/WD_ren.png
 - Assets/Res/Arts/Atlas/faceBookIcons/WD_xiuluo.png
 Dependencies: []

@@ -21,6 +21,15 @@ public enum E_PoolType
     Gobal,
 }
 
+//AssetBundle Type
+public enum E_AssetType
+{
+    None = 0,
+    Normal,
+    Atlas,
+    Textures,
+}
+
 public static class Define
 {
     public static string On_Scene_Load_Begin = "On_Scene_Load_Begin";

@@ -12,6 +12,7 @@ end
 function SceneControl:onSceneLoadBegin()
     print("场景加载开始 CS call Lua")
     --TimeMgr:clear()
+    UIMgr:onLoadScene()
 end 
 
 function SceneControl:onSceneLoadEnd()

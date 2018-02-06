@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using XLua;
+using DG.Tweening;
 
 //配置的详细介绍请看Doc下《XLua的配置.doc》
 public static class ExampleGenConfig
@@ -47,6 +48,8 @@ public static class ExampleGenConfig
                 typeof(Action<float>),
                 typeof(Action<int>),
                 typeof(Action<GameObject>),
+                typeof(TweenCallback),
+                typeof(UnityEngine.Events.UnityAction),
                 typeof(UnityEngine.Debug)
             };
 
@@ -54,6 +57,7 @@ public static class ExampleGenConfig
     [CSharpCallLua]
     public static List<Type> CSharpCallLua = new List<Type>() {
                 typeof(Action),
+                typeof(TweenCallback),
                 typeof(Func<double, double, double>),
                 typeof(Action<string>),
                 typeof(Action<float>),

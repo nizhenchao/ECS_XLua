@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XLua;
+using DG.Tweening;
 
+/// <summary>
+/// 导出接口到Lua
+/// </summary>
 [LuaCallCSharp]
 public static class LuaExtend
 {
@@ -65,7 +69,7 @@ public static class LuaExtend
     }
     #endregion
 
-    #region 优化Lua CS调用相关
+    #region 优化Lua CS调用相关(操作GameObject)
     /// <summary>
     /// 多使用这种方式 效率最快
     /// </summary>
@@ -85,26 +89,80 @@ public static class LuaExtend
             go.transform.localPosition = pos;
         }
     }
+    public static void setActive(GameObject obj, bool isActive)
+    {
+        if (obj != null)
+        {
+            obj.SetActive(isActive);
+        }
+    }
     //rotation angle scale todo
     #endregion
 
     #region UI相关
+    //设置UI在Canvas节点
     public static void setUINode(GameObject uiObj, int node)
     {
         uiObj.transform.SetParent(UIMgr.getNode(node));
         uiObj.transform.localPosition = Vector3.zero;
         uiObj.transform.localScale = Vector3.one;
     }
-
+    //设置Image sprite
     public static void setSprite(GameObject obj, string name)
     {
         AtlasMgr.setSprite(obj.GetComponent<Image>(), name);
     }
-
+    //获取canvas节点
     public static GameObject getNode(GameObject obj, string path)
     {
         return obj.transform.Find(path).gameObject;
     }
+    //UI添加一个点击监听
+    public static void addClickHandler(GameObject obj, Action handler = null)
+    {
+        if (obj != null)
+        {
+            EventListener lis = obj.GetComponent<EventListener>();
+            if (lis == null)
+            {
+                lis = obj.AddComponent<EventListener>();
+            }
+            lis.setClickHandler(handler);
+        }
+    }
+
+    #endregion
+
+    #region doTween导出相关
+    //缩放动画
+    public static Tweener doUpDownScaleAnim(GameObject obj, string title = null, Action onFinish = null)
+    {
+        Tweener tw = null;
+        if (obj != null)
+        {
+            obj.transform.localScale = new Vector3(1, 0, 1);
+            obj.GetComponentInChildren<Text>().gameObject.transform.localScale = new Vector3(0, 1, 1);
+            tw = obj.transform.DOScaleY(1, 0.3f).OnComplete(() =>
+            {
+                if (obj.GetComponentInChildren<Text>() != null)
+                {
+                    obj.GetComponentInChildren<Text>().text = title;
+                    obj.GetComponentInChildren<Text>().gameObject.transform.DOScaleX(1, 0.15f);
+                }
+                obj.transform.DOScaleY(0, 0.3f).SetDelay(1.2f).OnComplete(() => { if (onFinish != null) onFinish.Invoke(); });
+            });
+        }
+        return tw;
+    }
+
+    public static void killTweener(Tweener tw, bool doComplete = false)
+    {
+        if (tw != null)
+        {
+            tw.Kill(doComplete);
+        }
+    }
+
     #endregion
 
 }

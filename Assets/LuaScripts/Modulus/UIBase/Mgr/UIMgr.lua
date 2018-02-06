@@ -18,22 +18,25 @@ function UIMgr:openUI(uiEnum,args)
        local ui = self.closePool[uiEnum]
        self.closePool[uiEnum] = nil 
        self.openPool[uiEnum] = ui 
-       ui.onOpen()
+       LuaExtend:setActive(ui.obj,true)
+       ui:onOpen()
        return 
     end 
     --需要load
     local conf = UIInfo[uiEnum]
     if conf then 
-    	local path = conf.path 
+    	local path = conf.path   
 		ResExtend:loadObj(path,function(obj)  
 			local className = conf.className
             if  _G[className] == nil then 
             	require (conf.class)
             end 
             local creator = _G[className]         
-            local ui = creator(obj,conf)
+            local ui = creator(obj,conf,args)
             self.openPool[uiEnum] = ui 
             LuaExtend:setUINode(obj,conf.UINode)
+            LuaExtend:setActive(ui.obj,true)
+            ui:onOpen()
 		end)
     end
 end 
@@ -44,12 +47,30 @@ end
 
 function UIMgr:closeUI(uiEnum)
    if self.openPool[uiEnum] then 
-
+      local ui = self.openPool[uiEnum]
+      self.openPool[uiEnum] = nil 
+      self.closePool[uiEnum] = ui
+      ui:onClose()
+      LuaExtend:setActive(ui.obj,false)
    end 
 end 
 
 function UIMgr:isOpen(uiEnum)
 	return self.openPool[uiEnum] ~= nil 
+end 
+
+function UIMgr:onLoadScene()
+	for k,v in pairs(self.openPool) do 
+		v:onDispose()
+	end 
+	for k,v in pairs(self.closePool) do 
+		v:onDispose()
+	end 
+	--缓存UI
+	self.openPool = { }
+	self.closePool = { }
+	--缓存ui关闭信息
+	self.closeMap = { }
 end 
 
 create(UIMgr)
