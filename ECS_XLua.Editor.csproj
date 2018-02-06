@@ -381,6 +381,7 @@
     <None Include="Assets\XLua\Src\Editor\Template\PackUnpack.tpl.txt" />
     <None Include="Assets\XLua\Src\Editor\Template\TemplateCommon.lua.txt" />
     <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
+    <None Include="Assets\exportLang.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

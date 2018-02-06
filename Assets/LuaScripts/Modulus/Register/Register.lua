@@ -1,34 +1,35 @@
 AppModulus = { }
 
 function AppModulus:init()
-    self.modulusMap = {}
+    self.contorlPool = {}
 end 
 
-function AppModulus:register(name)
-    if name then 
-       
+function AppModulus:addControl(name,contorl)
+    if self.contorlPool[name] ~=nil then 
+       print("<color=red>注册control错误 有相同contorl</color>")
+       return
     end 
+    self.contorlPool[name] = contorl
 end 
 
 create(AppModulus)
 
 
-
-function Register(name)
-   local class = nil 
+--Control ClassName
+--uiEnum
+--openUI EventCmd
+--closeUI EventCmd
+function Register(name,uiEnum,openCmd,closeCmd)
+   local creator = nil 
    if _G[name] then 
-      class = _G[name]
+      creator = _G[name]
    else
    	  print("Register(name) 没有此类 name : "..name)
+      return 
    end 
-   if class then 
-   	  if class.init then 
-   	  	 class:init()
-   	  end 
-   	  if class.initEvent then 
-   	  	 class:initEvent()
-   	  end 
-   end 
+   local contorl = creator(uiEnum,openCmd,closeCmd)
+   AppModulus:addControl(name,contorl)
+   print("注册contorl : "..name)
 end  
 
 function sendMsg(name)

@@ -1,6 +1,10 @@
 MainControl = SimpleClass(BaseControl)
 
-function MainControl:init()
+function MainControl:__init(...)
+
+end 
+
+function MainControl:__init_self()
 
 end 
 
@@ -13,11 +17,12 @@ end
 
 function MainControl:onOpenUIEvent(param)
 	Utils:newObj(param)
-	UIMgr:openUI(UIEnum.FaceBookUI,nil)	
+	--UIMgr:openUI(UIEnum.FaceBookUI,nil)	
+   EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
 --[[测试打开UI
 	TimeMgr:addSecHandler(1,nil,function(count) 
-		UIMgr:openUI(UIEnum.FaceBookUI,nil)	
-	end,2)
+		 
+	end,4)
 --]]
 	
 --[[

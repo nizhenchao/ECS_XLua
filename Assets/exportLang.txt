@@ -1,0 +1,4 @@
+
+uid~-440330|path~FaceBookUI/img1/Text|text~ClickMe--end--
+uid~-62712|path~FaceBookUI/animObj/Text|text~规格--end--
+uid~-286876|path~FaceBookUI/node1/node2/nameText|text~New Text--end--

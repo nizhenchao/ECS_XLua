@@ -1,6 +1,10 @@
 SceneControl = SimpleClass(BaseControl)
 
-function SceneControl:init()
+function SceneControl:__init(...)
+
+end 
+
+function SceneControl:__init_self()
 
 end 
 

@@ -56,7 +56,7 @@ function EventMgr:removeListener(eventName,handler)
 end 
 
 function EventMgr:sendMsg(eventName,...)
-     print(eventName)
+     print("EventMgr:sendMsg:   "..eventName)
      if self.eventMap:containsKey(eventName) then 
        local data = self.eventMap:get(eventName)
        data:sendMsg(...)
