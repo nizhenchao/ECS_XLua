@@ -35,3 +35,8 @@ end
 function LuaExtend:killTweener(tw,isDoComplete)
     CS.LuaExtend.killTweener(tw,isDoComplete)
 end 
+
+--对象池相关
+function LuaExtend:destroyObj(obj)
+    CS.LuaExtend.destroyObj(obj)
+end 

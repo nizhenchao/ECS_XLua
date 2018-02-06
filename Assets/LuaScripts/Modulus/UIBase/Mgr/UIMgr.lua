@@ -49,9 +49,14 @@ function UIMgr:closeUI(uiEnum)
    if self.openPool[uiEnum] then 
       local ui = self.openPool[uiEnum]
       self.openPool[uiEnum] = nil 
-      self.closePool[uiEnum] = ui
       ui:onClose()
-      LuaExtend:setActive(ui.obj,false)
+      local isDestroy = ui.uiInfo and ui.uiInfo.isDestroy or false 
+      if not isDestroy then 	      
+	      self.closePool[uiEnum] = ui      
+	      LuaExtend:setActive(ui.obj,false)
+	  else
+	  	  ui:onDispose()
+      end
    end 
 end 
 

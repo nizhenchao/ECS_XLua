@@ -34,6 +34,7 @@ function BaseUI:bindWidget()
            --查找并绑定
            local nodeObj = LuaExtend:getNodeByRecursion(self.obj,k)            
            self[k] = LUIWidget(nodeObj,v)
+           self.widgetPool[#self.widgetPool+1] = k
 		end
    end
 end 
@@ -61,4 +62,12 @@ end
 --释放UI
 function BaseUI:onDispose()
 	print("BaseUI:onDispose()")
+	for i =1,#self.widgetPool do 
+		self[self.widgetPool[i]]:onDispose()
+	end     
+	self.uiInfo = nil 
+	self.args = nil 
+	LuaExtend:destroyObj(self.obj)
+	self.obj = nil 
+	self.__isInit = nil 
 end 
