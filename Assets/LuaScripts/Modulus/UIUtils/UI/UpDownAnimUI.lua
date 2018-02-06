@@ -10,6 +10,6 @@ end
 function UpDownAnimUI:onOpen()
 	if self.animObj ~= nil then 
 		LuaExtend:setActive(self.animObj,true)
-		LuaExtend:doUpDownScaleAnim(self.animObj,'您的余额不足,请及时冲值',function() UIMgr:closeUI(UIEnum.UpDownAnimUI) end)
+		LuaExtend:doUpDownScaleAnim(self.animObj,'您的余额不足,请及时冲值,请在UIInfo里面配置是否销毁',function() UIMgr:closeUI(UIEnum.UpDownAnimUI) end)
 	end 
 end 
