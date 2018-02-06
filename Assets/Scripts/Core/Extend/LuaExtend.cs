@@ -112,11 +112,37 @@ public static class LuaExtend
     {
         AtlasMgr.setSprite(obj.GetComponent<Image>(), name);
     }
-    //获取canvas节点
-    public static GameObject getNode(GameObject obj, string path)
+    //获取UI下面的一个节点
+    public static GameObject getNode(GameObject root, string path)
     {
-        return obj.transform.Find(path).gameObject;
+        if (root != null)
+            return root.transform.Find(path).gameObject;
+        else
+            return null;
     }
+    //递归查找UI下面的一个节点
+    public static GameObject getNodeByRecursion(GameObject root, string nodeName) {
+        if (root != null) {
+            return getNodeByTrans(root.transform, nodeName);
+        }
+        return null;
+    }
+    private static GameObject getNodeByTrans(Transform rootTrans,string nodeName) {
+        if (rootTrans.gameObject.name == nodeName) {
+            return rootTrans.gameObject;
+        }
+        int childCount = rootTrans.childCount;
+        GameObject node = null;
+        for (int i = 0; i < childCount; i++)
+        {
+            node =  getNodeByTrans(rootTrans.GetChild(i), nodeName);
+            if (node != null) {
+                return node;
+            }
+        }
+        return null;
+    }
+
     //UI添加一个点击监听
     public static void addClickHandler(GameObject obj, Action handler = null)
     {

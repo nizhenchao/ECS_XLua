@@ -1,7 +1,7 @@
 UpDownAnimUI = SimpleClass(BaseUI)
 
-function UpDownAnimUI:__init()
-	print("<color=yellow>UpDownAnimUI:__init()</color>")
+function UpDownAnimUI:__init_Self()
+	print("<color=yellow>UpDownAnimUI:__init_Self()</color>")
 
 	self.animObj = LuaExtend:getNode(self.obj,'animObj')
 	LuaExtend:setActive(self.animObj,false)

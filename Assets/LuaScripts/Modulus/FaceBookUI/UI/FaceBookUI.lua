@@ -1,7 +1,11 @@
 FaceBookUI = SimpleClass(BaseUI)
 
-function FaceBookUI:__init()
-	print("<color=yellow>FaceBookUI:__init()</color>")
+--声明成员变量
+function FaceBookUI:__init_Self()
+	print("<color=yellow>FaceBookUI:__init_Self()</color>")
+    self.img2 = UIWidget.LUIWidget
+    self.img3 = UIWidget.LUIWidget
+    self.nameText = UIWidget.LText
 
 	self.img1 = LuaExtend:getNode(self.obj,'img1')
 	self.animObj = LuaExtend:getNode(self.obj,'animObj')
@@ -11,8 +15,10 @@ function FaceBookUI:__init()
     end)
 
 	LuaExtend:setActive(self.animObj,false)
+
 end 
 
 function FaceBookUI:onOpen()
 	print("<color=yellow>FaceBookUI:onOpen()</color>")
+	self.nameText:setText("FaceBookUI:onOpen()")
 end 
