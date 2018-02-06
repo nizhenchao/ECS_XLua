@@ -28,7 +28,7 @@ public class UICheckLangTools
     }
 
     private static string exportPath = Path.Combine(Application.dataPath, "exportLang.txt");
-    private static string subPath = "AssetBundle/Prefabs/UI/";
+    private static string subPath = "Res/Arts/Prefabs";
     private static string suff = "--end--";
 
     [MenuItem("Assets/UI工具/导出UI文字", false, 4000)]
@@ -40,6 +40,12 @@ public class UICheckLangTools
         }
 
         string path = Path.Combine(Application.dataPath, subPath);
+        if (!Directory.Exists(path))
+        {
+            Debug.LogError("预设路径不存在 请检查 path " + subPath);
+            return;
+        }
+
         List<string> files = new List<string>();
         serchAllFiles(path, files);
         List<ExpText> lst = new List<ExpText>();
