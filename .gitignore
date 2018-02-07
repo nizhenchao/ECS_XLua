@@ -5,3 +5,4 @@
 *.ide
 *.ide-shm
 *.ide-wal
+*.csproj
