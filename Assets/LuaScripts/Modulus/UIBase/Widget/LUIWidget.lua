@@ -29,6 +29,10 @@ function LUIWidget:getWidget()
     end     
 end 
 
+function LUIWidget:getObj()
+   return self.widgetObj
+end 
+
 function LUIWidget:setPosition(x,y,z)
 
 end 

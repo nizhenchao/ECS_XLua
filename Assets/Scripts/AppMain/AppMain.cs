@@ -29,7 +29,7 @@ public class AppMain : MonoBehaviour
         ManifestMgr.Instance.initialize();//依赖文件初始化
         PoolMgr.Instance.initialize();//对象池初始化
         LoaderMgr.Instance.initialize();//加载管理器初始化
-        UIMgr.Instance.initialize();//画布初始化
+        UIMgr.Instance.initialize();//画布初始化 不需要初始化
 
         //Lua init
         luaAgent = new LuaEnv();//全局lua代理

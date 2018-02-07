@@ -37,6 +37,15 @@ function LuaExtend:killTweener(tw,isDoComplete)
 end 
 
 --对象池相关
+--销毁gameObject 对象池会处理
 function LuaExtend:destroyObj(obj)
     CS.LuaExtend.destroyObj(obj)
 end 
+--加载gameObject
+function LuaExtend:loadObj(url,callBack)
+   CS.LuaExtend.loadObj(url,callBack)
+end
+--加载场景
+function LuaExtend:loadScene(level,progress)
+  CS.LuaExtend.loadScene(level,progress)
+end

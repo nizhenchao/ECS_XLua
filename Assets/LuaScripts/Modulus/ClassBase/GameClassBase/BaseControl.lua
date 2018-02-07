@@ -8,6 +8,7 @@ local function __create_self_param(self)
     -- 存储的事件列表
     self.__isInit = false
     self.uiEnum = ''
+    self.ui = nil 
     self.openUIEventName = ''
 end
 
@@ -42,10 +43,21 @@ function BaseControl:initEvent()
 
 end 
 
+--由子类重写
+function BaseControl:onOpen()
+
+end 
+--由子类重写
+function BaseControl:onClose()
+
+end 
+
 function BaseControl:openUI(args)
-    UIMgr:openUI(self.uiEnum,args)
+	self:onOpen()
+    self.ui = UIMgr:openUI(self.uiEnum,args)
 end 
 
 function BaseControl:closeUI()
-	UIMgr:closeUI(self.uiEnum)
+	self:onClose()
+	self.ui = UIMgr:closeUI(self.uiEnum)
 end 

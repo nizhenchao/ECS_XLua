@@ -4,26 +4,53 @@ local function _create_self_param(self)
 	self.obj = nil 
 	self.uiInfo = nil 
 	self.args = nil 
+	self.isBindComplete = false 
 	self.widgetPool = { }
 end
 
-function BaseUI:__init(obj,uiinfo,args,...)
+function BaseUI:__init(uiInfo,args,...)
     if self.__isInit ~= nil then
         return
     end
     _create_self_param(self)
     self.__isInit = true
-	self.obj = obj 
-	self.uiInfo = uiinfo
+	self.uiInfo = uiInfo
+	self.uiEnum = uiInfo.UIEnum
 	self.args = args
 	self:__init_Self()
-	self:bindWidget()
-	self:initLayout()	
 end 
 
---声明成员变量
-function BaseUI:__init_Self()
+--绑定布局
+function BaseUI:bindLayout(obj)
+	self.obj = obj 
+	self:bindWidget()
+	self:bindNode()
+	self.isBindComplete = true 
+	self:checkStatus()
+end
 
+--检查UI打开状态
+function BaseUI:checkStatus()   
+   local isOpen = UIMgr:isOpen(self.uiEnum)
+   if not isOpen then  
+   	    self:onUIClose()
+   else
+   	    LuaExtend:setActive(self.obj,true)
+		self:initLayout()	
+		self:onOpen()
+   end 
+end 
+
+--UI节点
+function BaseUI:bindNode()
+	LuaExtend:setUINode(self.obj,self.uiInfo.UINode)
+end 
+
+--加载UI
+function BaseUI:loadUI(path)
+	LuaExtend:loadObj(path,function(obj)  
+       self:bindLayout(obj)
+	end)
 end 
 
 --绑定布局
@@ -39,17 +66,56 @@ function BaseUI:bindWidget()
    end
 end 
 
+--关闭UI
+function BaseUI:onUIClose()
+	local isDestroy = self.uiInfo and self.uiInfo.isDestroy or false 
+    if self.isBindComplete then 
+       self:onClose()       
+       if not isDestroy then 	      
+          self:onHide()
+	   else
+	  	  self:onBaseDispose()
+       end
+    end 
+    return not isDestroy 
+end 
+
+function BaseUI:onHide()
+   LuaExtend:setActive(self.obj,false)
+end
+
+function BaseUI:onBaseDispose()
+	self:onDispose()
+	for i =1,#self.widgetPool do 
+		self[self.widgetPool[i]]:onDispose()
+	end     
+	self.uiInfo = nil 
+	self.args = nil 
+	LuaExtend:destroyObj(self.obj)
+	self.obj = nil 
+	self.__isInit = nil 
+end 
+
+---------------------生命周期 子类重写-------------------
+--声明成员变量
+function BaseUI:__init_Self()
+	--声明节点
+    --self.nameText = UIWidget.LText
+    --声明变量
+    --self.data = nil 
+end 
+
 --初始化界面
 function BaseUI:initLayout()
 
 end 
 
---界面打开
+--当界面打开
 function BaseUI:onOpen()
 
 end
 
---界面关闭
+--当界面关闭
 function BaseUI:onClose()
 
 end 
@@ -61,13 +127,5 @@ end
 
 --释放UI
 function BaseUI:onDispose()
-	print("BaseUI:onDispose()")
-	for i =1,#self.widgetPool do 
-		self[self.widgetPool[i]]:onDispose()
-	end     
-	self.uiInfo = nil 
-	self.args = nil 
-	LuaExtend:destroyObj(self.obj)
-	self.obj = nil 
-	self.__isInit = nil 
+
 end 

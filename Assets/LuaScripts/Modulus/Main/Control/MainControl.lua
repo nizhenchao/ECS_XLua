@@ -18,7 +18,7 @@ end
 function MainControl:onOpenUIEvent(param)
 	Utils:newObj(param)
 	--UIMgr:openUI(UIEnum.FaceBookUI,nil)	
-   EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
+    EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
 --[[测试打开UI
 	TimeMgr:addSecHandler(1,nil,function(count) 
 		 
