@@ -91,8 +91,9 @@ end
 function BaseUI:onBaseDispose()
 	self:onDispose()
 	for i =1,#self.widgetPool do 
-		self[self.widgetPool[i]]:onDispose()
+		self[self.widgetPool[i]]:onBaseDispose()
 	end     
+	self.widgetPool = nil 
 	self.uiInfo = nil 
 	self.args = nil 
 	LuaExtend:destroyObj(self.obj)

@@ -47,10 +47,17 @@ end
 function BaseControl:onOpen()
 
 end 
+
 --由子类重写
 function BaseControl:onClose()
 
 end 
+
+--由子类重写 登出清理
+function BaseControl:clearSelf()
+
+end 
+
 
 function BaseControl:openUI(args)
 	self:onOpen()
@@ -60,4 +67,8 @@ end
 function BaseControl:closeUI()
 	self:onClose()
 	self.ui = UIMgr:closeUI(self.uiEnum)
+end 
+
+function BaseControl:isOpen()
+    return UIMgr:isOpen(self.uiEnum)
 end 

@@ -2,7 +2,7 @@ LUIWidget = SimpleClass()
 
 -- 初始化自身变量
 local function _create_my_self(self)
-  
+
 end
 
 function LUIWidget:__init(widgetObj,...)
@@ -39,4 +39,12 @@ end
 
 function LUIWidget:onDispose()
 
+end 
+
+function LUIWidget:onBaseDispose()
+   print("<color=red>LUIWidget:onBaseDispose()</color>")
+    self:onDispose()
+    self._init = nil 
+    self.widgetObj = nil 
+    self.widget = nil 
 end 

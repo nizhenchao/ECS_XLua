@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestSp : MonoBehaviour {
 
@@ -21,9 +22,7 @@ public class TestSp : MonoBehaviour {
 	}
 
     IEnumerator OnClick()
-
     {
-
         Resources.UnloadUnusedAssets();//清干净以免影响测试效果
 
         yield return new WaitForSeconds(3);
