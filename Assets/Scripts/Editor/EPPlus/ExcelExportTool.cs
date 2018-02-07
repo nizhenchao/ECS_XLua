@@ -25,6 +25,10 @@ public class ExcelExportTool
         {
             exportExcel(files[i]);
         }
+
+        AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+        AssetDatabase.SaveAssets();
+        EditorUtility.DisplayDialog("导出完成", "导出Excel完成", "OK");
     }
     //读取excel
     public static void exportExcel(string path)
@@ -38,6 +42,9 @@ public class ExcelExportTool
             {
                 for (int i = 1; i <= maxRow; i++)
                 {
+                    //如果当前行 第一个元素为空 continue                    
+                    object val = sheet.GetValue(i, 1);
+                    if (i >= dataRowIndex && (val == null || string.IsNullOrEmpty(val.ToString()))) continue;
                     List<string> lst = new List<string>();
                     readRow(sheet, i, ref lst);
                     dict.Add(i, lst);
@@ -83,14 +90,14 @@ public class ExcelExportTool
         for (int i = dataRowIndex; i <= dict.Count; i++)
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append(tableName + "={");
+            builder.Append(tableName + "[" + dict[i][0] + "]={");
             List<string> lst = dict[i];
             for (int j = 0; j < lst.Count; j++)
             {
                 string dataClass = dict[3][j];
                 if (dataClass == "int" || dataClass == "float" || dataClass == "long")
                 {
-
+                    lst[j] = string.IsNullOrEmpty(lst[j]) ? "0" : lst[j];
                 }
                 else if (dataClass == "string")
                 {
