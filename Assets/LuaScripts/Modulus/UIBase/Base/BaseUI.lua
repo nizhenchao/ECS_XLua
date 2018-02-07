@@ -59,11 +59,15 @@ function BaseUI:bindWidget()
    for k,v in pairs(self) do
 		if type(v) == "string" and UIWidget[v] ~= nil then
            --查找并绑定
-           local nodeObj = LuaExtend:getNodeByRecursion(self.obj,k)            
-           self[k] = LUIWidget(nodeObj,v)
-           self.widgetPool[#self.widgetPool+1] = k
+           local nodeObj = LuaExtend:getNodeByRecursion(self.obj,k) 
+           if _G[UIWidget[v]]~=nil then 
+           	   local calss = _G[UIWidget[v]]
+	           self[k] = calss(nodeObj,v)
+	           self.widgetPool[#self.widgetPool+1] = k
+           end 
 		end
    end
+   --扩展todo
 end 
 
 --关闭UI
@@ -99,9 +103,9 @@ end
 ---------------------生命周期 子类重写-------------------
 --声明成员变量
 function BaseUI:__init_Self()
-	--声明节点
+	--声明节点 节点控件由底层释放
     --self.nameText = UIWidget.LText
-    --声明变量
+    --声明变量 变量在子类onDispose置空
     --self.data = nil 
 end 
 

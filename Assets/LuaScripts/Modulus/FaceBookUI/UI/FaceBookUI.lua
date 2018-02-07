@@ -3,7 +3,7 @@ FaceBookUI = SimpleClass(BaseUI)
 --声明成员变量
 function FaceBookUI:__init_Self()
 	print("<color=yellow>FaceBookUI:__init_Self()</color>")
-    self.img2 = UIWidget.LUIWidget
+    self.img2 = UIWidget.LImage
     self.img3 = UIWidget.LUIWidget
     self.nameText = UIWidget.LText
 
@@ -17,6 +17,7 @@ function FaceBookUI:initLayout()
     end)
 
 	LuaExtend:setActive(self.animObj:getObj(),false)
+	self.img2:setImage("baoxiang")
 end 
 
 function FaceBookUI:onOpen()
