@@ -17,8 +17,11 @@ function FaceBookUI:initLayout()
     end)
 
 	LuaExtend:setActive(self.animObj:getObj(),false)
-	self.img3:setImage("baoxiang")
-	self.btn1:setOnClick(function() print("<color=red>self.btn1:setOnClick onclick </color>") end)
+	--self.img3:setImage("baoxiang")
+	self.btn1:setOnClick(function() 
+		print("<color=red>self.btn1:setOnClick onclick open guild ui </color>") 
+		 EventMgr:sendMsg(GuildCmd.On_Open_UI)
+	end)
 end 
 
 function FaceBookUI:onOpen()

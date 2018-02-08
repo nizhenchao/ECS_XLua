@@ -132,7 +132,7 @@ public class AssetMgr
         {
             name = name.Replace(".assetbundle", "");
         }
-        return name;
+        return name.ToLower();
     }
     //是否包含bundle
     private bool isHaveBundle(string url)
