@@ -85,7 +85,7 @@ public class ExcelExportTool
 
         FileStream fs = new FileStream(exp, FileMode.Append);
         StreamWriter sw = new StreamWriter(fs);
-        string calss = tableName + "{ }\n";
+        string calss = tableName + " = { }\n";
         sw.Write(calss);
         for (int i = dataRowIndex; i <= dict.Count; i++)
         {
