@@ -18,7 +18,8 @@ end
 function MainControl:onOpenUIEvent(param)
 	Utils:newObj(param)
 	--UIMgr:openUI(UIEnum.FaceBookUI,nil)	
-    EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
+    --EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
+    ResExtend:loadScene("level_001",function(val) print("加载场景中..."..tostring(val*100).."%") end)
 --[[测试打开UI
 	TimeMgr:addSecHandler(1,nil,function(count) 
 		 

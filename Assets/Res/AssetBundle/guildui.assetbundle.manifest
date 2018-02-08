@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1619221732
+CRC: 1177493779
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3e54d4b6874509a8c3a10e9b523db1bb
+    Hash: bb3891cae92aa3c1286c2a0e2bbf7174
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0ad2e011493e4d80b9a83c389b156b93
+    Hash: ed69af75d29fc12929e65cbf4615ad81
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -18,9 +18,11 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 - Class: 114
-  Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  Script: {fileID: -2095666955, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
@@ -38,7 +40,7 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/GuildUI.prefab
 Dependencies:
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/facebookicons.assetbundle
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/skillicons.assetbundle
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/titleicons.assetbundle
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/commonicons.assetbundle
+- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/skillicons.assetbundle
+- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/commonicons.assetbundle
+- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/facebookicons.assetbundle
+- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/titleicons.assetbundle

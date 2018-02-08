@@ -3,7 +3,7 @@ CRC: 2287208193
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6b7f74ed4ed919b668019f8c754eff25
+    Hash: 2e66ebddce8e19b219820ceb74cad4a9
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6f165f44e4778b6c9d85e7a145a54cb1
@@ -19,4 +19,4 @@ Assets:
 - Assets/Res/Arts/Materials/terrain.mat
 - Assets/Res/Arts/Shader/terrain.shader
 Dependencies:
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/ic_aoszseffect.assetbundle
+- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/ic_aoszseffect.assetbundle

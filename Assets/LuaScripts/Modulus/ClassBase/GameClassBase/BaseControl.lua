@@ -35,7 +35,7 @@ function BaseControl:initUIEvent()
        EventMgr:addListener(self.openCmd,Bind(self.openUI,self))
     end
     if self.closeCmd then 
-    	EventMgr:addListener(self.closeCmd,Bind(self.openUI,self))
+    	EventMgr:addListener(self.closeCmd,Bind(self.closeUI,self))
     end     
 end 
 

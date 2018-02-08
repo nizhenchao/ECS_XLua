@@ -4,6 +4,7 @@ FaceBookUI = SimpleClass(BaseUI)
 function FaceBookUI:__init_Self()
 	print("<color=yellow>FaceBookUI:__init_Self()</color>")
     self.btn1 = UIWidget.LButton
+    self.btn2 = UIWidget.LButton
     self.img3 = UIWidget.LImage
     self.nameText = UIWidget.LText
 
@@ -22,6 +23,7 @@ function FaceBookUI:initLayout()
 		print("<color=red>self.btn1:setOnClick onclick open guild ui </color>") 
 		 EventMgr:sendMsg(GuildCmd.On_Open_UI)
 	end)
+
 end 
 
 function FaceBookUI:onOpen()
