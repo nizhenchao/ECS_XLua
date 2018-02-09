@@ -15,16 +15,31 @@ function EntityMgr:createEntity(data)
     	return 
     end     
     local entity = LEntity(uid,data)
+    entity:onLoading()
     self.entityPool[uid] = entity
     if data:isMainPlayer() then 
     	self.mainPlayerId = uid 
-    end 
-    entity:onLoading()
+    	self:setCameraFollow()
+    end     
 end 
 
 --销毁实体
 function EntityMgr:destroyEntity()
 
+end 
+
+--获取一个实体
+function EntityMgr:getEntity(uid)
+	return self.entityPool[uid]
+end 
+--
+function EntityMgr:getMainEntity()
+	return self.entityPool[self.mainPlayerId]
+end 
+
+function EntityMgr:setCameraFollow()
+	local player = self:getMainEntity()
+	LuaExtend:setCameraPlayer(player:getRoot())
 end 
 
 function EntityMgr:onLoadScene()

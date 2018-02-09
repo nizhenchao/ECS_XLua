@@ -121,22 +121,27 @@ public static class LuaExtend
             return null;
     }
     //递归查找UI下面的一个节点
-    public static GameObject getNodeByRecursion(GameObject root, string nodeName) {
-        if (root != null) {
+    public static GameObject getNodeByRecursion(GameObject root, string nodeName)
+    {
+        if (root != null)
+        {
             return getNodeByTrans(root.transform, nodeName);
         }
         return null;
     }
-    private static GameObject getNodeByTrans(Transform rootTrans,string nodeName) {
-        if (rootTrans.gameObject.name == nodeName) {
+    private static GameObject getNodeByTrans(Transform rootTrans, string nodeName)
+    {
+        if (rootTrans.gameObject.name == nodeName)
+        {
             return rootTrans.gameObject;
         }
         int childCount = rootTrans.childCount;
         GameObject node = null;
         for (int i = 0; i < childCount; i++)
         {
-            node =  getNodeByTrans(rootTrans.GetChild(i), nodeName);
-            if (node != null) {
+            node = getNodeByTrans(rootTrans.GetChild(i), nodeName);
+            if (node != null)
+            {
                 return node;
             }
         }
@@ -191,4 +196,32 @@ public static class LuaExtend
 
     #endregion
 
+
+    #region 摄像机相关
+    public static void setCameraPlayer(GameObject player)
+    {
+        if (player == null) {
+            return;
+        }
+        Camera main = Camera.main;
+        if (main == null)
+        {
+            main = new Camera();
+            main.tag = "MainCamera";
+        }
+        MainCameraWidget mw = null;
+        if (main != null)
+        {
+            mw = main.gameObject.GetComponent<MainCameraWidget>();
+            if (mw == null)
+            {
+                mw = main.gameObject.AddComponent<MainCameraWidget>();
+            }
+        }
+        if (mw != null)
+        {
+            mw.setFollow(player);
+        }
+    }
+    #endregion
 }

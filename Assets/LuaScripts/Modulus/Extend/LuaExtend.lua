@@ -49,3 +49,8 @@ end
 function LuaExtend:loadScene(level,progress)
   CS.LuaExtend.loadScene(level,progress)
 end
+
+--摄像机相关
+function LuaExtend:setCameraPlayer(player)
+   CS.LuaExtend.setCameraPlayer(player)
+end

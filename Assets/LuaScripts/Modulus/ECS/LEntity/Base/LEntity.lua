@@ -17,8 +17,8 @@ function LEntity:__init_self()
 	self.anim = nil 
 end 
 
-function LEntity:onLoading()
-	print("<color=red> 加载实体模型中... </color>"..self.data:getPath())
+function LEntity:onLoading()	
+	self.root = Utils:newObj(tostring(self.uid))
     LuaExtend:loadObj(self.data:getPath(),Bind(self.onLoadComplete,self))
 end 
 
@@ -33,7 +33,6 @@ function LEntity:initialize()
    if not self.prefab then 
    	  return 
    end
-   self.root = Utils:newObj(tostring(self.uid))
    self.prefab.transform:SetParent(self.root.transform)
    self.cc = self.root:AddComponent(CharacterController)
    local h = self.data:getCCHeight()
@@ -51,6 +50,10 @@ function LEntity:onBaseDispose()
 	self.prefab = nil 
 	self.uid = nil 
 	self.data = nil 
+end 
+
+function LEntity:getRoot()
+	return self.root
 end 
 
 function LEntity:onDispose()
