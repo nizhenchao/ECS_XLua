@@ -62,3 +62,6 @@ end
 function LuaExtend:setCameraPlayer(player)
    CS.LuaExtend.setCameraPlayer(player)
 end
+function LuaExtend:doShake(time,att,hor,ver)
+   CS.LuaExtend.doShake(time,att,hor,ver)
+end

@@ -200,27 +200,59 @@ public static class LuaExtend
     #region 摄像机相关
     public static void setCameraPlayer(GameObject player)
     {
-        if (player == null) {
+        if (player == null)
+        {
             return;
         }
-        Camera main = Camera.main;
-        if (main == null)
-        {
-            main = new Camera();
-            main.tag = "MainCamera";
-        }
+        GameObject parent = null;
         MainCameraWidget mw = null;
-        if (main != null)
+        if (GameObject.FindGameObjectWithTag("PlayerCamera") != null)
         {
-            mw = main.gameObject.GetComponent<MainCameraWidget>();
+            parent = GameObject.FindGameObjectWithTag("PlayerCamera");
+        }
+        else
+        {
+            Camera main = Camera.main;
+            if (main == null)
+            {
+                main = new Camera();
+                main.tag = "Main Camera";
+            }
+
+            if (main != null)
+            {
+                parent = new GameObject("PlayerCamera");
+                parent.tag = "PlayerCamera";
+                main.transform.SetParent(parent.transform);
+                main.transform.localPosition = Vector3.zero;
+                main.transform.localEulerAngles = Vector3.zero;
+                main.transform.localScale = Vector3.one;
+            }
+        }
+
+        if (parent != null)
+        {
+            mw = parent.gameObject.GetComponent<MainCameraWidget>();
             if (mw == null)
             {
-                mw = main.gameObject.AddComponent<MainCameraWidget>();
+                mw = parent.gameObject.AddComponent<MainCameraWidget>();
             }
         }
         if (mw != null)
         {
             mw.setFollow(player);
+        }
+    }
+    public static void doShake(float time, float att, float hor, float ver)
+    {
+        GameObject camera = GameObject.FindGameObjectWithTag("PlayerCamera");
+        if (camera != null)
+        {
+            MainCameraWidget mw = camera.gameObject.GetComponent<MainCameraWidget>();
+            if (mw != null)
+            {
+                mw.doShake(time, att, hor, ver);
+            }
         }
     }
     #endregion

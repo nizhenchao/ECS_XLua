@@ -31,7 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 21, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 22, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "getLUID", _m_getLUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSUID", _m_getSUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "loadObj", _m_loadObj_xlua_st_);
@@ -52,6 +52,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "doUpDownScaleAnim", _m_doUpDownScaleAnim_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "killTweener", _m_killTweener_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setCameraPlayer", _m_setCameraPlayer_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "doShake", _m_doShake_xlua_st_);
             
 			
             
@@ -793,6 +794,33 @@ namespace XLua.CSObjectWrap
                     UnityEngine.GameObject player = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
                     
                     LuaExtend.setCameraPlayer( player );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_doShake_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    float time = (float)LuaAPI.lua_tonumber(L, 1);
+                    float att = (float)LuaAPI.lua_tonumber(L, 2);
+                    float hor = (float)LuaAPI.lua_tonumber(L, 3);
+                    float ver = (float)LuaAPI.lua_tonumber(L, 4);
+                    
+                    LuaExtend.doShake( time, att, hor, ver );
                     
                     
                     

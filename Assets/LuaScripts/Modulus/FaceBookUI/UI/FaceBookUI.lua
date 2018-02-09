@@ -15,6 +15,7 @@ end
 function FaceBookUI:initLayout()
     LuaExtend:addClickHandler(self.img1:getObj(),function()
         UIMgr:openUI(UIEnum.UpDownAnimUI,nil)
+         LuaExtend:doShake(1.5,0.02,0.3,0.3)
     end)
 
 	LuaExtend:setActive(self.animObj:getObj(),false)

@@ -11,10 +11,28 @@ public class MainCameraWidget : MonoBehaviour
     GameObject followPlayer = null;
     float distance = 10;
     float height = 6;
+    //相机震动
+    float shakeTime = -1;
+    float Attenuation = 1;
+    float HorShakeVal = 1;
+    float VerShakeVal = 1;
 
     public void setFollow(GameObject obj)
     {
         followPlayer = obj;
+    }
+
+    private Transform main = null;
+    private Transform Main
+    {
+        get
+        {
+            if (main == null)
+            {
+                main = this.transform.GetChild(0);
+            }
+            return main;
+        }
     }
 
     public void Update()
@@ -22,6 +40,21 @@ public class MainCameraWidget : MonoBehaviour
         if (followPlayer == null)
         {
             return;
+        }
+        if (shakeTime > 0)
+        {
+            float del = Time.deltaTime;
+            float h = UnityEngine.Random.Range(0, Attenuation);
+            float v = UnityEngine.Random.Range(0, Attenuation);
+            HorShakeVal -= h;
+            HorShakeVal = HorShakeVal <= 0 ? 0 : HorShakeVal;
+            VerShakeVal -= v;
+            VerShakeVal = VerShakeVal <= 0 ? 0 : VerShakeVal;
+            shakeV3.x = HorShakeVal * getShakeRandom();
+            shakeV3.y = VerShakeVal * getShakeRandom();
+            Main.transform.localPosition = shakeV3;
+            shakeTime -= del;
+            if (shakeTime <= 0) resetShake();
         }
 
         v3 = followPlayer.transform.position;
@@ -41,8 +74,20 @@ public class MainCameraWidget : MonoBehaviour
         return val == 1 ? -1 : 1;
     }
 
-    public void doShake() {
+    public void doShake(float time, float Attenuation = 0.1f, float HorShakeVal = 1, float VerShakeVal = 1)
+    {
+        this.shakeTime = time;
+        this.Attenuation = Attenuation;
+        this.HorShakeVal = HorShakeVal;
+        this.VerShakeVal = VerShakeVal;
+    }
 
+    private  void resetShake()
+    {
+        this.shakeTime = 0;
+        this.Attenuation = 0;
+        this.HorShakeVal = 0;
+        this.VerShakeVal = 0;
     }
 
 
