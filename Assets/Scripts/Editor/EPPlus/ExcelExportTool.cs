@@ -29,12 +29,19 @@ public class ExcelExportTool
             Debug.LogError("excel路径不存在" + path);
             return;
         }
-        string[] files = Directory.GetFiles(path, "*xlsx");
-        for (int i = 0; i < files.Length; i++)
+        UnityEngine.Object obj = Selection.activeObject;
+        if (File.Exists(Path.Combine(path, obj.name + ".xlsx")))
         {
-            exportExcel(files[i]);
+            exportExcel(Path.Combine(path, obj.name + ".xlsx"));
         }
-
+        else
+        {
+            string[] files = Directory.GetFiles(path, "*xlsx");
+            for (int i = 0; i < files.Length; i++)
+            {
+                exportExcel(files[i]);
+            }
+        }
         AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
         AssetDatabase.SaveAssets();
         EditorUtility.DisplayDialog("导出完成", "导出Excel完成", "OK");
