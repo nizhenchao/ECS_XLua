@@ -64,16 +64,12 @@ public class ExcelExportTool
         int maxCol = sheet.Dimension.End.Column;
         for (int i = 1; i <= maxCol; i++)
         {
-            //如果当前列是最大列
-            object val = sheet.GetValue(index, i);
-            if (i == maxCol && (val == null || string.IsNullOrEmpty(val.ToString())))
-            {
+            //拿当前列 第4行 字段为空 跳过
+            object proVal = sheet.GetValue(4, i);
+            if (proVal == null || string.IsNullOrEmpty(proVal.ToString())) continue;
 
-            }
-            else
-            {
-                lst.Add(val != null ? val.ToString() : "");
-            }
+            object val = sheet.GetValue(index, i);
+            lst.Add(val != null ? val.ToString() : "");
         }
     }
     //写入一整张表
