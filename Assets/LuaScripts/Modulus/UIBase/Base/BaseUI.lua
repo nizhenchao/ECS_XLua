@@ -43,7 +43,8 @@ end
 
 --UI节点
 function BaseUI:bindNode()
-	LuaExtend:setUINode(self.obj,self.uiInfo.UINode)
+	--LuaExtend:setUINode(self.obj,self.uiInfo.UINode)
+	UIMgr:setNode(self,self.uiInfo.UINode)
 end 
 
 --加载UI

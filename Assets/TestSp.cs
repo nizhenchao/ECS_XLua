@@ -23,6 +23,7 @@ public class TestSp : MonoBehaviour {
 
     IEnumerator OnClick()
     {
+
         Resources.UnloadUnusedAssets();//清干净以免影响测试效果
 
         yield return new WaitForSeconds(3);

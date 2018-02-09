@@ -10,3 +10,9 @@ function LButton:setOnClick(call)
 		self.widget.onClick:AddListener(call)
 	end 
 end 
+
+function LButton:onDispose()
+	if self.widget then 
+		self.widget.onClick:RemoveAllListeners()		
+	end 
+end 
