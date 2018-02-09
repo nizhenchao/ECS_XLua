@@ -5,6 +5,7 @@ function GuildUI:__init_Self()
 	print("<color=yellow>GuildUI:__init_Self()</color>")
 	self.btn2 = UIWidget.LButton
 	self.btn1 = UIWidget.LButton
+	self.nameText = UIWidget.LText
 end 
 
 function GuildUI:initLayout()
@@ -18,4 +19,5 @@ end
 
 function GuildUI:onOpen()
 	print("<color=yellow>GuildUI:onOpen()</color>")
+	self.nameText:setText("GuildUI")
 end 

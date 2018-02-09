@@ -7,6 +7,15 @@ using System.IO;
 using System;
 using System.Text;
 
+/// <summary>
+/// Excel导出Lua工具
+/// Excel配置规则(只读取sheet1,Sheet1的命名是导出Lua table的命名)
+/// 第一行描述 
+/// 第二行标记是否导出Lua字段或是sql 
+/// 第三行数据类型(string,int,float,bool,int[]) 
+/// 第四行字段名称(如果读取excel第n列发现第4行字段为空则不导出)
+/// 第五行正式数据配置...
+/// </summary>
 public class ExcelExportTool
 {
     private const int dataRowIndex = 5;

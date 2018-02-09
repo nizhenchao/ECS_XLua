@@ -28,5 +28,5 @@ end
 
 function FaceBookUI:onOpen()
 	print("<color=yellow>FaceBookUI:onOpen()</color>")
-	self.nameText:setText("FaceBookUI:onOpen()")
+	self.nameText:setText("FaceBookUI")
 end 
