@@ -17,11 +17,16 @@ function SceneControl:onSceneLoadBegin()
     print("场景加载开始 CS call Lua")
     --TimeMgr:clear()
     UIMgr:onLoadScene()
+    EntityMgr:onLoadScene()
 end 
 
 function SceneControl:onSceneLoadEnd()
     print("场景加载完毕 CS call Lua")
     EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
+
+    local conf = ConfigHelper:getConfigByKey('ModelConfig',10001)
+    local roleData = EntityData(900000010001,conf)
+    EntityMgr:createEntity(roleData)
 end 
 
 Register('SceneControl')

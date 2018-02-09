@@ -1,55 +1,64 @@
 ManifestFileVersion: 0
-CRC: 1183985788
+CRC: 299893716
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: atlas/skillicons.assetbundle
-      Dependencies: {}
-    Info_1:
-      Name: ic_baibxjeffect.assetbundle
-      Dependencies: {}
-    Info_2:
-      Name: ic_batxeffect.assetbundle
-      Dependencies: {}
-    Info_3:
-      Name: ic_bianxjgeffect.assetbundle
-      Dependencies: {}
-    Info_4:
-      Name: ic_bimweffect.assetbundle
-      Dependencies: {}
-    Info_5:
-      Name: ic_aoszseffect.assetbundle
-      Dependencies: {}
-    Info_6:
-      Name: terrain.assetbundle
-      Dependencies:
-        Dependency_0: ic_aoszseffect.assetbundle
-    Info_7:
-      Name: facebookui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/skillicons.assetbundle
-        Dependency_1: atlas/facebookicons.assetbundle
-    Info_8:
-      Name: guildui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/skillicons.assetbundle
-        Dependency_1: atlas/commonicons.assetbundle
-        Dependency_2: atlas/facebookicons.assetbundle
-        Dependency_3: atlas/titleicons.assetbundle
-    Info_9:
-      Name: monster_1001.assetbundle
-      Dependencies:
-        Dependency_0: terrain.assetbundle
-    Info_10:
-      Name: updownanimui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/facebookicons.assetbundle
-    Info_11:
-      Name: atlas/commonicons.assetbundle
-      Dependencies: {}
-    Info_12:
       Name: atlas/facebookicons.assetbundle
       Dependencies: {}
-    Info_13:
+    Info_1:
+      Name: atlas/skillicons.assetbundle
+      Dependencies: {}
+    Info_2:
       Name: atlas/titleicons.assetbundle
       Dependencies: {}
+    Info_3:
+      Name: atlas/commonicons.assetbundle
+      Dependencies: {}
+    Info_4:
+      Name: modelprefabs/player_002_hunter.assetbundle
+      Dependencies: {}
+    Info_5:
+      Name: textures/ic_aoszseffect.png
+      Dependencies: {}
+    Info_6:
+      Name: textures/ic_baibxjeffect.png
+      Dependencies: {}
+    Info_7:
+      Name: textures/ic_batxeffect.png
+      Dependencies: {}
+    Info_8:
+      Name: textures/ic_bianxjgeffect.png
+      Dependencies: {}
+    Info_9:
+      Name: textures/ic_bimweffect.png
+      Dependencies: {}
+    Info_10:
+      Name: materials/terrain.mat
+      Dependencies:
+        Dependency_0: textures/ic_aoszseffect.png
+        Dependency_1: shader/terrain.shader
+    Info_11:
+      Name: shader/terrain.shader
+      Dependencies: {}
+    Info_12:
+      Name: modelprefabs/monster_1001.assetbundle
+      Dependencies:
+        Dependency_0: materials/terrain.mat
+    Info_13:
+      Name: modelprefabs/player_001.assetbundle
+      Dependencies: {}
+    Info_14:
+      Name: uiprefabs/facebookui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/facebookicons.assetbundle
+        Dependency_1: atlas/skillicons.assetbundle
+    Info_15:
+      Name: uiprefabs/guildui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/facebookicons.assetbundle
+        Dependency_1: atlas/skillicons.assetbundle
+        Dependency_2: atlas/commonicons.assetbundle
+    Info_16:
+      Name: uiprefabs/updownanimui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/facebookicons.assetbundle

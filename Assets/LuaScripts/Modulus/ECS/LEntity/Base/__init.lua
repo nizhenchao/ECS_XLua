@@ -1,0 +1,1 @@
+require "Assets.LuaScripts.Modulus.ECS.LEntity.Base.LEntity"

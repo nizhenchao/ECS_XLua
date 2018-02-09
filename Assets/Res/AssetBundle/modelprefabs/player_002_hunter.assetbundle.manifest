@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 1459245097
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a2cc7bb559db0ee98185e73b72e04107
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb433a1dd3890210545c30a0862c467f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Prefabs/ModelPrefabs/Player_002_hunter.prefab
+Dependencies: []

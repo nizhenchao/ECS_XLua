@@ -68,7 +68,7 @@ public class BuildAsset
         }
         Stopwatch watch = new Stopwatch();
         watch.Start();
-        markRes(prefabsPath, ".prefab");
+        markFloder(prefabsPath, ".prefab");
         markRes(texturesPath, ".png");
         markRes(materialPath, ".mat");
         markRes(shaderPath, ".shader");
@@ -105,20 +105,19 @@ public class BuildAsset
     {
         if (Directory.Exists(path))
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-            FileInfo[] files = dirInfo.GetFiles("*", SearchOption.AllDirectories);
             string name = isAll ? getFolderName(path) : "";
-
-            for (int i = 0; i < files.Length; i++)
+            string[] fils = Directory.GetFiles(path);
+            for (int i = 0; i < fils.Length; i++)
             {
-                if (files[i].Name.EndsWith(suff))
+                if (fils[i].EndsWith(suff))
                 {
-                    AssetImporter imp = AssetImporter.GetAtPath(Path.Combine(path, files[i].Name));
+                    AssetImporter imp = AssetImporter.GetAtPath(fils[i]);
                     if (imp != null)
                     {
                         if (!isAll)
                         {
-                            imp.assetBundleName = files[i].Name.Replace(suff, ".assetbundle");
+                            string bName = getBundleName(fils[i]);
+                            imp.assetBundleName = bName.Replace(".prefab", ".assetbundle");
                         }
                         else
                         {
@@ -130,33 +129,34 @@ public class BuildAsset
         }
     }
 
+    //先标记文件夹下的  再标记文件夹下面所有文件夹
+    static private void markFloder(string path, string suff, bool isAll = false)
+    {
+        if (Directory.Exists(path))
+        {
+            markRes(path, suff, isAll);
+            string[] dirs = Directory.GetDirectories(path);
+            for (int i = 0; i < dirs.Length; i++)
+            {
+                markRes(dirs[i], suff, isAll);
+            }
+        }
+    }
 
-
+    //整个文件夹打包成一个ab bundleName通过文件夹路径获取
     static private string getFolderName(string path)
     {
         string[] lst = path.Split('/');
-
         return lst[lst.Length - 1];
     }
-
-
-
-    static public void Write(string key, List<string> vals)
+    //文件夹下面的资源单独打成ab bundleName根据文件路径获取
+    static private string getBundleName(string path)
     {
-        FileStream fs = new FileStream("E:\\depends.txt", FileMode.Create);
-        StringBuilder value = new StringBuilder();
-        value.Append(key + ':');
-        for (int i = 0; i < vals.Count; i++)
-        {
-            value.Append(vals[i] + ',');
-        }
-        //获得字节数组
-        byte[] data = System.Text.Encoding.Default.GetBytes(value.ToString());
-        //开始写入
-        fs.Write(data, 0, data.Length);
-        //清空缓冲区、关闭流
-        fs.Flush();
-        fs.Close();
+        path = path.Replace(@"\", "/");
+        string[] lst = path.Split('/');
+        int count = lst.Length;
+        string pre = lst[count - 2];
+        string suff = lst[count - 1];
+        return pre + "/" + suff;
     }
-
 }

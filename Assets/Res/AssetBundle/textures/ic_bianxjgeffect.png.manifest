@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 1621569309
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e17ec2c3ae28ea14a0ffb879965e0e06
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c73412a662fd4e4f36af34cbdf078b85
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Textures/ic_bianxjgeffect.png
+Dependencies: []

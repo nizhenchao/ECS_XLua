@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 2306185443
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 53fbd1ae05d4785cf785a8fc66d2f94b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb433a1dd3890210545c30a0862c467f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Prefabs/ModelPrefabs/Player_001.prefab
+Dependencies: []
