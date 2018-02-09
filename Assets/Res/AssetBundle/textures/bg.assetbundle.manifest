@@ -1,16 +1,18 @@
 ManifestFileVersion: 0
-CRC: 1694356095
+CRC: 1043733828
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6ca96a14f2847a4cac3c7bc0a73435a8
+    Hash: 1c9f89c7047d0e8eabe0360f50817574
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6370d3f9de9eca57f523bce048404a46
+    Hash: 460b4f5d62b6facbccf7c01637df8f00
 HashAppended: 0
 ClassTypes:
-- Class: 48
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Res/Arts/Shader/terrain.shader
+- Assets/Res/Arts/Textures/Bg.png
 Dependencies: []

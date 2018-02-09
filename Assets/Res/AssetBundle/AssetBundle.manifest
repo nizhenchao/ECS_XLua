@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 299893716
+CRC: 17632794
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -18,47 +18,47 @@ AssetBundleManifest:
       Name: modelprefabs/player_002_hunter.assetbundle
       Dependencies: {}
     Info_5:
-      Name: textures/ic_aoszseffect.png
-      Dependencies: {}
-    Info_6:
-      Name: textures/ic_baibxjeffect.png
-      Dependencies: {}
-    Info_7:
-      Name: textures/ic_batxeffect.png
-      Dependencies: {}
-    Info_8:
-      Name: textures/ic_bianxjgeffect.png
-      Dependencies: {}
-    Info_9:
-      Name: textures/ic_bimweffect.png
-      Dependencies: {}
-    Info_10:
-      Name: materials/terrain.mat
-      Dependencies:
-        Dependency_0: textures/ic_aoszseffect.png
-        Dependency_1: shader/terrain.shader
-    Info_11:
-      Name: shader/terrain.shader
-      Dependencies: {}
-    Info_12:
       Name: modelprefabs/monster_1001.assetbundle
       Dependencies:
-        Dependency_0: materials/terrain.mat
-    Info_13:
+        Dependency_0: materials/terrain.assetbundle
+    Info_6:
       Name: modelprefabs/player_001.assetbundle
-      Dependencies: {}
-    Info_14:
+      Dependencies:
+        Dependency_0: animators/acplayer__001.assetbundle
+    Info_7:
       Name: uiprefabs/facebookui.assetbundle
       Dependencies:
         Dependency_0: atlas/facebookicons.assetbundle
         Dependency_1: atlas/skillicons.assetbundle
-    Info_15:
+    Info_8:
       Name: uiprefabs/guildui.assetbundle
       Dependencies:
         Dependency_0: atlas/facebookicons.assetbundle
         Dependency_1: atlas/skillicons.assetbundle
         Dependency_2: atlas/commonicons.assetbundle
-    Info_16:
+    Info_9:
       Name: uiprefabs/updownanimui.assetbundle
       Dependencies:
         Dependency_0: atlas/facebookicons.assetbundle
+    Info_10:
+      Name: textures/106200001.assetbundle
+      Dependencies: {}
+    Info_11:
+      Name: textures/bg.assetbundle
+      Dependencies: {}
+    Info_12:
+      Name: textures/sjboss_bg.assetbundle
+      Dependencies: {}
+    Info_13:
+      Name: textures/zz_bg.assetbundle
+      Dependencies: {}
+    Info_14:
+      Name: materials/terrain.assetbundle
+      Dependencies:
+        Dependency_0: shader/terrain.assetbundle
+    Info_15:
+      Name: shader/terrain.assetbundle
+      Dependencies: {}
+    Info_16:
+      Name: animators/acplayer__001.assetbundle
+      Dependencies: {}

@@ -1,16 +1,18 @@
 ManifestFileVersion: 0
-CRC: 1621569309
+CRC: 280683083
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e17ec2c3ae28ea14a0ffb879965e0e06
+    Hash: e794a492f8ddad3c39275b86bd5d792e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c73412a662fd4e4f36af34cbdf078b85
+    Hash: 460b4f5d62b6facbccf7c01637df8f00
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 Assets:
-- Assets/Res/Arts/Textures/ic_bianxjgeffect.png
+- Assets/Res/Arts/Textures/ZZ_Bg.png
 Dependencies: []

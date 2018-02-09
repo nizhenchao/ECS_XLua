@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
-using System.Text;
 using System.Diagnostics;
 
 /// <summary>
@@ -18,6 +17,7 @@ public class BuildAsset
     private const string texturesPath = "Assets/Res/Arts/Textures";
     private const string materialPath = "Assets/Res/Arts/Materials";
     private const string shaderPath = "Assets/Res/Arts/Shader";
+    private const string animator = "Assets/Res/Arts/Animators";
     //打包图集 每个文件夹下面打包成一个ab
     private const string atlasPath = "Assets/Res/Arts/Atlas";
     /// <summary>
@@ -48,6 +48,7 @@ public class BuildAsset
         lst.Add(texturesPath);
         lst.Add(materialPath);
         lst.Add(shaderPath);
+        lst.Add(animator);
     }
 
     /// <summary>
@@ -68,11 +69,12 @@ public class BuildAsset
         }
         Stopwatch watch = new Stopwatch();
         watch.Start();
-        markFloder(prefabsPath, ".prefab");
+        markResDirectory(atlasPath, ".png", true);
         markRes(texturesPath, ".png");
         markRes(materialPath, ".mat");
         markRes(shaderPath, ".shader");
-        markResDirectory(atlasPath, ".png", true);
+        markRes(animator, ".controller");
+        markFloder(prefabsPath, ".prefab");
         BuildABs();
         watch.Stop();
         EditorUtility.ClearProgressBar();
@@ -109,6 +111,7 @@ public class BuildAsset
             string[] fils = Directory.GetFiles(path);
             for (int i = 0; i < fils.Length; i++)
             {
+
                 if (fils[i].EndsWith(suff))
                 {
                     AssetImporter imp = AssetImporter.GetAtPath(fils[i]);
@@ -117,7 +120,7 @@ public class BuildAsset
                         if (!isAll)
                         {
                             string bName = getBundleName(fils[i]);
-                            imp.assetBundleName = bName.Replace(".prefab", ".assetbundle");
+                            imp.assetBundleName =  bName.Replace(suff, ".assetbundle");
                         }
                         else
                         {

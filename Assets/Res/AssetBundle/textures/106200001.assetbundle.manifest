@@ -1,16 +1,18 @@
 ManifestFileVersion: 0
-CRC: 3869969802
+CRC: 3634255714
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7f9c13cac6d2243490c26e9fe8ceadc0
+    Hash: 76d65fa7f6ce69ddc737ea0ff8a98a95
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c73412a662fd4e4f36af34cbdf078b85
+    Hash: 460b4f5d62b6facbccf7c01637df8f00
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 Assets:
-- Assets/Res/Arts/Textures/ic_batxeffect.png
+- Assets/Res/Arts/Textures/106200001.png
 Dependencies: []

@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
-CRC: 2777083889
+CRC: 3681342813
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e3924810a478beca727f4385c4fbd241
+    Hash: 6ca96a14f2847a4cac3c7bc0a73435a8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c73412a662fd4e4f36af34cbdf078b85
+    Hash: 6370d3f9de9eca57f523bce048404a46
 HashAppended: 0
 ClassTypes:
-- Class: 28
+- Class: 48
   Script: {instanceID: 0}
 Assets:
-- Assets/Res/Arts/Textures/ic_aoszseffect.png
+- Assets/Res/Arts/Shader/terrain.shader
 Dependencies: []
