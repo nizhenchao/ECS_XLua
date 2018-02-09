@@ -53,7 +53,8 @@ public class BasePool
         if (tempObj == null)
         {
             loadHandler.Add(callBack);
-            LoaderMgr.Instance.addTask(url, onLoaderFinish);
+            if (loadHandler.Count <= 1)
+                LoaderMgr.Instance.addTask(url, onLoaderFinish);
         }
         else
         {

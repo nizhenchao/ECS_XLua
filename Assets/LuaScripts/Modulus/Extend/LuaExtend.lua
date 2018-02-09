@@ -5,6 +5,14 @@ function LuaExtend:setActive(obj,isActive)
    CS.LuaExtend.setActive(obj,isActive)
 end 
 
+function LuaExtend:setObjPos(obj,x,y,z)
+   CS.LuaExtend.setObjPos(obj,x,y,z)
+end
+
+function LuaExtend:setObjPosTable(obj,lst)
+   CS.LuaExtend.setObjPos(obj,lst[1],lst[2],lst[3])
+end
+
 --UI相关
 --设置UI在Canvas的层
 function LuaExtend:setUINode(obj,node)

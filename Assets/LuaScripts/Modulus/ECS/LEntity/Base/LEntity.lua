@@ -19,6 +19,7 @@ end
 
 function LEntity:onLoading()	
 	self.root = Utils:newObj(tostring(self.uid))
+	LuaExtend:setObjPosTable(self.root,self.data:getSpawn())
     LuaExtend:loadObj(self.data:getPath(),Bind(self.onLoadComplete,self))
 end 
 
@@ -34,6 +35,7 @@ function LEntity:initialize()
    	  return 
    end
    self.prefab.transform:SetParent(self.root.transform)
+   LuaExtend:setObjPosTable(self.prefab,{0,0,0})
    self.cc = self.root:AddComponent(CharacterController)
    local h = self.data:getCCHeight()
    local radius = self.data:getCCRadius()   

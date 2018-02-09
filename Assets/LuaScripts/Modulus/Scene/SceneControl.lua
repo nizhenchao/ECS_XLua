@@ -25,8 +25,14 @@ function SceneControl:onSceneLoadEnd()
     EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
 
     local conf = ConfigHelper:getConfigByKey('ModelConfig',10001)
-    local roleData = EntityData(900000010001,conf)
+    local roleData = EntityData(900000010001,conf,{10,0,10})
     EntityMgr:createEntity(roleData)
+
+    for i =1,100 do 
+	    local conf = ConfigHelper:getConfigByKey('ModelConfig',10001)
+	    local roleData = EntityData(900000010001+i,conf,{math.floor(i/10)*3,0,2*(i%10)})
+	    EntityMgr:createEntity(roleData)
+    end 
 end 
 
 Register('SceneControl')

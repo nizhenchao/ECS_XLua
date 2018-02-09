@@ -41,6 +41,9 @@ public class MainCameraWidget : MonoBehaviour
         return val == 1 ? -1 : 1;
     }
 
+    public void doShake() {
+
+    }
 
 
 }

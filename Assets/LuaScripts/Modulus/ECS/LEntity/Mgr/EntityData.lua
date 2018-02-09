@@ -1,8 +1,9 @@
 EntityData = SimpleClass()
 
-function EntityData:__init(uid,config,...)
+function EntityData:__init(uid,config,spawn)
 	self.uid = uid 
 	self.conf = config
+	self.spawn = spawn
 end 
 
 function EntityData:getUid()
@@ -28,4 +29,8 @@ end
 --模型碰撞器半径
 function EntityData:getCCRadius()
 	return self.conf and self.conf.ccRadius or ""
+end 
+
+function EntityData:getSpawn()
+	return self.spawn
 end 
