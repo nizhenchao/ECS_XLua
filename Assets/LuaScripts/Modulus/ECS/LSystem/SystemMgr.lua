@@ -24,9 +24,9 @@ end
 
 function SystemMgr:addLong()
    local modelSys = LModelSystem()
-   if self.longPool[modelSys.subscibe] == nil then 
-      self.longPool[modelSys.subscibe] = modelSys
-   end   
+   local ccSys = LCCSystem()
+   self.longPool[modelSys.subscibe] = modelSys 
+   self.longPool[ccSys.subscibe] = ccSys 
 end 
 
 

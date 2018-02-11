@@ -1,7 +1,7 @@
 LModelSystem = SimpleClass(LSystem)
 
 function LModelSystem:__init_self()
-    self.subscibe = 1 
+    self.subscibe = LCompType.Model
 end 
 
 function LModelSystem:__init()
