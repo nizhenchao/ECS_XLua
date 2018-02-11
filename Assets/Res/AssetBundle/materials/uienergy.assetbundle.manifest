@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 1831834826
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dcaf01e815b436ac38eea1fd6faba1f8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c2bdabd68c118aabc18c59eaf5951821
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Materials/UIEnergy.mat
+Dependencies:
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/shader/uienergy.assetbundle

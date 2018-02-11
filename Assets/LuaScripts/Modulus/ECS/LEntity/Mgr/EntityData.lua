@@ -3,7 +3,8 @@ EntityData = SimpleClass()
 function EntityData:__init(uid,config,spawn)
 	self.uid = uid 
 	self.conf = config
-	self.spawn = spawn
+	self.compLst = nil 
+	self:initCompLst()
 end 
 
 function EntityData:getUid()
@@ -14,23 +15,28 @@ function EntityData:getConfig()
 	return self.conf
 end 
 
+function EntityData:getEntityType()
+end 
+
 function EntityData:isMainPlayer()
 	return true 
 end 
 
---模型加载路径
-function EntityData:getPath()
-	return self.conf and self.conf.modelName or ""
-end 
---模型碰撞器高度
-function EntityData:getCCHeight()
-	return self.conf and self.conf.ccHeight or ""
-end 
---模型碰撞器半径
-function EntityData:getCCRadius()
-	return self.conf and self.conf.ccRadius or ""
+function EntityData:initCompLst()
+   if not self.conf then 
+   	  return 
+   end
+   self.compLst = { }
+   for i = 1,20 do 
+   	   if self.conf['c'..i] == nil then 
+   	   	  break
+   	   end 
+   	   local type = self.conf['c'..i] 
+   	   local args = self.conf['args'..i] 
+   	   self.compLst[type] = args
+   end 
 end 
 
-function EntityData:getSpawn()
-	return self.spawn
+function EntityData:getCompLst()
+   return self.compLst
 end 

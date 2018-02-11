@@ -1,7 +1,7 @@
 EntityMgr = {}
 
 function EntityMgr:init()
-    self.entityPool = { }
+    self.entityPool = { }--key = uid   val = entity 
     self.mainPlayerId = nil 
 end 
 
@@ -24,8 +24,17 @@ function EntityMgr:createEntity(data)
 end 
 
 --销毁实体
-function EntityMgr:destroyEntity()
+function EntityMgr:destroyEntity(uid)
+   if not self.entityPool[uid] then 
+      return 
+   end 
+   local entity = self.entityPool[uid]
+   self.entityPool[uid] = nil 
+   entity:onBaseDispose()
+end 
 
+function EntityMgr:isHave(uid)
+  return self.entityPool[uid] ~= nil 
 end 
 
 --获取一个实体
@@ -48,6 +57,12 @@ function EntityMgr:onLoadScene()
 	end 
     self.entityPool = { }
     self.mianPlayerId = nil 
+end 
+
+function EntityMgr:getSubEntity(system)
+   for k,v in pairs(self.entityPool) do 
+
+   end 
 end 
 
 create(EntityMgr)

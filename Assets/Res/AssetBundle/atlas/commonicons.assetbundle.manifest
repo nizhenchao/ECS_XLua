@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1384878270
+CRC: 757692309
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2bce343615b28853873cdfbc52c00ec7
+    Hash: 8c301fbe8b976bf4e1d5dca80a67c908
   TypeTreeHash:
     serializedVersion: 2
     Hash: 460b4f5d62b6facbccf7c01637df8f00
@@ -105,6 +105,7 @@ Assets:
 - Assets/Res/Arts/Atlas/commonIcons/FQ_nv.png
 - Assets/Res/Arts/Atlas/commonIcons/xjj_yangshi.png
 - Assets/Res/Arts/Atlas/commonIcons/yijihuo.png
+- Assets/Res/Arts/Atlas/commonIcons/image 573.png
 - Assets/Res/Arts/Atlas/commonIcons/lock.png
 - Assets/Res/Arts/Atlas/commonIcons/caijiBg1.png
 - Assets/Res/Arts/Atlas/commonIcons/huaxian.png

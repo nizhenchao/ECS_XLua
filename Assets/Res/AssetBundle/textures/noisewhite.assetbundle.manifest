@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3042581039
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9bfc0e152475f880d619607a71c522c1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c73412a662fd4e4f36af34cbdf078b85
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Textures/noiseWhite.png
+Dependencies: []

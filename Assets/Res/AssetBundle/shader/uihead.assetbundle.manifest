@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 1354245806
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d44fc1a701909e716e81aa71dda64860
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6370d3f9de9eca57f523bce048404a46
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Shader/UIHead.shader
+Dependencies: []

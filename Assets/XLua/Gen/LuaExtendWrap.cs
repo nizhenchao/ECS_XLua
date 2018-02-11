@@ -31,7 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 22, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 23, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "getLUID", _m_getLUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSUID", _m_getSUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "loadObj", _m_loadObj_xlua_st_);
@@ -49,6 +49,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getNode", _m_getNode_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getNodeByRecursion", _m_getNodeByRecursion_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "addClickHandler", _m_addClickHandler_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "setMaterialFloat", _m_setMaterialFloat_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "doUpDownScaleAnim", _m_doUpDownScaleAnim_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "killTweener", _m_killTweener_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setCameraPlayer", _m_setCameraPlayer_xlua_st_);
@@ -680,6 +681,34 @@ namespace XLua.CSObjectWrap
             }
             
             return LuaAPI.luaL_error(L, "invalid arguments to LuaExtend.addClickHandler!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_setMaterialFloat_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    UnityEngine.UI.Image img = (UnityEngine.UI.Image)translator.GetObject(L, 1, typeof(UnityEngine.UI.Image));
+                    string key = LuaAPI.lua_tostring(L, 2);
+                    float val = (float)LuaAPI.lua_tonumber(L, 3);
+                    
+                    LuaExtend.setMaterialFloat( img, key, val );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
             
         }
         

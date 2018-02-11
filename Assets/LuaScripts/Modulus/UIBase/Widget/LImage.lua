@@ -1,6 +1,6 @@
 LImage = SimpleClass(LUIWidget)
 
-function LUIWidget:getWidget()
+function LImage:getWidget()
     return self.widgetObj:GetComponent(CSImage) 
 end 
 
@@ -21,6 +21,10 @@ function LImage:setFillAmount(val)
 	end 
 end 
 
+function LImage:setMaterialFloat(key,val)
+	LuaExtend:setMaterialFloat(self.widget,key,val)
+end 
+
 function LImage:onDispose()
-   print("<color=red>LImage:onDispose()</color>")
+	
 end 

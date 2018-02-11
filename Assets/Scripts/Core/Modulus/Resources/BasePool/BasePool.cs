@@ -45,6 +45,7 @@ public class BasePool
         root = go.transform;
         ManifestMgr.getDepends(url, ref depends);
         root.SetParent(PoolMgr.Instance.PoolRoot);
+        root.transform.localPosition = Vector3.zero;
     }
 
     public void getObj(Action<GameObject> callBack)

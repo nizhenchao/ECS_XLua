@@ -162,6 +162,15 @@ public static class LuaExtend
         }
     }
 
+    //设置UI的material属性
+    public static void setMaterialFloat(Image img, string key, float val)
+    {
+        if (img != null)
+        {
+            img.material.SetFloat(key, val);
+        }
+    }
+
     #endregion
 
     #region doTween导出相关

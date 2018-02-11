@@ -34,8 +34,12 @@ end
 function LuaExtend:getNodeByRecursion(root,nodeName)
    return CS.LuaExtend.getNodeByRecursion(root,nodeName)
 end
+--设置UI的material属性
+function LuaExtend:setMaterialFloat(img,key,val)
+   CS.LuaExtend.setMaterialFloat(img,key,val)
+end
 
---DoTween相关
+----------------------DoTween相关
 function LuaExtend:doUpDownScaleAnim(obj,title,onComplete)
     return CS.LuaExtend.doUpDownScaleAnim(obj,title,onComplete)
 end 

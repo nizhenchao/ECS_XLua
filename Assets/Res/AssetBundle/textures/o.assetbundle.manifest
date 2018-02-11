@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 4045036579
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c499ba3edade8c1599998715e1c65062
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 460b4f5d62b6facbccf7c01637df8f00
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Arts/Textures/o.png
+Dependencies: []

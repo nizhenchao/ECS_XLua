@@ -1,19 +1,22 @@
 ManifestFileVersion: 0
-CRC: 3685544102
+CRC: 3300357203
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0170b53df5a21cccc16fd8c2199d7044
+    Hash: 70da87c11fef87c9d2bdc306939eff28
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c2bdabd68c118aabc18c59eaf5951821
+    Hash: 6f165f44e4778b6c9d85e7a145a54cb1
 HashAppended: 0
 ClassTypes:
 - Class: 21
+  Script: {instanceID: 0}
+- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
 Assets:
 - Assets/Res/Arts/Materials/terrain.mat
 Dependencies:
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/textures/bg.assetbundle
 - F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/shader/terrain.assetbundle
