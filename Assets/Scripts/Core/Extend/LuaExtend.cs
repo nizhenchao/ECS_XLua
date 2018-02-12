@@ -232,20 +232,14 @@ public static class LuaExtend
             tw.Kill(doComplete);
         }
     }
-
+    //旋转tween
     public static void lerpRotation(GameObject obj, float angle)
     {
         if (obj != null)
         {
-            Quaternion end = Quaternion.Euler(0, angle, 0);
-            //Debug.LogError(obj.name+"       "+obj.transform.rotation+"              "+end);
-            Quaternion.Lerp(obj.transform.rotation, end, 0.75f);
             obj.transform.DORotate(new Vector3(0, angle, 0), 0.1f);
         }
     }
-
-
-
     #endregion
 
 
