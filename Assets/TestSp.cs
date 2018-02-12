@@ -9,12 +9,11 @@ public class TestSp : MonoBehaviour {
     public GameObject prefabs;
 	// Use this for initialization
 	void Start () {
-        AssetBundle ab = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "Res/AssetBundle/monster_1001.assetbundle"));
-        UnityEngine.Object obj = ab.LoadAsset("monster_1001");
-        GameObject go = GameObject.Instantiate(obj) as GameObject;
-        
-        Resources.UnloadAsset(obj);
-	}
+        Vector2 v1 = new Vector2(0, 1);
+        Vector2 v2 = new Vector2(-0.9f, -0.5f);
+        float a = Vector2.Angle(v1, v2);
+        Debug.LogError(a);
+    }
 	
 	// Update is called once per frame
 	void Update () {

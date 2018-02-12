@@ -350,6 +350,7 @@
     <Compile Include="Assets\Scripts\Core\Modulus\UI\EventListener\EventListener.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\UI\UIMgr\UIMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Utils\MathUtils\MathUtils.cs" />
+    <Compile Include="Assets\Scripts\Core\Modulus\Utils\ScreenUtils\ScreenUtils.cs" />
     <Compile Include="Assets\Scripts\Z_test\MyTest.cs" />
     <Compile Include="Assets\TestSp.cs" />
     <Compile Include="Assets\XLua\Examples\01_Helloworld\Helloworld.cs" />
@@ -373,6 +374,7 @@
     <Compile Include="Assets\XLua\Gen\CSCallLuaItfDBridge.cs" />
     <Compile Include="Assets\XLua\Gen\DelegatesGensBridge.cs" />
     <Compile Include="Assets\XLua\Gen\EnumWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\EventListenerWrap.cs" />
     <Compile Include="Assets\XLua\Gen\Foo1ChildWrap.cs" />
     <Compile Include="Assets\XLua\Gen\Foo1ParentWrap.cs" />
     <Compile Include="Assets\XLua\Gen\Foo2ChildWrap.cs" />

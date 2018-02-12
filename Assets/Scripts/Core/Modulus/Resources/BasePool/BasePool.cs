@@ -115,6 +115,7 @@ public class BasePool
         }
         go.transform.SetParent(null);
         go.transform.position = Vector3.zero;
+        go.transform.localEulerAngles = Vector3.zero;
         go.transform.localScale = Vector3.one;
         usingTime = TimerUtils.getSecTimer();
         return go;

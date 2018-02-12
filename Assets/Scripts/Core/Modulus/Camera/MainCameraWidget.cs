@@ -9,7 +9,7 @@ public class MainCameraWidget : MonoBehaviour
     Quaternion rot = Quaternion.identity;
     Vector3 shakeV3 = Vector3.zero;
     GameObject followPlayer = null;
-    float distance = 10;
+    float distance = -10;
     float height = 6;
     //相机震动
     float shakeTime = -1;
@@ -58,11 +58,14 @@ public class MainCameraWidget : MonoBehaviour
         }
 
         v3 = followPlayer.transform.position;
-        v3 -= followPlayer.transform.forward * distance;
-        v3 += followPlayer.transform.up * height;
+        //v3 -= followPlayer.transform.forward * distance;
+        //v3 += followPlayer.transform.up * height;
+        v3.z = distance+ followPlayer.transform.position.z;
+        v3.y = height + followPlayer.transform.position.y;
 
-        rot = followPlayer.transform.rotation;
-        rot = rot * Quaternion.Euler(rotOffset);
+        //rot = followPlayer.transform.rotation;
+        //  rotOffset.y = followPlayer.transform.eulerAngles.y;
+        rot = Quaternion.identity * Quaternion.Euler(rotOffset);
 
         this.transform.position = Vector3.Lerp(Camera.main.transform.position, v3, 0.3f);
         this.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, rot, 0.3f);
@@ -82,7 +85,7 @@ public class MainCameraWidget : MonoBehaviour
         this.VerShakeVal = VerShakeVal;
     }
 
-    private  void resetShake()
+    private void resetShake()
     {
         this.shakeTime = 0;
         this.Attenuation = 0;

@@ -31,9 +31,10 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 23, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 27, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "getLUID", _m_getLUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSUID", _m_getSUID_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "getVectorAngle", _m_getVectorAngle_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "loadObj", _m_loadObj_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "destroyObj", _m_destroyObj_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "loadScene", _m_loadScene_xlua_st_);
@@ -48,10 +49,13 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setSprite", _m_setSprite_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getNode", _m_getNode_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getNodeByRecursion", _m_getNodeByRecursion_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "addClickHandler", _m_addClickHandler_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "addEventListener", _m_addEventListener_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setMaterialFloat", _m_setMaterialFloat_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "doUpDownScaleAnim", _m_doUpDownScaleAnim_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "doLocalMoveTo", _m_doLocalMoveTo_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "doFloatTo", _m_doFloatTo_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "killTweener", _m_killTweener_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "lerpRotation", _m_lerpRotation_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setCameraPlayer", _m_setCameraPlayer_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "doShake", _m_doShake_xlua_st_);
             
@@ -112,6 +116,34 @@ namespace XLua.CSObjectWrap
                     
                         int __cl_gen_ret = LuaExtend.getSUID(  );
                         LuaAPI.xlua_pushinteger(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_getVectorAngle_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    UnityEngine.Vector2 to;translator.Get(L, 1, out to);
+                    UnityEngine.Vector2 from;translator.Get(L, 2, out from);
+                    
+                        float __cl_gen_ret = LuaExtend.getVectorAngle( to, from );
+                        LuaAPI.lua_pushnumber(L, __cl_gen_ret);
                     
                     
                     
@@ -644,7 +676,7 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_addClickHandler_xlua_st_(RealStatePtr L)
+        static int _m_addEventListener_xlua_st_(RealStatePtr L)
         {
 		    try {
             
@@ -652,35 +684,21 @@ namespace XLua.CSObjectWrap
             
             
             
-			    int __gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(__gen_param_count == 2&& translator.Assignable<UnityEngine.GameObject>(L, 1)&& translator.Assignable<System.Action>(L, 2)) 
-                {
-                    UnityEngine.GameObject obj = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
-                    System.Action handler = translator.GetDelegate<System.Action>(L, 2);
-                    
-                    LuaExtend.addClickHandler( obj, handler );
-                    
-                    
-                    
-                    return 0;
-                }
-                if(__gen_param_count == 1&& translator.Assignable<UnityEngine.GameObject>(L, 1)) 
+                
                 {
                     UnityEngine.GameObject obj = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
                     
-                    LuaExtend.addClickHandler( obj );
+                        EventListener __cl_gen_ret = LuaExtend.addEventListener( obj );
+                        translator.Push(L, __cl_gen_ret);
                     
                     
                     
-                    return 0;
+                    return 1;
                 }
                 
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
             }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to LuaExtend.addClickHandler!");
             
         }
         
@@ -769,6 +787,98 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_doLocalMoveTo_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+			    int __gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(__gen_param_count == 5&& translator.Assignable<UnityEngine.GameObject>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<DG.Tweening.TweenCallback>(L, 4)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 5)) 
+                {
+                    UnityEngine.GameObject obj = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    float dur = (float)LuaAPI.lua_tonumber(L, 2);
+                    UnityEngine.Vector3 end;translator.Get(L, 3, out end);
+                    DG.Tweening.TweenCallback call = translator.GetDelegate<DG.Tweening.TweenCallback>(L, 4);
+                    float delay = (float)LuaAPI.lua_tonumber(L, 5);
+                    
+                        DG.Tweening.Tweener __cl_gen_ret = LuaExtend.doLocalMoveTo( obj, dur, end, call, delay );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(__gen_param_count == 4&& translator.Assignable<UnityEngine.GameObject>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<DG.Tweening.TweenCallback>(L, 4)) 
+                {
+                    UnityEngine.GameObject obj = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    float dur = (float)LuaAPI.lua_tonumber(L, 2);
+                    UnityEngine.Vector3 end;translator.Get(L, 3, out end);
+                    DG.Tweening.TweenCallback call = translator.GetDelegate<DG.Tweening.TweenCallback>(L, 4);
+                    
+                        DG.Tweening.Tweener __cl_gen_ret = LuaExtend.doLocalMoveTo( obj, dur, end, call );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(__gen_param_count == 3&& translator.Assignable<UnityEngine.GameObject>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)) 
+                {
+                    UnityEngine.GameObject obj = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    float dur = (float)LuaAPI.lua_tonumber(L, 2);
+                    UnityEngine.Vector3 end;translator.Get(L, 3, out end);
+                    
+                        DG.Tweening.Tweener __cl_gen_ret = LuaExtend.doLocalMoveTo( obj, dur, end );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to LuaExtend.doLocalMoveTo!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_doFloatTo_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    DG.Tweening.Core.DOSetter<float> call = translator.GetDelegate<DG.Tweening.Core.DOSetter<float>>(L, 1);
+                    float startValue = (float)LuaAPI.lua_tonumber(L, 2);
+                    float endValue = (float)LuaAPI.lua_tonumber(L, 3);
+                    float duration = (float)LuaAPI.lua_tonumber(L, 4);
+                    
+                        DG.Tweening.Tweener __cl_gen_ret = LuaExtend.doFloatTo( call, startValue, endValue, duration );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_killTweener_xlua_st_(RealStatePtr L)
         {
 		    try {
@@ -806,6 +916,33 @@ namespace XLua.CSObjectWrap
             }
             
             return LuaAPI.luaL_error(L, "invalid arguments to LuaExtend.killTweener!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_lerpRotation_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    UnityEngine.GameObject obj = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    float angle = (float)LuaAPI.lua_tonumber(L, 2);
+                    
+                    LuaExtend.lerpRotation( obj, angle );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
             
         }
         

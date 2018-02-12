@@ -26,7 +26,15 @@ function LUIWidget:getObj()
 end 
 
 function LUIWidget:setPosition(x,y,z)
+   LuaExtend:setObjPos(self:getObj(),x,y,z)
+end 
 
+function LUIWidget:getPosition()
+    return self.widgetObj.transform.localPosition
+end 
+
+function LUIWidget:getWorldPosition()
+    return self.widgetObj.transform.position
 end 
 
 function LUIWidget:setScale(x,y,z)

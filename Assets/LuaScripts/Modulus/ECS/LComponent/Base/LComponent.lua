@@ -18,6 +18,11 @@ function LComponent:removeProperty(key)
 
 end 
 
+--更新comp 子类重写
+function LComponent:update(args)
+
+end
+
 function LComponent:isNeedUpdate()
 	return false 
 end 

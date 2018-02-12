@@ -1,6 +1,9 @@
 LCompType = { }
-LCompType.Model = 1 --模型
-LCompType.CharacterController = 2 -- cc
-LCompType.Speed = 3 --速度
-LCompType.Gravity = 4 --重力
-LCompType.BillBoard = 5 --姓名版
+LCompType.Model = 101 --模型
+LCompType.CharacterController = 102 -- cc
+LCompType.Speed = 103 --速度
+LCompType.Rotation = 104 --方向
+LCompType.Gravity = 105 --重力
+LCompType.Position = 106 --位置
+LCompType.Animator = 107 --anim
+LCompType.BillBoard = 200 --姓名版

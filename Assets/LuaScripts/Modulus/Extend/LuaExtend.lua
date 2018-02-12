@@ -22,9 +22,9 @@ end
 function LuaExtend:setSprite(obj,name)
    CS.LuaExtend.setSprite(obj,name)
 end
---给UI添加一个点击事件 需要扩展
-function LuaExtend:addClickHandler(obj,handler)
-   return CS.LuaExtend.addClickHandler(obj,handler)
+--给UI添加一个eventListener
+function LuaExtend:addEventListener(obj)
+   return CS.LuaExtend.addEventListener(obj)
 end
 --根据UI节点路径查找
 function LuaExtend:getNode(root,path)
@@ -39,13 +39,26 @@ function LuaExtend:setMaterialFloat(img,key,val)
    CS.LuaExtend.setMaterialFloat(img,key,val)
 end
 
-----------------------DoTween相关
+------------------------------DoTween相关-----------------------------------
 function LuaExtend:doUpDownScaleAnim(obj,title,onComplete)
     return CS.LuaExtend.doUpDownScaleAnim(obj,title,onComplete)
 end 
 
+function LuaExtend:doLocalMoveTo(obj,dur,endVal,call,delay)
+    delay = delay and delay or 0 
+    CS.LuaExtend.doLocalMoveTo(obj,dur,endVal,call,delay)
+end
+
 function LuaExtend:killTweener(tw,isDoComplete)
     CS.LuaExtend.killTweener(tw,isDoComplete)
+end 
+--删除
+function LuaExtend:lerpRotation(obj,dir)
+   CS.LuaExtend.lerpRotation(obj,dir)
+end 
+--dofloat
+function LuaExtend:doFloatTo(call,startVal,endVal,dur)
+   return CS.LuaExtend.doFloatTo(call,startVal,endVal,dur)
 end 
 
 --对象池相关
@@ -68,4 +81,9 @@ function LuaExtend:setCameraPlayer(player)
 end
 function LuaExtend:doShake(time,att,hor,ver)
    CS.LuaExtend.doShake(time,att,hor,ver)
+end
+
+--数学相关
+function LuaExtend:getVectorAngle(v1,v2)
+   return CS.LuaExtend.getVectorAngle(v1,v2)
 end

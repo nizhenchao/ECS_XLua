@@ -50,6 +50,7 @@ public static class ExampleGenConfig
                 typeof(Action<GameObject>),
                 typeof(TweenCallback),
                 typeof(UnityEngine.Events.UnityAction),
+                typeof(EventListener),                      
                 typeof(UnityEngine.Debug)
             };
 
@@ -64,7 +65,10 @@ public static class ExampleGenConfig
                 typeof(Action<double>),
                 typeof(Action<int>),
                 typeof(Action<GameObject>),
+                typeof(Action<UnityEngine.EventSystems.PointerEventData>),
                 typeof(UnityEngine.Events.UnityAction),
+                typeof(DG.Tweening.TweenCallback),
+                typeof(DG.Tweening.Core.DOSetter<float>),
                 typeof(System.Collections.IEnumerator)
             };
 

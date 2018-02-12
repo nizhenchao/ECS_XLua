@@ -1,2 +1,5 @@
 require "Assets.LuaScripts.Modulus.ECS.LSystem.Factory.LModelSystem"
 require "Assets.LuaScripts.Modulus.ECS.LSystem.Factory.LCCSystem"
+require "Assets.LuaScripts.Modulus.ECS.LSystem.Factory.LRotationSystem"
+require "Assets.LuaScripts.Modulus.ECS.LSystem.Factory.LSpeedSystem"
+require "Assets.LuaScripts.Modulus.ECS.LSystem.Factory.LAnimSystem"

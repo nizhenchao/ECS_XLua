@@ -9,9 +9,11 @@ function BottomMidUI:__init_Self()
 	self.deleteBtn = UIWidget.LButton
 end 
 
-function BottomMidUI:initLayout()
-    self.hp:setMaterialFloat("_Fill",0.75)
-    self.mp:setMaterialFloat("_Fill",0.45)
+function BottomMidUI:initLayout()   
+    
+
+    LuaExtend:doFloatTo(function(val) self.hp:setMaterialFloat("_Fill",val) end,1,0.65,0.5)
+    LuaExtend:doFloatTo(function(val) self.mp:setMaterialFloat("_Fill",val) end,1,0.25,0.5)
 
     self.createPlayerBtn:setOnClick(function() 
 	    local conf = ConfigHelper:getConfigByKey('EntityConfig',10001)

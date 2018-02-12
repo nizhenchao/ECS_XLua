@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 812177202
+CRC: 4103371199
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -110,3 +110,7 @@ AssetBundleManifest:
     Info_28:
       Name: textures/noisewhite.assetbundle
       Dependencies: {}
+    Info_29:
+      Name: uiprefabs/joystickui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/skillicons.assetbundle

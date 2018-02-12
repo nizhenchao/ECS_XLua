@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using XLua;
 using DG.Tweening;
+using DG;
 
 /// <summary>
 /// 导出接口到Lua
@@ -22,6 +23,11 @@ public static class LuaExtend
     public static int getSUID()
     {
         return MathUtils.UniqueID;
+    }
+    //获取两个向量的夹角
+    public static float getVectorAngle(Vector2 to, Vector2 from)
+    {
+        return Vector2.Angle(from, to);
     }
     #endregion
 
@@ -147,19 +153,19 @@ public static class LuaExtend
         }
         return null;
     }
-
-    //UI添加一个点击监听
-    public static void addClickHandler(GameObject obj, Action handler = null)
+    //添加UI事件监听脚本
+    public static EventListener addEventListener(GameObject obj)
     {
+        EventListener listener = null;
         if (obj != null)
         {
-            EventListener lis = obj.GetComponent<EventListener>();
-            if (lis == null)
+            listener = obj.GetComponent<EventListener>();
+            if (listener == null)
             {
-                lis = obj.AddComponent<EventListener>();
+                listener = obj.AddComponent<EventListener>();
             }
-            lis.setClickHandler(handler);
         }
+        return listener;
     }
 
     //设置UI的material属性
@@ -170,7 +176,6 @@ public static class LuaExtend
             img.material.SetFloat(key, val);
         }
     }
-
     #endregion
 
     #region doTween导出相关
@@ -195,6 +200,31 @@ public static class LuaExtend
         return tw;
     }
 
+    //moveto v3
+    public static Tweener doLocalMoveTo(GameObject obj, float dur, Vector3 end, TweenCallback call = null, float delay = 0)
+    {
+        Tweener tw = null;
+        if (obj != null)
+        {
+            tw = obj.transform.DOLocalMove(end, dur).SetDelay(delay);
+            if (call != null)
+            {
+                tw.OnComplete(call);
+            }
+        }
+        return tw;
+    }
+
+    //do float Tweener To(DOSetter<float> setter, float startValue, float endValue, float duration);
+    public static Tweener doFloatTo(DG.Tweening.Core.DOSetter<float> call, float startValue, float endValue, float duration)
+    {
+        Tweener tw = null;
+        tw = DOTween.To(call, startValue, endValue, duration);
+        return tw;
+    }
+
+
+    //销毁tweener
     public static void killTweener(Tweener tw, bool doComplete = false)
     {
         if (tw != null)
@@ -202,6 +232,19 @@ public static class LuaExtend
             tw.Kill(doComplete);
         }
     }
+
+    public static void lerpRotation(GameObject obj, float angle)
+    {
+        if (obj != null)
+        {
+            Quaternion end = Quaternion.Euler(0, angle, 0);
+            //Debug.LogError(obj.name+"       "+obj.transform.rotation+"              "+end);
+            Quaternion.Lerp(obj.transform.rotation, end, 0.75f);
+            obj.transform.DORotate(new Vector3(0, angle, 0), 0.1f);
+        }
+    }
+
+
 
     #endregion
 
