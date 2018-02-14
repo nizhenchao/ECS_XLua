@@ -31,6 +31,16 @@ public class LoaderMgr
     {
         if (!dictTask.ContainsKey(url))
         {
+            List<string> depends = new List<string>();
+            ManifestMgr.getDepends(url, ref depends);
+            //先加载所有依赖
+            for (int i = 0; i < depends.Count; i++)
+            {
+                if (depends[i].EndsWith(".assetbundle")) {
+                    depends[i] = depends[i].Replace(".assetbundle", "");
+                }
+                addTask(depends[i], null);
+            }
             LoaderTask task = new LoaderTask(url, call);
             dictTask.Add(task.url, task);
         }
@@ -59,10 +69,22 @@ public class LoaderMgr
         var ier = dictTask.GetEnumerator();
         while (ier.MoveNext())
         {
-            if (ier.Current.Value.status == E_LoadStatus.Wait)
-                ier.Current.Value.doLoad();
-            else
+            //if (ier.Current.Value.status == E_LoadStatus.Wait)
+            //    ier.Current.Value.doLoad();
+            //else
+            //    removeTask(ier.Current.Value.url);
+            if (ier.Current.Value.status == E_LoadStatus.Loading)
+            {
+                return;
+            }
+            else if (ier.Current.Value.status == E_LoadStatus.Finish || ier.Current.Value.status == E_LoadStatus.Fail)
+            {
                 removeTask(ier.Current.Value.url);
+            }
+            else {
+                ier.Current.Value.doLoad();
+            }
+            
         }
     }
 

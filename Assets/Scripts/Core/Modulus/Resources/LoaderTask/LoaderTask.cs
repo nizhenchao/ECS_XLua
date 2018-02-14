@@ -20,7 +20,8 @@ public class LoaderTask
 
     public void addHandler(Action<string, bool, TBundle> call)
     {
-        handlerLst.Add(call);
+        if (call != null)
+            handlerLst.Add(call);
     }
 
     public void doLoad()
@@ -57,7 +58,7 @@ public class LoaderTask
     //www load
     IEnumerator wwwLoad()
     {
-        //  Debug.Log("加载资源" + url);
+        //Debug.Log("加载资源" + url);
         status = E_LoadStatus.Loading;
         if (string.IsNullOrEmpty(url))
         {
@@ -74,28 +75,19 @@ public class LoaderTask
             status = E_LoadStatus.Finish;
             yield break;
         }
-        //先加载所有依赖
-        List<string> depends = new List<string>();
-        ManifestMgr.getDepends(url, ref depends);
-        if (depends != null)
-        {
-            for (int i = 0; i < depends.Count; i++)
-            {
-                string key = depends[i].Replace(".assetbundle", "");
-                if (!AssetMgr.isHave(key))
-                {
-                    AssetBundleCreateRequest ab = AssetBundle.LoadFromFileAsync(Path.Combine(Application.dataPath, "Res/AssetBundle/" + depends[i]));
-                    yield return ab;
-                    AssetBundle syab = ab.assetBundle;
-                    AssetMgr.addBundle(key, syab);
-                }
-                yield return new WaitForEndOfFrame();
-            }
-        }
+
         //加载资源
-        AssetBundle objAb = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "Res/AssetBundle/" + url + ".assetbundle"));
-        yield return objAb;
-        AssetMgr.addBundle(url, objAb);
+        AssetBundleCreateRequest abReq = AssetBundle.LoadFromFileAsync(Path.Combine(Application.dataPath, "Res/AssetBundle/" + url + ".assetbundle"));
+        do
+        {
+            if (abReq.assetBundle == null)
+            {
+                status = E_LoadStatus.Fail;
+                yield break;
+            }
+            yield return new WaitForEndOfFrame();
+        } while (!abReq.isDone);
+        AssetMgr.addBundle(url, abReq.assetBundle);
         for (int i = 0; i < handlerLst.Count; i++)
         {
             handlerLst[i].Invoke(url, true, AssetMgr.getBundle(url));
