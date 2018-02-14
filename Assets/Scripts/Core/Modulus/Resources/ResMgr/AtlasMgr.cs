@@ -80,7 +80,7 @@ public class AtlasMgr
         {
             //解析一行
             string[] lst = line.Split(':');
-            atlasCfg.Add(lst[0], "atlas/" + lst[1]);
+            atlasCfg.Add(lst[0], lst[1]);
         }
         sr.Close();
         Debug.Log("<color=green>AtlasMgr initialize</color>");

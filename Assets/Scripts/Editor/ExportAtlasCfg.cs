@@ -47,11 +47,15 @@ public class ExportAtlasCfg
         string[] dirs = Directory.GetDirectories(path);
         for (int i = 0; i < dirs.Length; i++)
         {
-            string bundleName = getFolderName(dirs[i]);
             //获取文件夹下面所有文件 .png?
             string[] fils = Directory.GetFiles(dirs[i], "*.png");
             for (int j = 0; j < fils.Length; j++)
             {
+                AssetImporter imp = AssetImporter.GetAtPath(fils[i]);
+                if (imp == null || !imp.assetBundleName.EndsWith(".assetbundle")) {
+                    Debug.LogError("请先导出导出一次资源,再导出图集配置");
+                }
+                string bundleName = imp != null ? imp.assetBundleName : getFolderName(dirs[i]);
                 string iconName = getFolderName(fils[j]);
                 writeCfg(iconName, bundleName);
             }
@@ -90,8 +94,13 @@ public class ExportAtlasCfg
 
     static private string getBundleName(string name)
     {
+        if (name.EndsWith(".assetbundle"))
+        {
+            name = name.Replace(".assetbundle", "");
+            return name;
+        }
         string[] lst = name.Split('\\');
-        string realName = lst.Length <= 1 ? lst[0] : lst[lst.Length - 1];
+        string realName = lst.Length >= 2 ? lst[lst.Length - 2]+"\\"+ lst[lst.Length - 1]: lst[0];
         return realName;
     }
 
