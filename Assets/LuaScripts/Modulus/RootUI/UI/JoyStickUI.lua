@@ -1,6 +1,6 @@
 JoyStickUI = SimpleClass(BaseUI)
 
-local radius = 100
+local radius = 80
 --声明成员变量
 function JoyStickUI:__init_Self()
 	self.pointImg = UIWidget.LUIWidget

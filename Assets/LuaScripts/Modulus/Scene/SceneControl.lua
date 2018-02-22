@@ -22,9 +22,10 @@ end
 
 function SceneControl:onSceneLoadEnd()
     print("场景加载完毕 CS call Lua")
-    --EventMgr:sendMsg(BottomMidCmd.On_Open_UI)
-    --EventMgr:sendMsg(JoyStickCmd.On_Open_UI)
-    EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
+    EventMgr:sendMsg(BottomMidCmd.On_Open_UI)
+    EventMgr:sendMsg(JoyStickCmd.On_Open_UI)
+    EventMgr:sendMsg(BottomSkillCmd.On_Open_UI)
+    --EventMgr:sendMsg(FaceBookCmd.On_Open_UI)
 
 end 
 

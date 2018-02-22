@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3562870572
+CRC: 2812023499
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 227ce8961b4a386f8670e80caa5f6aed
+    Hash: ce7f3532d03dfe4ee28a16606029b6a7
   TypeTreeHash:
     serializedVersion: 2
     Hash: e64e65352a07d33458c2b3323da48131
@@ -40,6 +40,4 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/UIPrefabs/GuildUI.prefab
 Dependencies:
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/facebookicons.assetbundle
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/skillicons.assetbundle
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/commonicons.assetbundle
+- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/skillicons.assetbundle

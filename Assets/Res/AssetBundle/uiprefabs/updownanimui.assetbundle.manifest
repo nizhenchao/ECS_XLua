@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 56168901
+CRC: 3529948614
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2fc7261c2c7964a0380fd7c6760b7eca
+    Hash: 0cd60c38d51a7a57a3cd0523f148eb4c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1b904ddcc1db0e758337c6f90b59e763
@@ -34,4 +34,4 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/UIPrefabs/UpDownAnimUI.prefab
 Dependencies:
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/facebookicons.assetbundle
+- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/facebookicons.assetbundle

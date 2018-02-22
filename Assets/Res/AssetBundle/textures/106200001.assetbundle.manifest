@@ -1,17 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3634255714
+CRC: 496680398
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 76d65fa7f6ce69ddc737ea0ff8a98a95
+    Hash: 45e373a40f00b2e3c893831d4e499c21
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 460b4f5d62b6facbccf7c01637df8f00
+    Hash: c73412a662fd4e4f36af34cbdf078b85
 HashAppended: 0
 ClassTypes:
 - Class: 28
-  Script: {instanceID: 0}
-- Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Res/Arts/Textures/106200001.png

@@ -13,7 +13,7 @@ function SystemMgr:init()
 	self:init_self()
 	self:addSystem()
     
-  TimeMgr:addEveryMillHandler(Bind(self.tickShort,self),20)
+  TimeMgr:addEveryMillHandler(Bind(self.tickShort,self),10)
   TimeMgr:addEveryMillHandler(Bind(self.tickLong,self),100)
 end 
 
