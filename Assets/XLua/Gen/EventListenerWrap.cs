@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(EventListener);
-			Utils.BeginObjectRegister(type, L, translator, 0, 8, 0, 0);
+			Utils.BeginObjectRegister(type, L, translator, 0, 9, 0, 0);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnBeginDrag", _m_OnBeginDrag);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnDrag", _m_OnDrag);
@@ -31,6 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "setBeginDragHandler", _m_setBeginDragHandler);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "setDragHandler", _m_setDragHandler);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "setEndDragHandler", _m_setEndDragHandler);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "setUseAnim", _m_setUseAnim);
 			
 			
 			
@@ -291,6 +292,34 @@ namespace XLua.CSObjectWrap
                     System.Action<UnityEngine.EventSystems.PointerEventData> handler = translator.GetDelegate<System.Action<UnityEngine.EventSystems.PointerEventData>>(L, 2);
                     
                     __cl_gen_to_be_invoked.setEndDragHandler( handler );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_setUseAnim(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                EventListener __cl_gen_to_be_invoked = (EventListener)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    bool isUse = LuaAPI.lua_toboolean(L, 2);
+                    
+                    __cl_gen_to_be_invoked.setUseAnim( isUse );
                     
                     
                     

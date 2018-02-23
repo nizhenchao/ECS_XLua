@@ -31,7 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 27, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 29, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "getLUID", _m_getLUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSUID", _m_getSUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getVectorAngle", _m_getVectorAngle_xlua_st_);
@@ -43,6 +43,8 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "addMinHandler", _m_addMinHandler_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "addEveryMillHandler", _m_addEveryMillHandler_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "removeTimer", _m_removeTimer_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "getMillTimer", _m_getMillTimer_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "getSecTimer", _m_getSecTimer_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setObjPos", _m_setObjPos_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setActive", _m_setActive_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setUINode", _m_setUINode_xlua_st_);
@@ -495,6 +497,54 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_getMillTimer_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    
+                        double __cl_gen_ret = LuaExtend.getMillTimer(  );
+                        LuaAPI.lua_pushnumber(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_getSecTimer_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    
+                        double __cl_gen_ret = LuaExtend.getSecTimer(  );
+                        LuaAPI.lua_pushnumber(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_setObjPos_xlua_st_(RealStatePtr L)
         {
 		    try {
@@ -857,7 +907,24 @@ namespace XLua.CSObjectWrap
             
             
             
-                
+			    int __gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(__gen_param_count == 5&& translator.Assignable<DG.Tweening.Core.DOSetter<float>>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<DG.Tweening.TweenCallback>(L, 5)) 
+                {
+                    DG.Tweening.Core.DOSetter<float> call = translator.GetDelegate<DG.Tweening.Core.DOSetter<float>>(L, 1);
+                    float startValue = (float)LuaAPI.lua_tonumber(L, 2);
+                    float endValue = (float)LuaAPI.lua_tonumber(L, 3);
+                    float duration = (float)LuaAPI.lua_tonumber(L, 4);
+                    DG.Tweening.TweenCallback finish = translator.GetDelegate<DG.Tweening.TweenCallback>(L, 5);
+                    
+                        DG.Tweening.Tweener __cl_gen_ret = LuaExtend.doFloatTo( call, startValue, endValue, duration, finish );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(__gen_param_count == 4&& translator.Assignable<DG.Tweening.Core.DOSetter<float>>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)) 
                 {
                     DG.Tweening.Core.DOSetter<float> call = translator.GetDelegate<DG.Tweening.Core.DOSetter<float>>(L, 1);
                     float startValue = (float)LuaAPI.lua_tonumber(L, 2);
@@ -875,6 +942,8 @@ namespace XLua.CSObjectWrap
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
             }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to LuaExtend.doFloatTo!");
             
         }
         

@@ -21,6 +21,9 @@ function LAnimComp:setTriggerName(name)
 	end 
 end 
 
-function LAnimComp:update(name)
-   self:setTriggerName(name)
+function LAnimComp:update(name,isReset)
+	if isReset then 
+       self.triggerName = nil 
+    end
+    self:setTriggerName(name)
 end 

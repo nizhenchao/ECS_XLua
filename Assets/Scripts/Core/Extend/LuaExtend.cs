@@ -69,9 +69,19 @@ public static class LuaExtend
     {
         return TimerMgr.addEveryMillHandler(eHandler, interval);
     }
+    //移除一个计时器
     public static void removeTimer(long uid)
     {
-
+        TimerMgr.removeTimer(uid);
+    }
+    //时间戳 毫秒级别
+    public static double getMillTimer() {
+        return TimerUtils.getMillTimer();
+    }
+    //时间戳 秒级别
+    public static double getSecTimer()
+    {
+        return TimerUtils.getSecTimer();
     }
     #endregion
 
@@ -216,10 +226,13 @@ public static class LuaExtend
     }
 
     //do float Tweener To(DOSetter<float> setter, float startValue, float endValue, float duration);
-    public static Tweener doFloatTo(DG.Tweening.Core.DOSetter<float> call, float startValue, float endValue, float duration)
+    public static Tweener doFloatTo(DG.Tweening.Core.DOSetter<float> call, float startValue, float endValue, float duration,TweenCallback finish=null)
     {
         Tweener tw = null;
         tw = DOTween.To(call, startValue, endValue, duration);
+        if (finish != null) {
+            tw.OnComplete(finish);
+        }
         return tw;
     }
 

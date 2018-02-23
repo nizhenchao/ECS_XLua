@@ -52,7 +52,7 @@ public class TimerMgr : MonoBehaviour
     {
         double nowTime = TimerUtils.getMillTimer();
         normalPool.doCheck(nowTime);
-        fixedPool.doCheck(nowTime); 
+        fixedPool.doCheck(nowTime);
     }
 
     public void onDispose()
@@ -102,8 +102,10 @@ public class TimerMgr : MonoBehaviour
         return id;
     }
     //移除一个计时器
-    public static void removeTimer(long uid) {
-
+    public static void removeTimer(long uid)
+    {
+        Instance.normalPool.removeKey(uid);
+        Instance.fixedPool.removeKey(uid);
     }
     #endregion
 }

@@ -23,6 +23,7 @@ function BaseItem:bindLayout(obj)
 	self.obj = obj 
 	self:bindWidget()
 	self.isBindComplete = true 
+	self:initLayout()
 	self:onOpen()
 end
 

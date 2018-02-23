@@ -14,6 +14,27 @@ end
 function BottomSkillControl:initEvent()
 	EventMgr:addListener(MainCmd.On_Create_Main_Player,Bind(self.onCreateMainPlayer,self))
 	EventMgr:addListener(MainCmd.On_Destroy_Main_Player,Bind(self.onDestroyMainPlayer,self))	
+
+	EventMgr:addListener(BottomSkillCmd.On_Cast_Skill,Bind(self.onCastSkill,self))	
+	EventMgr:addListener(BottomSkillCmd.On_Cast_Skill_Finish,Bind(self.onCastSkillFinish,self))	
+end 
+
+function BottomSkillControl:onCastSkill(id)
+   local player = EntityMgr:getMainEntity()
+   if player then 
+   	  player:updateComp(LCompType.Skill,id)
+   end 
+end 
+
+function BottomSkillControl:onCastSkillFinish(uid,id)
+    if not id or not uid then 
+    	return 
+    end 
+    local isMian = EntityMgr:isMainPlayer(uid)
+    if isMian then 
+	    self.vo:updateSkillCd(id)	   
+	    self:updateUI()
+    end
 end 
 
 function BottomSkillControl:onCreateMainPlayer(entity)

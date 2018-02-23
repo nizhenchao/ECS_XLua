@@ -70,13 +70,17 @@ function EntityMgr:onLoadScene()
 		v:onBaseDispose()
 	end 
     self.entityPool = { }
-    self.mianPlayerId = nil 
+    self.mainPlayerId = nil 
 end 
 
 function EntityMgr:getSubEntity(system)
    for k,v in pairs(self.entityPool) do 
 
    end 
+end 
+
+function EntityMgr:isMainPlayer(uid)
+  return self.mainPlayerId == uid 
 end 
 
 create(EntityMgr)

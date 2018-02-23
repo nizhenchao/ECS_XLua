@@ -41,6 +41,10 @@ function EventMgr:init()
 end 
 
 function EventMgr:addListener(eventName,handler)
+    if eventName == nil then 
+        print("<color=red>监听事件  事件名为空</color>")
+        return 
+    end 
     if not self.eventMap:containsKey(eventName) then 
     	self.eventMap:add(eventName,EventData())
     end 

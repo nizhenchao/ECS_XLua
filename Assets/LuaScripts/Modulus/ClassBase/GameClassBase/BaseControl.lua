@@ -68,8 +68,7 @@ function BaseControl:closeUI()
 	self.ui = UIMgr:closeUI(self.uiEnum)
 end 
 
-function BaseControl:updateUI(vo)
-    self.vo = vo 
+function BaseControl:updateUI()
     if self.ui then
         self.ui:updateVO(self.vo)
     end 

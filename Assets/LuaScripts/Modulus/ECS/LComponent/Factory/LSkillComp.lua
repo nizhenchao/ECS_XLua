@@ -4,15 +4,15 @@ function LSkillComp:__init(type,uid,args)
     self.skillDict = HashTable()  --技能列表
     self:parseSkills(args)
 
-    self.castQueue = LQueue()
+    self.castQueue = -1--LQueue()
 end 
 
 function LSkillComp:isNeedUpdate()
-	return not self.castQueue:isEmpty() 
+	return self.castQueue ~= nil and self.castQueue ~= -1
 end 
 
-function LSkillComp:update()
-
+function LSkillComp:update(args)
+    self.castQueue = tonumber(args)
 end 
 
 function LSkillComp:getArgs()

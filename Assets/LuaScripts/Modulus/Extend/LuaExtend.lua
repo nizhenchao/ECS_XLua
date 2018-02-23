@@ -63,8 +63,8 @@ function LuaExtend:lerpRotation(obj,dir)
    CS.LuaExtend.lerpRotation(obj,dir)
 end 
 --dofloat
-function LuaExtend:doFloatTo(call,startVal,endVal,dur)
-   return CS.LuaExtend.doFloatTo(call,startVal,endVal,dur)
+function LuaExtend:doFloatTo(call,startVal,endVal,dur,finish)
+   return CS.LuaExtend.doFloatTo(call,startVal,endVal,dur,finish)
 end 
 
 ---------------------------------------------------------------------------
@@ -96,4 +96,12 @@ end
 ---------------------------------------------------------------------------
 function LuaExtend:getVectorAngle(v1,v2)
    return CS.LuaExtend.getVectorAngle(v1,v2)
+end
+
+function LuaExtend:getMillTimer()
+    return CS.LuaExtend.getMillTimer()
+end
+
+function LuaExtend:getSecTimer()
+    return CS.LuaExtend.getSecTimer()
 end

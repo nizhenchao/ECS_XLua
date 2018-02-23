@@ -49,6 +49,10 @@ function LUIWidget:onDispose()
 
 end 
 
+function LUIWidget:setActive(b)
+    LuaExtend:setActive(self:getObj(),b)
+end
+
 function LUIWidget:onBaseDispose()
    print("<color=red>LUIWidget:onBaseDispose()</color>")
     self:onDispose()

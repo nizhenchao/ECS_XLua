@@ -47,9 +47,9 @@ function LEntity:onDispose()
 
 end 
 
-function LEntity:updateComp(type,args)
+function LEntity:updateComp(type,...)
    if self.compPool[type] then 
-      self.compPool[type]:update(args)
+      self.compPool[type]:update(...)
    end 
 end 
 
