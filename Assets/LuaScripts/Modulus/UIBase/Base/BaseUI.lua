@@ -4,6 +4,7 @@ local function _create_self_param(self)
 	self.obj = nil 
 	self.uiInfo = nil 
 	self.args = nil 
+	self.vo = nil 
 	self.isBindComplete = false 
 	self.widgetPool = { }
 end
@@ -38,7 +39,15 @@ function BaseUI:checkStatus()
    	    LuaExtend:setActive(self.obj,true)
 		self:initLayout()	
 		self:onOpen()
+		self:onRefresh()
    end 
+end 
+
+function BaseUI:updateVO(vo)
+	self.vo = vo 
+	if self.isBindComplete then 
+		self:onRefresh()
+	end 
 end 
 
 --UI节点
@@ -127,7 +136,7 @@ function BaseUI:onClose()
 end 
 
 --界面刷新
-function BaseUI:onRefresh()
+function BaseUI:onRefresh(vo)
 
 end
 

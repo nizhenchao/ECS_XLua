@@ -175,7 +175,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
---- !u!1001 &675873603
+--- !u!1001 &789684714
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -275,11 +275,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bafbd9fb5a775eb48b54edee920908d0, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &675873604 stripped
+--- !u!224 &789684715 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224575018661526296, guid: bafbd9fb5a775eb48b54edee920908d0,
     type: 2}
-  m_PrefabInternal: {fileID: 675873603}
+  m_PrefabInternal: {fileID: 789684714}
 --- !u!1 &822421761
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 675873604}
+  - {fileID: 789684715}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

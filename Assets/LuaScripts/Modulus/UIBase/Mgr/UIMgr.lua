@@ -10,12 +10,16 @@ end
 
 function UIMgr:openUI(uiEnum,args)
   	 --已经打开 return 
-  	if not uiEnum or self.openPool[uiEnum] then
-  		return 
+    local ui = nil 
+    if not uiEnum then 
+       return nil
+    end 
+  	if self.openPool[uiEnum] then
+  		 return self.openPool[uiEnum]
   	end 
 	  --在关闭池子里 return 
     if self.closePool[uiEnum] then 
-       local ui = self.closePool[uiEnum]
+       ui = self.closePool[uiEnum]
        self.closePool[uiEnum] = nil 
        self.openPool[uiEnum] = ui 
        LuaExtend:setActive(ui.obj,true)
@@ -31,10 +35,11 @@ function UIMgr:openUI(uiEnum,args)
            require (conf.class)
         end 
         local creator = _G[className]         
-        local ui = creator(conf,args)
+        ui = creator(conf,args)
         self.openPool[uiEnum] = ui 
         ui:loadUI(conf.path)
     end
+    return ui 
 end 
 
 function UIMgr:closeUI(uiEnum)

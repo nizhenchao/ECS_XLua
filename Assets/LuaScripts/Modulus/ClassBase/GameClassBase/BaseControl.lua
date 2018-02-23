@@ -2,13 +2,10 @@ BaseControl = SimpleClass()
 
 -- 初始化参数列表
 local function __create_self_param(self)
-    self.__ui = nil
-    -- 存储的UI句柄
-    self.__eventMap = { }
-    -- 存储的事件列表
     self.__isInit = false
     self.uiEnum = ''
-    self.ui = nil 
+    self.ui = nil -- 存储的UI句柄
+    self.vo = nil 
     self.openUIEventName = ''
 end
 
@@ -58,15 +55,24 @@ function BaseControl:clearSelf()
 
 end 
 
-
 function BaseControl:openUI(args)
 	self:onOpen()
     self.ui = UIMgr:openUI(self.uiEnum,args)
+    if self.ui then 
+       self.ui:updateVO(self.vo)
+    end
 end 
 
 function BaseControl:closeUI()
 	self:onClose()
 	self.ui = UIMgr:closeUI(self.uiEnum)
+end 
+
+function BaseControl:updateUI(vo)
+    self.vo = vo 
+    if self.ui then
+        self.ui:updateVO(self.vo)
+    end 
 end 
 
 function BaseControl:isOpen()

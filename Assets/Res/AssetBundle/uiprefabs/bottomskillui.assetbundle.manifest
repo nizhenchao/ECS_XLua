@@ -1,19 +1,31 @@
 ManifestFileVersion: 0
-CRC: 3975234633
+CRC: 1150669624
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7c1d2387a6f184f419da951a8c698ed3
+    Hash: 1023161be80c8b78aef07dd5143e637c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: fb8140488f455f4790daa08bbd20d3c3
+    Hash: b00d030556bdcc2f3377a56853ab04f9
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 - Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 128
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -24,4 +36,5 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/UIPrefabs/BottomSkillUI.prefab
 Dependencies:
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/commonicons.assetbundle
 - F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/playerskillicons.assetbundle

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 483592418
+CRC: 3328701688
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -12,6 +12,7 @@ AssetBundleManifest:
       Name: materials/terrain.assetbundle
       Dependencies:
         Dependency_0: shader/terrain.assetbundle
+        Dependency_1: textures/ground.assetbundle
     Info_3:
       Name: atlas/commonicons.assetbundle
       Dependencies: {}
@@ -95,7 +96,8 @@ AssetBundleManifest:
     Info_26:
       Name: uiprefabs/bottomskillui.assetbundle
       Dependencies:
-        Dependency_0: atlas/playerskillicons.assetbundle
+        Dependency_0: atlas/commonicons.assetbundle
+        Dependency_1: atlas/playerskillicons.assetbundle
     Info_27:
       Name: uiprefabs/facebookui.assetbundle
       Dependencies:
@@ -120,3 +122,6 @@ AssetBundleManifest:
       Name: uiprefabs/updownanimui.assetbundle
       Dependencies:
         Dependency_0: atlas/facebookicons.assetbundle
+    Info_33:
+      Name: textures/ground.assetbundle
+      Dependencies: {}

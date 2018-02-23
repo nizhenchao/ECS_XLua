@@ -12,7 +12,9 @@ function EntityMgr:createEntity(data)
 	end 
     local uid = data:getUid()
     if self.entityPool[uid] then 
-    	return 
+         UIMgr:openUI(UIEnum.UpDownAnimUI,uid.."实体已经创建,请勿重复创建")
+         LuaExtend:doShake(1.5,0.02,0.3,0.3)
+    	 return 
     end     
     local entity = LEntity(uid,data)
     entity:onLoading()
@@ -20,7 +22,16 @@ function EntityMgr:createEntity(data)
     if data:isMainPlayer() then 
     	self.mainPlayerId = uid 
     	self:setCameraFollow()
+      self:onCreateMainPlayer(entity)
     end     
+end 
+
+function EntityMgr:onCreateMainPlayer(entity)   
+   EventMgr:sendMsg(MainCmd.On_Create_Main_Player,entity)
+end 
+
+function EntityMgr:onDestroyMainPlayer()
+   EventMgr:sendMsg(MainCmd.On_Destroy_Main_Player)
 end 
 
 --销毁实体
@@ -31,6 +42,9 @@ function EntityMgr:destroyEntity(uid)
    local entity = self.entityPool[uid]
    self.entityPool[uid] = nil 
    entity:onBaseDispose()
+   if uid == self.mainPlayerId then 
+       self:onDestroyMainPlayer()
+   end 
 end 
 
 function EntityMgr:isHave(uid)
