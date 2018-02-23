@@ -3,7 +3,7 @@ CRC: 3685544102
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c2781e7f8347d09f0849fbbe575e5be7
+    Hash: fc091de82cb4868f92ee02adc80bd39b
   TypeTreeHash:
     serializedVersion: 2
     Hash: c2bdabd68c118aabc18c59eaf5951821
@@ -16,4 +16,4 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Materials/terrain.mat
 Dependencies:
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/shader/terrain.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/shader/terrain.assetbundle

@@ -6,6 +6,7 @@ require "Assets.LuaScripts.Modulus.ClassBase.Dictionary"
 require "Assets.LuaScripts.Modulus.ClassBase.HashList"
 require "Assets.LuaScripts.Modulus.ClassBase.HashTable"
 require "Assets.LuaScripts.Modulus.ClassBase.List"
+require "Assets.LuaScripts.Modulus.ClassBase.LQueue"
 require "Assets.LuaScripts.Modulus.ClassBase.StringExtend"
 require "Assets.LuaScripts.Modulus.ClassBase.TableExtend"
 

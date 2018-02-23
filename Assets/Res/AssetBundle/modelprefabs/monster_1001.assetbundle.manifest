@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1513199524
+CRC: 684009293
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b9468facda83edb18c14354868c5ff42
+    Hash: afefef8cebd2cba1eb67344090b26857
   TypeTreeHash:
     serializedVersion: 2
     Hash: d052c58a0d3c0eab1fd91e4399d63bf9
@@ -30,4 +30,4 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/ModelPrefabs/monster_1001.prefab
 Dependencies:
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/materials/terrain.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/materials/terrain.assetbundle

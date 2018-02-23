@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2312759686
+CRC: 289814385
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 41470046fcd41270325df93b69adf4f4
+    Hash: 74a9bf525efe9e8c5902af4ea0f069bd
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6f165f44e4778b6c9d85e7a145a54cb1
@@ -18,5 +18,5 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Materials/UIMP.mat
 Dependencies:
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/textures/noisedark.assetbundle
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/shader/uihead.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/textures/noisedark.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/shader/uihead.assetbundle

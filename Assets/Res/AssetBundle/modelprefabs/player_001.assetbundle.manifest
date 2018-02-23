@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1608574886
+CRC: 3207875574
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 498c68fa337bf7438fee6ca0b4e37261
+    Hash: 702072ea1c939efb8ee09f1faa84a8c6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3932c54b6249c9ca1fa7ff84c88ddec5
@@ -36,4 +36,4 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/ModelPrefabs/Player_001.prefab
 Dependencies:
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/animators/acplayer__001.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/animators/acplayer__001.assetbundle

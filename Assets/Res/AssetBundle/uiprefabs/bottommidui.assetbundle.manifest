@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 187924882
+CRC: 2096376291
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fb66db9a40de35bf36379a6edcf8e738
+    Hash: 4367422be9fdf185f6114fcb53f43539
   TypeTreeHash:
     serializedVersion: 2
     Hash: 14f1cc6b2613a53d4b7b24dbcdbdc4ca
@@ -36,8 +36,8 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/UIPrefabs/BottomMidUI.prefab
 Dependencies:
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/commonicons.assetbundle
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/textures/b.assetbundle
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/textures/o.assetbundle
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/materials/uihp.assetbundle
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/materials/uimp.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/commonicons.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/textures/b.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/textures/o.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/materials/uihp.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/materials/uimp.assetbundle

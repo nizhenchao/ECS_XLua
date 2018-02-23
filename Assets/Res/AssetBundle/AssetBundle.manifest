@@ -1,28 +1,28 @@
 ManifestFileVersion: 0
-CRC: 2782140027
+CRC: 483592418
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: atlas/skillicons.assetbundle
       Dependencies: {}
     Info_1:
-      Name: atlas/commonicons.assetbundle
-      Dependencies: {}
-    Info_2:
-      Name: atlas/facebookicons.assetbundle
-      Dependencies: {}
-    Info_3:
-      Name: atlas/titleicons.assetbundle
-      Dependencies: {}
-    Info_4:
       Name: shader/terrain.assetbundle
       Dependencies: {}
-    Info_5:
+    Info_2:
       Name: materials/terrain.assetbundle
       Dependencies:
         Dependency_0: shader/terrain.assetbundle
-    Info_6:
+    Info_3:
+      Name: atlas/commonicons.assetbundle
+      Dependencies: {}
+    Info_4:
+      Name: atlas/facebookicons.assetbundle
+      Dependencies: {}
+    Info_5:
       Name: atlas/playerskillicons.assetbundle
+      Dependencies: {}
+    Info_6:
+      Name: atlas/titleicons.assetbundle
       Dependencies: {}
     Info_7:
       Name: textures/106200001.assetbundle
@@ -109,9 +109,14 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: atlas/skillicons.assetbundle
     Info_30:
+      Name: uiprefabs/skillui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/skillicons.assetbundle
+        Dependency_1: atlas/facebookicons.assetbundle
+    Info_31:
       Name: uiprefabs/topleftui.assetbundle
       Dependencies: {}
-    Info_31:
+    Info_32:
       Name: uiprefabs/updownanimui.assetbundle
       Dependencies:
         Dependency_0: atlas/facebookicons.assetbundle

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1618100733
+CRC: 1907332046
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6eaa9d58f04a11a018dbf2b04dd5f3bf
+    Hash: 8d9970d23ca33fa1d00a7ae67da4b336
   TypeTreeHash:
     serializedVersion: 2
     Hash: 14f1cc6b2613a53d4b7b24dbcdbdc4ca
@@ -36,4 +36,4 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/UIPrefabs/FaceBookUI.prefab
 Dependencies:
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/skillicons.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/skillicons.assetbundle

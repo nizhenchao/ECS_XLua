@@ -38,3 +38,7 @@ end
 function LComponent:onDispose()
 	SystemMgr:disposeComp(self:getType(),self)
 end 
+
+function LComponent:getArgs()
+	
+end 

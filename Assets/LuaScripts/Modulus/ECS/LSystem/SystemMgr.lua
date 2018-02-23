@@ -34,6 +34,7 @@ function SystemMgr:addLong()
     table.insert(self.longPool,'LCCSystem')
     table.insert(self.longPool,'LModelSystem') 
     table.insert(self.longPool,'LAnimSystem')
+    table.insert(self.longPool,'LSkillSystem')
 end 
 
 function SystemMgr:addTo(pool,sysPool)

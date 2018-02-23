@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3794062721
+CRC: 3975234633
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eccd07753058ae83f1d9fa5752dadf31
+    Hash: 7c1d2387a6f184f419da951a8c698ed3
   TypeTreeHash:
     serializedVersion: 2
     Hash: fb8140488f455f4790daa08bbd20d3c3
@@ -24,4 +24,4 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Prefabs/UIPrefabs/BottomSkillUI.prefab
 Dependencies:
-- C:/GithubProject/ECS_XLua/Assets/Res/AssetBundle/atlas/playerskillicons.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/atlas/playerskillicons.assetbundle
