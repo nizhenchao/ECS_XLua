@@ -31,7 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 29, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 30, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "getLUID", _m_getLUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSUID", _m_getSUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getVectorAngle", _m_getVectorAngle_xlua_st_);
@@ -47,6 +47,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSecTimer", _m_getSecTimer_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setObjPos", _m_setObjPos_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setActive", _m_setActive_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "getAngle", _m_getAngle_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setUINode", _m_setUINode_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setSprite", _m_setSprite_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getNode", _m_getNode_xlua_st_);
@@ -607,6 +608,33 @@ namespace XLua.CSObjectWrap
                     
                     
                     return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_getAngle_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    UnityEngine.Vector3 dir;translator.Get(L, 1, out dir);
+                    
+                        float __cl_gen_ret = LuaExtend.getAngle( dir );
+                        LuaAPI.lua_pushnumber(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
                 }
                 
             } catch(System.Exception __gen_e) {

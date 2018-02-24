@@ -15,7 +15,7 @@ function LSpeedSystem:onUpdate(lst)
            local entity = EntityMgr:getEntity(v:getUid())
            if entity then 
               local ccComp = entity:getComp(LCompType.CharacterController)    
-              if ccComp then           
+              if ccComp and ccComp.cc then           
                   ccComp.cc:SimpleMove(entity.root.transform.forward*v.speed)
               end
            end

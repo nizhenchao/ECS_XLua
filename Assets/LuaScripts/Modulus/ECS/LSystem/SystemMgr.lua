@@ -28,6 +28,7 @@ end
 function SystemMgr:addShort()     
     table.insert(self.shortPool,'LRotationSystem')
     table.insert(self.shortPool,'LSpeedSystem')   
+    table.insert(self.shortPool,'LPositionSystem') 
 end 
 
 function SystemMgr:addLong()

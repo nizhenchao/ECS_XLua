@@ -15,6 +15,10 @@ function LuaExtend:setObjPosTable(obj,lst)
    CS.LuaExtend.setObjPos(obj,lst[1],lst[2],lst[3])
 end
 
+function LuaExtend:getAngle(dir)
+   return CS.LuaExtend.getAngle(dir)
+end
+
 ----------------------------------------------------------------------------
 ------------------------------UI相关----------------------------------------
 ----------------------------------------------------------------------------

@@ -112,6 +112,9 @@ public static class LuaExtend
             obj.SetActive(isActive);
         }
     }
+    public static float getAngle(Vector3 dir) {
+        return Vector3.Angle(Vector3.forward, dir.normalized);
+    }
     //rotation angle scale todo
     #endregion
 

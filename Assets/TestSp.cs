@@ -9,10 +9,8 @@ public class TestSp : MonoBehaviour {
     public GameObject prefabs;
 	// Use this for initialization
 	void Start () {
-        Vector2 v1 = new Vector2(0, 1);
-        Vector2 v2 = new Vector2(-0.9f, -0.5f);
-        float a = Vector2.Angle(v1, v2);
-        Debug.LogError(a);
+        Vector3 v3 = new Vector3(10, 0, 10);
+        Debug.Log(Vector3.Angle(Vector3.forward,v3));
     }
 	
 	// Update is called once per frame

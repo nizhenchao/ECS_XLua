@@ -9,6 +9,7 @@ function BottomMidUI:__init_Self()
 	self.deleteBtn = UIWidget.LButton
 	self.createAIBtn = UIWidget.LButton
 	self.index = 800000010001
+	self.entityIndex = 10001
 end 
 
 function BottomMidUI:initLayout()   
@@ -28,7 +29,11 @@ function BottomMidUI:initLayout()
 
     self.createAIBtn:setOnClick(function() 
     	self.index = self.index + 1
-	    local conf = ConfigHelper:getConfigByKey('EntityConfig',10002)
+    	self.entityIndex = self.entityIndex + 1 
+    	if self.entityIndex >10003 then 
+    		self.entityIndex = 10002
+    	end 
+	    local conf = ConfigHelper:getConfigByKey('EntityConfig',self.entityIndex)
 	    local roleData = EntityData(self.index,conf)
 	    EntityMgr:createEntity(roleData)
     end)
