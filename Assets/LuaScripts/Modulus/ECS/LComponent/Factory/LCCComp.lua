@@ -18,3 +18,7 @@ end
 function LCCComp:getCC()
    return self.cc
 end 
+
+function LCCComp:getArgs()
+	return self.ccHeight
+end 

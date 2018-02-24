@@ -3,6 +3,7 @@ EntityMgr = {}
 function EntityMgr:init()
     self.entityPool = { }--key = uid   val = entity 
     self.mainPlayerId = nil 
+    self.constId = 900000010001
 end 
 
 --创建实体 EntityData
@@ -19,7 +20,7 @@ function EntityMgr:createEntity(data)
     local entity = LEntity(uid,data)
     entity:onLoading()
     self.entityPool[uid] = entity
-    if data:isMainPlayer() then 
+    if uid == self.constId then 
     	self.mainPlayerId = uid 
     	self:setCameraFollow()
       self:onCreateMainPlayer(entity)

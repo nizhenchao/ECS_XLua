@@ -2,6 +2,7 @@ Rigidbody = typeof(CS.UnityEngine.Rigidbody)
 CharacterController = typeof(CS.UnityEngine.CharacterController)
 Animator = typeof(CS.UnityEngine.Animator)
 LVector3 = typeof(CS.UnityEngine.Vector3)
+BillBoardWidget = typeof(CS.BillBoardWidget)
 --UI
 CSImage = typeof(CS.UnityEngine.UI.Image)
 CSButton = typeof(CS.UnityEngine.UI.Button)

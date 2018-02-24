@@ -7,6 +7,7 @@ CompMap[LCompType.Speed] = LSpeedComp
 CompMap[LCompType.Rotation] = LRotationComp
 CompMap[LCompType.Animator] = LAnimComp
 CompMap[LCompType.Skill] = LSkillComp
+CompMap[LCompType.BillBoard] = BillBoardComp
 
 function CompFactory:get(type,uid,args)
 	local comp = nil 

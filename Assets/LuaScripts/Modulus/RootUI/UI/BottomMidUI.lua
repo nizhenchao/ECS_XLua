@@ -7,6 +7,8 @@ function BottomMidUI:__init_Self()
 	self.hp = UIWidget.LImage
 	self.createPlayerBtn = UIWidget.LButton
 	self.deleteBtn = UIWidget.LButton
+	self.createAIBtn = UIWidget.LButton
+	self.index = 800000010001
 end 
 
 function BottomMidUI:initLayout()   
@@ -22,6 +24,13 @@ function BottomMidUI:initLayout()
     end)
     self.deleteBtn:setOnClick(function() 
     	EntityMgr:destroyEntity(mainId)
+    end)
+
+    self.createAIBtn:setOnClick(function() 
+    	self.index = self.index + 1
+	    local conf = ConfigHelper:getConfigByKey('EntityConfig',10002)
+	    local roleData = EntityData(self.index,conf)
+	    EntityMgr:createEntity(roleData)
     end)
 end 
 

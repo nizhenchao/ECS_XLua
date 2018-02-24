@@ -1,127 +1,143 @@
 ManifestFileVersion: 0
-CRC: 4103823831
+CRC: 2666300142
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: atlas/skillicons.assetbundle
+      Name: atlas/commonicons.assetbundle
       Dependencies: {}
     Info_1:
-      Name: shader/terrain.assetbundle
+      Name: atlas/playerskillicons.assetbundle
       Dependencies: {}
     Info_2:
-      Name: materials/terrain.assetbundle
-      Dependencies:
-        Dependency_0: shader/terrain.assetbundle
-        Dependency_1: textures/ground.assetbundle
+      Name: atlas/titleicons.assetbundle
+      Dependencies: {}
     Info_3:
-      Name: atlas/commonicons.assetbundle
+      Name: atlas/skillicons.assetbundle
       Dependencies: {}
     Info_4:
       Name: atlas/facebookicons.assetbundle
       Dependencies: {}
     Info_5:
-      Name: atlas/playerskillicons.assetbundle
+      Name: textures/o.assetbundle
       Dependencies: {}
     Info_6:
-      Name: atlas/titleicons.assetbundle
+      Name: textures/sjboss_bg.assetbundle
       Dependencies: {}
     Info_7:
-      Name: textures/106200001.assetbundle
+      Name: textures/zz_bg.assetbundle
       Dependencies: {}
     Info_8:
-      Name: textures/b.assetbundle
+      Name: textures/106200001.assetbundle
       Dependencies: {}
     Info_9:
-      Name: textures/bg.assetbundle
+      Name: textures/noisedark.assetbundle
       Dependencies: {}
     Info_10:
       Name: textures/fx_tex_smoke04.assetbundle
       Dependencies: {}
     Info_11:
-      Name: textures/noisedark.assetbundle
+      Name: textures/bg.assetbundle
       Dependencies: {}
     Info_12:
-      Name: textures/noisewhite.assetbundle
+      Name: textures/ground.assetbundle
       Dependencies: {}
     Info_13:
-      Name: textures/o.assetbundle
+      Name: textures/b.assetbundle
       Dependencies: {}
     Info_14:
-      Name: textures/sjboss_bg.assetbundle
+      Name: textures/noisewhite.assetbundle
       Dependencies: {}
     Info_15:
-      Name: textures/zz_bg.assetbundle
-      Dependencies: {}
-    Info_16:
-      Name: materials/uienergy.assetbundle
-      Dependencies: {}
-    Info_17:
-      Name: materials/uihp.assetbundle
-      Dependencies:
-        Dependency_0: textures/noisedark.assetbundle
-        Dependency_1: shader/uihead.assetbundle
-    Info_18:
-      Name: materials/uimp.assetbundle
-      Dependencies:
-        Dependency_0: textures/noisedark.assetbundle
-        Dependency_1: shader/uihead.assetbundle
-    Info_19:
       Name: shader/uienergy.assetbundle
       Dependencies: {}
-    Info_20:
+    Info_16:
+      Name: shader/terrain.assetbundle
+      Dependencies: {}
+    Info_17:
       Name: shader/uihead.assetbundle
       Dependencies: {}
-    Info_21:
-      Name: animators/acplayer__001.assetbundle
-      Dependencies: {}
-    Info_22:
-      Name: modelprefabs/monster_1001.assetbundle
-      Dependencies:
-        Dependency_0: materials/terrain.assetbundle
-    Info_23:
-      Name: modelprefabs/player_001.assetbundle
-      Dependencies:
-        Dependency_0: animators/acplayer__001.assetbundle
-    Info_24:
-      Name: modelprefabs/player_002_hunter.assetbundle
-      Dependencies: {}
-    Info_25:
-      Name: uiprefabs/bottommidui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/commonicons.assetbundle
-        Dependency_1: textures/b.assetbundle
-        Dependency_2: textures/o.assetbundle
-        Dependency_3: materials/uihp.assetbundle
-        Dependency_4: materials/uimp.assetbundle
-    Info_26:
-      Name: uiprefabs/bottomskillui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/commonicons.assetbundle
-        Dependency_1: atlas/playerskillicons.assetbundle
-    Info_27:
-      Name: uiprefabs/facebookui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/skillicons.assetbundle
-    Info_28:
-      Name: uiprefabs/guildui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/skillicons.assetbundle
-    Info_29:
-      Name: uiprefabs/joystickui.assetbundle
-      Dependencies:
-        Dependency_0: atlas/skillicons.assetbundle
-    Info_30:
+    Info_18:
       Name: uiprefabs/skillui.assetbundle
       Dependencies:
         Dependency_0: atlas/skillicons.assetbundle
         Dependency_1: atlas/facebookicons.assetbundle
-    Info_31:
+    Info_19:
       Name: uiprefabs/topleftui.assetbundle
       Dependencies: {}
+    Info_20:
+      Name: modelprefabs/player_002_hunter.assetbundle
+      Dependencies: {}
+    Info_21:
+      Name: modelprefabs/player_001.assetbundle
+      Dependencies:
+        Dependency_0: animators/acplayer__001.assetbundle
+    Info_22:
+      Name: materials/uienergy.assetbundle
+      Dependencies: {}
+    Info_23:
+      Name: uiprefabs/bottommidui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/commonicons.assetbundle
+        Dependency_1: textures/o.assetbundle
+        Dependency_2: textures/b.assetbundle
+        Dependency_3: materials/uihp.assetbundle
+        Dependency_4: materials/uimp.assetbundle
+    Info_24:
+      Name: uiprefabs/facebookui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/skillicons.assetbundle
+    Info_25:
+      Name: uiprefabs/joystickui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/skillicons.assetbundle
+    Info_26:
+      Name: materials/uihp.assetbundle
+      Dependencies:
+        Dependency_0: textures/noisedark.assetbundle
+        Dependency_1: shader/uihead.assetbundle
+    Info_27:
+      Name: uiprefabs/bottomskillui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/commonicons.assetbundle
+        Dependency_1: atlas/playerskillicons.assetbundle
+    Info_28:
+      Name: modelprefabs/monster_1001.assetbundle
+      Dependencies:
+        Dependency_0: materials/terrain.assetbundle
+    Info_29:
+      Name: materials/uimp.assetbundle
+      Dependencies:
+        Dependency_0: textures/noisedark.assetbundle
+        Dependency_1: shader/uihead.assetbundle
+    Info_30:
+      Name: uiprefabs/guildui.assetbundle
+      Dependencies:
+        Dependency_0: atlas/skillicons.assetbundle
+    Info_31:
+      Name: materials/terrain.assetbundle
+      Dependencies:
+        Dependency_0: textures/ground.assetbundle
+        Dependency_1: shader/terrain.assetbundle
     Info_32:
       Name: uiprefabs/updownanimui.assetbundle
       Dependencies:
         Dependency_0: atlas/facebookicons.assetbundle
     Info_33:
-      Name: textures/ground.assetbundle
+      Name: animators/acplayer__001.assetbundle
       Dependencies: {}
+    Info_34:
+      Name: modelprefabs/player_002.assetbundle
+      Dependencies:
+        Dependency_0: animators/acplayer__001.assetbundle
+    Info_35:
+      Name: modelprefabs/player_003.assetbundle
+      Dependencies:
+        Dependency_0: animators/acplayer__001.assetbundle
+    Info_36:
+      Name: modelprefabs/player_004.assetbundle
+      Dependencies:
+        Dependency_0: animators/acplayer__001.assetbundle
+    Info_37:
+      Name: modelprefabs/player_005.assetbundle
+      Dependencies:
+        Dependency_0: animators/acplayer__001.assetbundle

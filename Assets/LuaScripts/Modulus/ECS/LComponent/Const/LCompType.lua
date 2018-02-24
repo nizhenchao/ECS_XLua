@@ -7,6 +7,6 @@ LCompType.Gravity = 105 --重力
 LCompType.Position = 106 --位置
 LCompType.Animator = 107 --anim
 
-LCompType.BillBoard = 200 --姓名版
+LCompType.BillBoard = 201 --姓名版
 
 LCompType.Skill = 301 --技能

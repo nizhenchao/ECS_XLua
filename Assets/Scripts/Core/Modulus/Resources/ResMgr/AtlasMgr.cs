@@ -11,14 +11,15 @@ public class SpriteTask
     public string name;
     public string bundleName;
     public Image img;
+    public SpriteRenderer renderer = null;
 
-
-    public SpriteTask(long index, string name, string bundleName, Image img)
+    public SpriteTask(long index, string name, string bundleName, Image img, SpriteRenderer renderer = null)
     {
         this.index = index;
         this.name = name;
         this.bundleName = bundleName;
         this.img = img;
+        this.renderer = renderer;
         LoaderMgr.Instance.addTask(bundleName, onLoaderFinish);
     }
 
@@ -26,10 +27,14 @@ public class SpriteTask
     {
         if (isSucc)
         {
+            Sprite sprite = tb.Ab.LoadAsset<Sprite>(name);
             if (img != null)
             {
-                Sprite sprite = tb.Ab.LoadAsset<Sprite>(name);
-                img.sprite = sprite;                
+                img.sprite = sprite;
+            }
+            if (renderer != null)
+            {
+                renderer.sprite = sprite;
             }
         }
     }
@@ -86,7 +91,7 @@ public class AtlasMgr
         Debug.Log("<color=green>AtlasMgr initialize</color>");
     }
 
-    private void setSpSprite(Image img, string name)
+    private void setSpSprite(Image img, string name, SpriteRenderer renderer = null)
     {
         if (atlasCfg.ContainsKey(name))
         {
@@ -94,13 +99,16 @@ public class AtlasMgr
             if (AssetMgr.isHave(bundleName))
             {
                 TBundle tb = AssetMgr.getBundle(bundleName);
-                img.sprite = tb.Ab.LoadAsset<Sprite>(name);
+                if (img != null)
+                    img.sprite = tb.Ab.LoadAsset<Sprite>(name);
+                if (renderer != null)
+                    renderer.sprite = tb.Ab.LoadAsset<Sprite>(name);
             }
             else
             {
                 //需要加载ab
                 index++;
-                SpriteTask spTask = new SpriteTask(index, name, bundleName, img);
+                SpriteTask spTask = new SpriteTask(index, name, bundleName, img, renderer);
                 dictTask.Add(index, spTask);
             }
         }
@@ -114,6 +122,10 @@ public class AtlasMgr
     public static void setSprite(Image img, string name)
     {
         Instance.setSpSprite(img, name);
+    }
+    public static void setSprite(SpriteRenderer renderer, string name)
+    {
+        Instance.setSpSprite(null, name, renderer);
     }
     #endregion
 }
