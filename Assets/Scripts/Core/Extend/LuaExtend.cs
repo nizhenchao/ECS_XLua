@@ -75,7 +75,8 @@ public static class LuaExtend
         TimerMgr.removeTimer(uid);
     }
     //时间戳 毫秒级别
-    public static double getMillTimer() {
+    public static double getMillTimer()
+    {
         return TimerUtils.getMillTimer();
     }
     //时间戳 秒级别
@@ -112,8 +113,10 @@ public static class LuaExtend
             obj.SetActive(isActive);
         }
     }
-    public static float getAngle(Vector3 dir) {
-        return Vector3.Angle(Vector3.forward, dir.normalized);
+    public static float getAngle(Vector3 dir)
+    {
+        float ang = Vector3.SignedAngle(Vector3.forward, dir.normalized, Vector3.up);
+        return ang > 0 ? ang : 360 + ang;
     }
     //rotation angle scale todo
     #endregion
@@ -229,11 +232,12 @@ public static class LuaExtend
     }
 
     //do float Tweener To(DOSetter<float> setter, float startValue, float endValue, float duration);
-    public static Tweener doFloatTo(DG.Tweening.Core.DOSetter<float> call, float startValue, float endValue, float duration,TweenCallback finish=null)
+    public static Tweener doFloatTo(DG.Tweening.Core.DOSetter<float> call, float startValue, float endValue, float duration, TweenCallback finish = null)
     {
         Tweener tw = null;
         tw = DOTween.To(call, startValue, endValue, duration);
-        if (finish != null) {
+        if (finish != null)
+        {
             tw.OnComplete(finish);
         }
         return tw;

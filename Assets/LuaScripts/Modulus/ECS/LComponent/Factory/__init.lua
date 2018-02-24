@@ -6,5 +6,6 @@ require "Assets.LuaScripts.Modulus.ECS.LComponent.Factory.LAnimComp"
 require "Assets.LuaScripts.Modulus.ECS.LComponent.Factory.LSkillComp"
 require "Assets.LuaScripts.Modulus.ECS.LComponent.Factory.BillBoardComp"
 require "Assets.LuaScripts.Modulus.ECS.LComponent.Factory.LPositionComp"
+require "Assets.LuaScripts.Modulus.ECS.LComponent.Factory.LAIComp"
 
 require "Assets.LuaScripts.Modulus.ECS.LComponent.Factory.CompFactory"

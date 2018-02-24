@@ -10,3 +10,5 @@ LCompType.Animator = 107 --anim
 LCompType.BillBoard = 201 --姓名版
 
 LCompType.Skill = 301 --技能
+
+LCompType.AI = 401 --AI

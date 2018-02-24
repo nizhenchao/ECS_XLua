@@ -15,14 +15,16 @@ function LPositionSystem:onUpdate(lst)
            local entity = EntityMgr:getEntity(v:getUid())
            if entity then 
               local dir = v.pos - entity.root.transform.position
-              local isArrive = dir.magnitude <= 0.5
+              --print(v.pos)
+              --print(dir.magnitude)
+              local isArrive = dir.magnitude <= 1
               if not isArrive then
                 entity:updateComp(LCompType.Animator,'walk')--动画
                 local angle = LuaExtend:getAngle(dir)
                 entity:updateComp(LCompType.Rotation,angle)--面向
                 local comp = entity:getComp(LCompType.CharacterController)
                 if comp and comp.cc then 
-                   comp.cc:SimpleMove(dir.normalized*3)--cc
+                   comp.cc:SimpleMove(dir.normalized)--cc
                 end 
               else
                 entity:updateComp(LCompType.Animator,'idle')
@@ -30,6 +32,7 @@ function LPositionSystem:onUpdate(lst)
                 if comp and comp.cc then 
                    comp.cc:SimpleMove(Vector3(0,0,0))
                 end 
+                v.isArrive = true 
               end
            end
         end 
