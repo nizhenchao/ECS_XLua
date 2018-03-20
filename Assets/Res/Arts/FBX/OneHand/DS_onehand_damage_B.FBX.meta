@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5fc58e648726c914f8dee69d8b0cf7ec
+guid: 241037d9ecda8664c82295fd89da9fc7
 timeCreated: 1470810449
 licenseType: Store
 ModelImporter:
@@ -55,7 +55,7 @@ ModelImporter:
     400044: Bip001 Spine
     400046: Bip001 Spine1
     400048: //RootNode
-    7400000: DS_onehand_attack_A
+    7400000: DS_onehand_damage_B
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -79,10 +79,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: DS_onehand_attack_A
+      name: DS_onehand_damage_B
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 45
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

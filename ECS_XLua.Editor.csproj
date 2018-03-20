@@ -332,6 +332,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Editor\AnimatorTool\Editor\AnimTool.cs" />
+    <Compile Include="Assets\Scripts\Editor\AnimatorTool\Editor\AnimToolUI.cs" />
     <Compile Include="Assets\Scripts\Editor\BuildAsset.cs" />
     <Compile Include="Assets\Scripts\Editor\EPPlus\ExcelExportTool.cs" />
     <Compile Include="Assets\Scripts\Editor\ExportAtlasCfg.cs" />
