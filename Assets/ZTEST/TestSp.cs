@@ -7,16 +7,17 @@ using UnityEngine.UI;
 public class TestSp : MonoBehaviour {
 
     public GameObject prefabs;
-	// Use this for initialization
-	void Start () {
-        Vector3 v3 = new Vector3(-10, 0,- 10);
-        Debug.Log(Vector3.SignedAngle(Vector3.forward, v3,Vector3.up));
+    public Transform a1;
+    public Transform a2;
+    // Use this for initialization
+    void Start () {
+       
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Debug.Log(Vector3.Angle((a1.position - a2.position), Vector3.right));
+    }
 
     IEnumerator OnClick()
     {

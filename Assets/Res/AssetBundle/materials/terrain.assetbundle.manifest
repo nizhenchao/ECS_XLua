@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1255690238
+CRC: 4111109472
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -18,5 +18,5 @@ ClassTypes:
 Assets:
 - Assets/Res/Arts/Materials/terrain.mat
 Dependencies:
-- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/textures/ground.assetbundle
 - F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/shader/terrain.assetbundle
+- F:/GithubPro/ECS_XLua/Assets/Res/AssetBundle/textures/ground.assetbundle

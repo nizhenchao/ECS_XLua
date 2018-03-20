@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bead2187ed90713458dc8bf5851ebde0
-timeCreated: 1519354960
+timeCreated: 1520411210
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -45,7 +45,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 43, y: 43, z: 43, w: 43}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1

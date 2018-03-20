@@ -1,0 +1,131 @@
+fileFormatVersion: 2
+guid: 77c33b4a598d7204590d6f32a83cff97
+timeCreated: 18446744011573954816
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: currency_bingdiong
+    100004: currency_dingshen
+    100006: currency_fyfz
+    100008: currency_fyfz01
+    100010: currency_jinzhongzhao
+    100012: currency_yunshi
+    100014: currency_hx00
+    100016: currency_chongjibo
+    400000: //RootNode
+    400002: currency_bingdiong
+    400004: currency_dingshen
+    400006: currency_fyfz
+    400008: currency_fyfz01
+    400010: currency_jinzhongzhao
+    400012: currency_yunshi
+    400014: currency_hx00
+    400016: currency_chongjibo
+    2300000: //RootNode
+    2300002: currency_bingdiong
+    2300004: currency_dingshen
+    2300006: currency_fyfz
+    2300008: currency_fyfz01
+    2300010: currency_jinzhongzhao
+    2300012: currency_yunshi
+    2300014: currency_hx00
+    2300016: currency_chongjibo
+    3300000: //RootNode
+    3300002: currency_bingdiong
+    3300004: currency_dingshen
+    3300006: currency_fyfz
+    3300008: currency_fyfz01
+    3300010: currency_jinzhongzhao
+    3300012: currency_yunshi
+    3300014: currency_hx00
+    3300016: currency_chongjibo
+    4300000: currency_bingdiong
+    4300002: currency_dingshen
+    4300004: currency_fyfz
+    4300006: currency_fyfz01
+    4300008: currency_jinzhongzhao
+    4300010: currency_yunshi
+    4300012: currency_hx00
+    4300014: currency_chongjibo
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -355,7 +353,6 @@
     <Compile Include="Assets\Scripts\Core\Modulus\Utils\ScreenUtils\ScreenUtils.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Widget\BillBoard\BillBoardWidget.cs" />
     <Compile Include="Assets\Scripts\Z_test\MyTest.cs" />
-    <Compile Include="Assets\TestSp.cs" />
     <Compile Include="Assets\XLua\Examples\01_Helloworld\Helloworld.cs" />
     <Compile Include="Assets\XLua\Examples\02_U3DScripting\LuaBehaviour.cs" />
     <Compile Include="Assets\XLua\Examples\04_LuaObjectOrented\InvokeLua.cs" />
@@ -454,6 +451,10 @@
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
     <Compile Include="Assets\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
+    <Compile Include="Assets\ZTEST\CameraGLDrawCircle.cs" />
+    <Compile Include="Assets\ZTEST\ScaleCell.cs" />
+    <Compile Include="Assets\ZTEST\TestCell.cs" />
+    <Compile Include="Assets\ZTEST\TestSp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\LICENSE.TXT" />
@@ -472,6 +473,7 @@
     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\Editor\DemiEditor.xml" />
     <None Include="Assets\Plugins\Demigiant\readme_DOTweenPro.txt" />
+    <None Include="Assets\Res\Arts\Shader\TUIDefault.shader" />
     <None Include="Assets\Res\Arts\Shader\UIEnergy.shader" />
     <None Include="Assets\Res\Arts\Shader\UIHead.shader" />
     <None Include="Assets\Res\Arts\Shader\terrain.shader" />
@@ -501,9 +503,10 @@
     <None Include="Assets\XLua\Src\Editor\Template\PackUnpack.tpl.txt" />
     <None Include="Assets\XLua\Src\Editor\Template\TemplateCommon.lua.txt" />
     <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
+    <None Include="Assets\XNRes\Res\Resources\Shader\Wk\Particle Add.shader" />
+    <None Include="Assets\ZTEST\uicell.shader" />
     <None Include="Assets\exportLang.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

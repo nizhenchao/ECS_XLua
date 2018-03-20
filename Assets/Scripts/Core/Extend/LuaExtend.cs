@@ -322,4 +322,12 @@ public static class LuaExtend
         }
     }
     #endregion
+
+    /// <summary>
+    /// 卸载所有ab
+    /// </summary>
+    public static void unloadAllAssetBundle() {
+        AssetMgr.clearAll();
+    }
+
 }

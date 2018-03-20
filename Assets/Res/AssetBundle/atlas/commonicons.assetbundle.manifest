@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3181626600
+CRC: 1559059818
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8274c156d3e6ac19997a6d3bb7519573
+    Hash: bd3c4ac362ca2b07d949ad6bb09d3ad4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 460b4f5d62b6facbccf7c01637df8f00
@@ -149,6 +149,7 @@ Assets:
 - Assets/Res/Arts/Atlas/commonIcons/weijisha.png
 - Assets/Res/Arts/Atlas/commonIcons/shangchengyeqianChosen.png
 - Assets/Res/Arts/Atlas/commonIcons/jj_ninqi.png
+- Assets/ZTEST/loadingQTE.png
 - Assets/Res/Arts/Atlas/commonIcons/lock1.png
 - Assets/Res/Arts/Atlas/commonIcons/anniuYuan.png
 - Assets/Res/Arts/Atlas/commonIcons/JHZ_lianjie.png

@@ -72,6 +72,7 @@ public class TBundle
         {
             ab.Unload(isUnloadAll);
             ab = null;
+            Debug.LogError("卸载AB: " + key);
             Resources.UnloadUnusedAssets();
         }
     }

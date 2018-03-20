@@ -109,3 +109,8 @@ end
 function LuaExtend:getSecTimer()
     return CS.LuaExtend.getSecTimer()
 end
+
+
+function LuaExtend:unloadAllAssetBundle()
+   CS.LuaExtend.unloadAllAssetBundle()
+end 

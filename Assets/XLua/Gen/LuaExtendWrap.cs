@@ -31,7 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 30, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 31, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "getLUID", _m_getLUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getSUID", _m_getSUID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "getVectorAngle", _m_getVectorAngle_xlua_st_);
@@ -61,6 +61,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "lerpRotation", _m_lerpRotation_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "setCameraPlayer", _m_setCameraPlayer_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "doShake", _m_doShake_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "unloadAllAssetBundle", _m_unloadAllAssetBundle_xlua_st_);
             
 			
             
@@ -1084,6 +1085,29 @@ namespace XLua.CSObjectWrap
                     float ver = (float)LuaAPI.lua_tonumber(L, 4);
                     
                     LuaExtend.doShake( time, att, hor, ver );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_unloadAllAssetBundle_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    
+                    LuaExtend.unloadAllAssetBundle(  );
                     
                     
                     

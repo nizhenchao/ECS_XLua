@@ -337,6 +337,7 @@
     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\Editor\DemiEditor.xml" />
     <None Include="Assets\Plugins\Demigiant\readme_DOTweenPro.txt" />
+    <None Include="Assets\Res\Arts\Shader\TUIDefault.shader" />
     <None Include="Assets\Res\Arts\Shader\UIEnergy.shader" />
     <None Include="Assets\Res\Arts\Shader\UIHead.shader" />
     <None Include="Assets\Res\Arts\Shader\terrain.shader" />
@@ -366,6 +367,8 @@
     <None Include="Assets\XLua\Src\Editor\Template\PackUnpack.tpl.txt" />
     <None Include="Assets\XLua\Src\Editor\Template\TemplateCommon.lua.txt" />
     <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
+    <None Include="Assets\XNRes\Res\Resources\Shader\Wk\Particle Add.shader" />
+    <None Include="Assets\ZTEST\uicell.shader" />
     <None Include="Assets\exportLang.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
