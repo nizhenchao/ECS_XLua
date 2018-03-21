@@ -452,6 +452,7 @@
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
     <Compile Include="Assets\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
     <Compile Include="Assets\ZTEST\CameraGLDrawCircle.cs" />
+    <Compile Include="Assets\ZTEST\DrawCircleZZ.cs" />
     <Compile Include="Assets\ZTEST\ScaleCell.cs" />
     <Compile Include="Assets\ZTEST\TestCell.cs" />
     <Compile Include="Assets\ZTEST\TestSp.cs" />
