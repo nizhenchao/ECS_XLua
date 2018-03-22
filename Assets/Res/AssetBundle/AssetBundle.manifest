@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 699803899
+CRC: 1678566208
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -69,8 +69,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_21:
       Name: modelprefabs/player_001.assetbundle
-      Dependencies:
-        Dependency_0: animators/acplayer__001.assetbundle
+      Dependencies: {}
     Info_22:
       Name: modelprefabs/player_003.assetbundle
       Dependencies:
@@ -143,4 +142,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_38:
       Name: textures/ground.assetbundle
+      Dependencies: {}
+    Info_39:
+      Name: modelprefabs/onehand.assetbundle
       Dependencies: {}

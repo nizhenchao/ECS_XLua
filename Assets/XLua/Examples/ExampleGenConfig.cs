@@ -50,7 +50,8 @@ public static class ExampleGenConfig
                 typeof(Action<GameObject>),
                 typeof(TweenCallback),
                 typeof(UnityEngine.Events.UnityAction),
-                typeof(EventListener),                      
+                typeof(EventListener),
+                typeof(CEntity),
                 typeof(UnityEngine.Debug)
             };
 

@@ -330,6 +330,7 @@
     <Compile Include="Assets\Scripts\Core\Extend\LuaExtend.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Camera\MainCameraWidget.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\CSLuaMsg\CSCallMgr.cs" />
+    <Compile Include="Assets\Scripts\Core\Modulus\Entity\CEntity.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Resources\AssetMgr\AssetMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Resources\AssetMgr\ManifestMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Resources\BasePool\BasePool.cs" />
@@ -351,6 +352,7 @@
     <Compile Include="Assets\Scripts\Core\Modulus\UI\UIMgr\UIMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Utils\MathUtils\MathUtils.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Utils\ScreenUtils\ScreenUtils.cs" />
+    <Compile Include="Assets\Scripts\Core\Modulus\Widget\AnimEvent\AnimEventWidget.cs" />
     <Compile Include="Assets\Scripts\Core\Modulus\Widget\BillBoard\BillBoardWidget.cs" />
     <Compile Include="Assets\Scripts\Z_test\MyTest.cs" />
     <Compile Include="Assets\XLua\Examples\01_Helloworld\Helloworld.cs" />
@@ -370,6 +372,7 @@
     <Compile Include="Assets\XLua\Examples\11_RawObject\RawObjectTest.cs" />
     <Compile Include="Assets\XLua\Examples\12_ReImplementInLua\ReImplementInLua.cs" />
     <Compile Include="Assets\XLua\Examples\ExampleGenConfig.cs" />
+    <Compile Include="Assets\XLua\Gen\CEntityWrap.cs" />
     <Compile Include="Assets\XLua\Gen\Coroutine_RunnerWrap.cs" />
     <Compile Include="Assets\XLua\Gen\CSCallLuaItfDBridge.cs" />
     <Compile Include="Assets\XLua\Gen\DelegatesGensBridge.cs" />

@@ -78,6 +78,7 @@ public class AnimTool
         string clipPath = Path.Combine(fbxPath, objName + "/" + objName + clipSuff);
         string condPath = Path.Combine(fbxPath, objName + "/" + objName + condSuff);
         string eventPath = Path.Combine(fbxPath, objName + "/" + objName + eventSuff);
+        Debug.Log(clipPath);
         //切片信息
         List<animClip> clips = new List<animClip>();
         getClips(clipPath, ref clips);
@@ -109,13 +110,13 @@ public class AnimTool
         }
         AnimatorController ac = AssetDatabase.LoadAssetAtPath<AnimatorController>(acPath);
         obj.GetComponent<Animator>().runtimeAnimatorController = ac;
-        GameObject go = new GameObject(objName);
-        EditorUtility.CopySerialized(obj, go);
         string name = string.Format("{0}.prefab", objName);
         string savePath = Path.Combine(prefabPath, name);
         savePath.Replace("\\", "/");
         UnityEngine.Object pref = PrefabUtility.CreateEmptyPrefab(savePath);
-        PrefabUtility.ReplacePrefab(obj, pref);
+        GameObject go = PrefabUtility.ReplacePrefab(obj, pref);
+        if (go.GetComponent<AnimEventWidget>() == null)
+            go.AddComponent<AnimEventWidget>();
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
@@ -131,7 +132,7 @@ public class AnimTool
         int index = objPath.LastIndexOf("/");
         string savePath = objPath.Remove(index);
         savePath = Path.Combine(savePath, "bin/clip");
-        if (Directory.Exists(savePath)) Directory.Delete(savePath, true);
+        if (Directory.Exists(savePath)) Directory.Delete(savePath,true);
         if (!Directory.Exists(savePath)) Directory.CreateDirectory(savePath);
 
         //帧事件信息
@@ -179,7 +180,7 @@ public class AnimTool
                 AssetDatabase.CreateAsset(newClip, Path.Combine(savePath, newClip.name + ".anim"));
             }
         }
-        //AssetDatabase.ImportAsset(modelImporter.assetPath);
+        AssetDatabase.ImportAsset(modelImporter.assetPath);
         AssetDatabase.Refresh();
     }
 
